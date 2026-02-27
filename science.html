@@ -1,274 +1,786 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Science — Soft Breathe</title>
-<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Noto+Serif:ital,wght@0,300;0,400;1,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-:root {
-  --ink: #1a1a18; --ink-mid: #2e2e2b; --ink-soft: #4a4a45; --ink-faint: #8a8a80;
-  --ink-ghost: #b8b8b0; --paper: #f5f3ee; --paper-warm: #ede9e0; --paper-dark: #e0dbd0; --brush: #c8c0b0;
-}
-html { scroll-behavior: smooth; }
-body { background: var(--paper); font-family: 'Noto Serif', serif; color: var(--ink); overflow-x: hidden; cursor: none; }
-.cursor { position: fixed; width: 6px; height: 6px; background: var(--ink); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); }
-.cursor-ring { position: fixed; width: 32px; height: 32px; border: 1px solid rgba(26,26,24,0.25); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: width 0.3s, height 0.3s; }
-body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 1000; opacity: 0.6; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Science — Soft Breathe</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Noto+Serif:ital,wght@0,300;0,400;1,300&family=DM+Mono:wght@300;400&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 32px 56px; }
-.nav-logo { font-family: 'IM Fell English', serif; font-size: 15px; letter-spacing: 0.12em; color: var(--ink-soft); text-decoration: none; }
-.nav-links { display: flex; gap: 40px; list-style: none; }
-.nav-links a { font-family: 'DM Mono', monospace; font-size: 10px; font-weight: 300; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.3s; }
-.nav-links a:hover, .nav-links a.active { color: var(--ink); }
+    :root {
+      --ink: #1a1a18;
+      --ink-mid: #2e2e2b;
+      --ink-soft: #4a4a45;
+      --ink-faint: #8a8a80;
+      --ink-ghost: #b8b8b0;
+      --paper: #f5f3ee;
+      --paper-warm: #ede9e0;
+      --paper-dark: #e0dbd0;
+      --brush: #c8c0b0;
+    }
 
-.page-header { padding: 160px 56px 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; }
-.header-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--ink-ghost); margin-bottom: 24px; }
-.header-headline { font-family: 'IM Fell English', serif; font-size: clamp(36px, 5vw, 60px); line-height: 1.1; color: var(--ink); }
-.header-headline em { font-style: italic; color: var(--ink-soft); }
-.header-body { font-size: 14px; font-weight: 300; font-style: italic; color: var(--ink-faint); line-height: 1.9; }
+    html {
+      scroll-behavior: smooth;
+    }
 
-.divider { display: flex; align-items: center; gap: 32px; padding: 0 56px; }
-.divider-line { flex: 1; height: 1px; background: var(--paper-dark); }
-.divider-mark { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ink-ghost); white-space: nowrap; }
+    body {
+      background: var(--paper);
+      font-family: 'Noto Serif', serif;
+      color: var(--ink);
+      overflow-x: hidden;
+      cursor: none;
+    }
 
-/* Mechanism section */
-.mechanism { padding: 80px 56px; display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: start; }
-.mechanism-text h2 { font-family: 'IM Fell English', serif; font-size: clamp(28px, 4vw, 44px); line-height: 1.2; margin-bottom: 32px; }
-.mechanism-text h2 em { font-style: italic; color: var(--ink-soft); }
-.mechanism-text p { font-size: 14px; font-weight: 300; font-style: italic; color: var(--ink-faint); line-height: 1.95; margin-bottom: 20px; }
+    .cursor {
+      position: fixed;
+      width: 6px;
+      height: 6px;
+      background: var(--ink);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+    }
 
-/* ANS diagram */
-.ans-diagram { display: flex; flex-direction: column; gap: 2px; }
-.ans-card { padding: 36px 40px; }
-.ans-card.sympathetic { background: var(--paper-dark); }
-.ans-card.bridge { background: var(--ink); color: var(--paper); }
-.ans-card.parasympathetic { background: var(--paper-warm); }
-.ans-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 12px; opacity: 0.6; }
-.ans-title { font-family: 'IM Fell English', serif; font-size: 22px; margin-bottom: 10px; }
-.ans-body { font-size: 12px; font-style: italic; line-height: 1.8; opacity: 0.7; }
-.ans-card.bridge .ans-label { color: var(--brush); opacity: 1; }
-.ans-card.bridge .ans-title { color: var(--paper); }
-.ans-card.bridge .ans-body { color: var(--paper); opacity: 0.75; }
+    .cursor-ring {
+      position: fixed;
+      width: 32px;
+      height: 32px;
+      border: 1px solid rgba(26, 26, 24, 0.25);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: width 0.3s, height 0.3s;
+    }
 
-/* Research pillars */
-.research { padding: 0 56px 80px; }
-.research-intro { margin-bottom: 56px; }
-.research-intro h2 { font-family: 'IM Fell English', serif; font-size: clamp(26px, 3.5vw, 40px); margin-bottom: 16px; }
-.research-intro h2 em { font-style: italic; color: var(--ink-soft); }
-.research-intro p { font-size: 13px; font-style: italic; color: var(--ink-faint); line-height: 1.9; max-width: 480px; }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 50;
+      opacity: 0.6;
+    }
 
-.research-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-.research-card { background: var(--paper-warm); padding: 48px 40px; transition: background 0.4s; }
-.research-card:hover { background: var(--paper-dark); }
-.research-card:first-child { border-radius: 4px 0 0 4px; }
-.research-card:last-child { border-radius: 0 4px 4px 0; }
-.research-num { font-family: 'IM Fell English', serif; font-size: 64px; color: var(--paper-dark); line-height: 1; margin-bottom: 28px; transition: color 0.4s; }
-.research-card:hover .research-num { color: var(--brush); }
-.research-source { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-ghost); margin-bottom: 14px; }
-.research-title { font-family: 'IM Fell English', serif; font-size: 20px; color: var(--ink); margin-bottom: 14px; line-height: 1.3; }
-.research-body { font-size: 13px; font-style: italic; color: var(--ink-faint); line-height: 1.9; }
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 32px 80px;
+      background: rgba(245, 243, 238, 0.85);
+      backdrop-filter: blur(12px);
+    }
 
-/* Ancient meets modern */
-.bridge-section { background: var(--paper-warm); padding: 100px 56px; }
-.bridge-inner { max-width: 900px; margin: 0 auto; }
-.bridge-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--ink-ghost); margin-bottom: 28px; }
-.bridge-headline { font-family: 'IM Fell English', serif; font-size: clamp(28px, 4vw, 48px); line-height: 1.2; color: var(--ink); margin-bottom: 56px; }
-.bridge-headline em { font-style: italic; color: var(--ink-soft); }
-.bridge-timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
-.timeline-point { background: var(--paper); padding: 36px 32px; }
-.timeline-point:first-child { border-radius: 4px 0 0 4px; }
-.timeline-point:last-child { border-radius: 0 4px 4px 0; }
-.timeline-era { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em; color: var(--brush); margin-bottom: 12px; }
-.timeline-title { font-family: 'IM Fell English', serif; font-size: 16px; color: var(--ink); margin-bottom: 10px; line-height: 1.3; }
-.timeline-body { font-size: 12px; font-style: italic; color: var(--ink-faint); line-height: 1.8; }
+    .nav-logo {
+      font-family: 'IM Fell English', serif;
+      font-size: 15px;
+      letter-spacing: 0.12em;
+      color: var(--ink-soft);
+      text-decoration: none;
+    }
 
-/* CTA */
-.science-cta { padding: 80px 56px 120px; text-align: center; }
-.science-cta h2 { font-family: 'IM Fell English', serif; font-size: clamp(28px, 4vw, 48px); color: var(--ink); margin-bottom: 24px; }
-.science-cta h2 em { font-style: italic; color: var(--ink-soft); }
-.science-cta p { font-size: 14px; font-style: italic; color: var(--ink-faint); line-height: 1.9; max-width: 440px; margin: 0 auto 48px; }
-.cta-link { display: inline-flex; align-items: center; gap: 16px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); text-decoration: none; transition: gap 0.3s; }
-.cta-link-line { width: 40px; height: 1px; background: var(--ink); transition: width 0.3s; }
-.cta-link:hover { gap: 24px; }
-.cta-link:hover .cta-link-line { width: 56px; }
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+    }
 
-footer { border-top: 1px solid var(--paper-dark); padding: 48px 56px; display: flex; align-items: center; justify-content: space-between; }
-.footer-logo { font-family: 'IM Fell English', serif; font-size: 15px; color: var(--ink-ghost); }
-.footer-nav { display: flex; gap: 32px; }
-.footer-nav a { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-ghost); text-decoration: none; transition: color 0.3s; }
-.footer-nav a:hover { color: var(--ink); }
+    .nav-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
 
-.fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.8s ease, transform 0.8s ease; }
-.fade-in.visible { opacity: 1; transform: translateY(0); }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--ink);
+    }
 
-@media (max-width: 768px) {
-  nav { padding: 24px 28px; }
-  .nav-links { display: none; }
-  .page-header { grid-template-columns: 1fr; padding: 120px 28px 60px; gap: 32px; }
-  .divider { padding: 0 28px; }
-  .mechanism { grid-template-columns: 1fr; padding: 60px 28px; gap: 48px; }
-  .research { padding: 0 28px 60px; }
-  .research-grid { grid-template-columns: 1fr; }
-  .research-card:first-child { border-radius: 4px 4px 0 0; }
-  .research-card:last-child { border-radius: 0 0 4px 4px; }
-  .bridge-section { padding: 60px 28px; }
-  .bridge-timeline { grid-template-columns: 1fr 1fr; }
-  .timeline-point:first-child { border-radius: 4px 0 0 0; }
-  .timeline-point:nth-child(2) { border-radius: 0 4px 0 0; }
-  .timeline-point:nth-child(3) { border-radius: 0 0 0 4px; }
-  .timeline-point:last-child { border-radius: 0 0 4px 0; }
-  .science-cta { padding: 60px 28px 80px; }
-  footer { padding: 40px 28px; flex-direction: column; gap: 24px; }
-}
-</style>
+    .page-header {
+      padding: 160px 80px 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: end;
+    }
+
+    .header-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--ink-ghost);
+      margin-bottom: 24px;
+    }
+
+    .header-headline {
+      font-family: 'IM Fell English', serif;
+      font-size: clamp(36px, 5vw, 60px);
+      line-height: 1.1;
+      color: var(--ink);
+    }
+
+    .header-headline em {
+      font-style: italic;
+      color: var(--ink-soft);
+    }
+
+    .header-body {
+      font-size: 14px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--ink-faint);
+      line-height: 1.9;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      padding: 0 80px;
+    }
+
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      background: var(--paper-dark);
+    }
+
+    .divider-mark {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--ink-ghost);
+      white-space: nowrap;
+    }
+
+    /* Mechanism section */
+    .mechanism {
+      padding: 80px 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      align-items: start;
+    }
+
+    .mechanism-text h2 {
+      font-family: 'IM Fell English', serif;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.2;
+      margin-bottom: 32px;
+    }
+
+    .mechanism-text h2 em {
+      font-style: italic;
+      color: var(--ink-soft);
+    }
+
+    .mechanism-text p {
+      font-size: 14px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--ink-faint);
+      line-height: 1.95;
+      margin-bottom: 20px;
+    }
+
+    /* ANS diagram */
+    .ans-diagram {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .ans-card {
+      padding: 36px 40px;
+    }
+
+    .ans-card.sympathetic {
+      background: var(--paper-dark);
+    }
+
+    .ans-card.bridge {
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .ans-card.parasympathetic {
+      background: var(--paper-warm);
+    }
+
+    .ans-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      opacity: 0.6;
+    }
+
+    .ans-title {
+      font-family: 'IM Fell English', serif;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .ans-body {
+      font-size: 12px;
+      font-style: italic;
+      line-height: 1.8;
+      opacity: 0.7;
+    }
+
+    .ans-card.bridge .ans-label {
+      color: var(--brush);
+      opacity: 1;
+    }
+
+    .ans-card.bridge .ans-title {
+      color: var(--paper);
+    }
+
+    .ans-card.bridge .ans-body {
+      color: var(--paper);
+      opacity: 0.75;
+    }
+
+    /* Research pillars */
+    .research {
+      padding: 0 80px 80px;
+    }
+
+    .research-intro {
+      margin-bottom: 56px;
+    }
+
+    .research-intro h2 {
+      font-family: 'IM Fell English', serif;
+      font-size: clamp(26px, 3.5vw, 40px);
+      margin-bottom: 16px;
+    }
+
+    .research-intro h2 em {
+      font-style: italic;
+      color: var(--ink-soft);
+    }
+
+    .research-intro p {
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-faint);
+      line-height: 1.9;
+      max-width: 480px;
+    }
+
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .research-card {
+      background: var(--paper-warm);
+      padding: 48px 40px;
+      transition: background 0.4s;
+    }
+
+    .research-card:hover {
+      background: var(--paper-dark);
+    }
+
+    .research-card:first-child {
+      border-radius: 4px 0 0 4px;
+    }
+
+    .research-card:last-child {
+      border-radius: 0 4px 4px 0;
+    }
+
+    .research-num {
+      font-family: 'IM Fell English', serif;
+      font-size: 64px;
+      color: var(--paper-dark);
+      line-height: 1;
+      margin-bottom: 28px;
+      transition: color 0.4s;
+    }
+
+    .research-card:hover .research-num {
+      color: var(--brush);
+    }
+
+    .research-source {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-ghost);
+      margin-bottom: 14px;
+    }
+
+    .research-title {
+      font-family: 'IM Fell English', serif;
+      font-size: 20px;
+      color: var(--ink);
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+
+    .research-body {
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-faint);
+      line-height: 1.9;
+    }
+
+    /* Ancient meets modern */
+    .bridge-section {
+      background: var(--paper-warm);
+      padding: 100px 80px;
+    }
+
+    .bridge-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .bridge-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--ink-ghost);
+      margin-bottom: 28px;
+    }
+
+    .bridge-headline {
+      font-family: 'IM Fell English', serif;
+      font-size: clamp(28px, 4vw, 48px);
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 56px;
+    }
+
+    .bridge-headline em {
+      font-style: italic;
+      color: var(--ink-soft);
+    }
+
+    .bridge-timeline {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+    }
+
+    .timeline-point {
+      background: var(--paper);
+      padding: 36px 32px;
+    }
+
+    .timeline-point:first-child {
+      border-radius: 4px 0 0 4px;
+    }
+
+    .timeline-point:last-child {
+      border-radius: 0 4px 4px 0;
+    }
+
+    .timeline-era {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--brush);
+      margin-bottom: 12px;
+    }
+
+    .timeline-title {
+      font-family: 'IM Fell English', serif;
+      font-size: 16px;
+      color: var(--ink);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .timeline-body {
+      font-size: 12px;
+      font-style: italic;
+      color: var(--ink-faint);
+      line-height: 1.8;
+    }
+
+    /* CTA */
+    .science-cta {
+      padding: 80px 80px 120px;
+      text-align: center;
+    }
+
+    .science-cta h2 {
+      font-family: 'IM Fell English', serif;
+      font-size: clamp(28px, 4vw, 48px);
+      color: var(--ink);
+      margin-bottom: 24px;
+    }
+
+    .science-cta h2 em {
+      font-style: italic;
+      color: var(--ink-soft);
+    }
+
+    .science-cta p {
+      font-size: 14px;
+      font-style: italic;
+      color: var(--ink-faint);
+      line-height: 1.9;
+      max-width: 440px;
+      margin: 0 auto 48px;
+    }
+
+    .cta-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      transition: gap 0.3s;
+    }
+
+    .cta-link-line {
+      width: 40px;
+      height: 1px;
+      background: var(--ink);
+      transition: width 0.3s;
+    }
+
+    .cta-link:hover {
+      gap: 24px;
+    }
+
+    .cta-link:hover .cta-link-line {
+      width: 56px;
+    }
+
+    footer {
+      border-top: 1px solid var(--paper-dark);
+      padding: 48px 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-logo {
+      font-family: 'IM Fell English', serif;
+      font-size: 15px;
+      color: var(--ink-ghost);
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 32px;
+    }
+
+    .footer-nav a {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-ghost);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-nav a:hover {
+      color: var(--ink);
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 24px 28px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .page-header {
+        grid-template-columns: 1fr;
+        padding: 120px 28px 60px;
+        gap: 32px;
+      }
+
+      .divider {
+        padding: 0 28px;
+      }
+
+      .mechanism {
+        grid-template-columns: 1fr;
+        padding: 60px 28px;
+        gap: 48px;
+      }
+
+      .research {
+        padding: 0 28px 60px;
+      }
+
+      .research-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .research-card:first-child {
+        border-radius: 4px 4px 0 0;
+      }
+
+      .research-card:last-child {
+        border-radius: 0 0 4px 4px;
+      }
+
+      .bridge-section {
+        padding: 60px 28px;
+      }
+
+      .bridge-timeline {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .timeline-point:first-child {
+        border-radius: 4px 0 0 0;
+      }
+
+      .timeline-point:nth-child(2) {
+        border-radius: 0 4px 0 0;
+      }
+
+      .timeline-point:nth-child(3) {
+        border-radius: 0 0 0 4px;
+      }
+
+      .timeline-point:last-child {
+        border-radius: 0 0 4px 0;
+      }
+
+      .science-cta {
+        padding: 60px 28px 80px;
+      }
+
+      footer {
+        padding: 40px 28px;
+        flex-direction: column;
+        gap: 24px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
 
-<nav>
-  <a href="eastern.html" class="nav-logo">Soft Breathe</a>
-  <ul class="nav-links">
-    <li><a href="practice.html">Practice</a></li>
-    <li><a href="science.html" class="active">Science</a></li>
-    <li><a href="collective.html">Collective</a></li>
-  </ul>
-</nav>
-
-<section class="page-header">
-  <div>
-    <p class="header-label">The Science</p>
-    <h1 class="header-headline">Why breath is the<br><em>only manual switch</em><br>in your nervous system.</h1>
-  </div>
-  <div class="header-body">
-    Your heart rate, digestion, immune response — all autonomous. Breath is the single exception. The only involuntary function you can consciously override. That exception is everything.
-  </div>
-</section>
-
-<div class="divider">
-  <div class="divider-line"></div>
-  <span class="divider-mark">The Mechanism</span>
-  <div class="divider-line"></div>
-</div>
-
-<section class="mechanism">
-  <div class="mechanism-text fade-in">
-    <h2>Modern life traps us in<br><em>permanent fight-or-flight.</em></h2>
-    <p>The autonomic nervous system has two modes. Sympathetic — the accelerator — evolved to handle tigers. Parasympathetic — the brake — handles rest, digestion, and recovery. The problem: your body cannot distinguish between a tiger and an unanswered email.</p>
-    <p>Chronic sympathetic dominance elevates cortisol, tightens the diaphragm, and shallows the breath. The shallower your breath becomes, the more threatened your nervous system believes you are. A self-reinforcing loop.</p>
-    <p>The exit is the exhale. A slow, extended exhalation stimulates the vagus nerve — the longest nerve in the body, running from brainstem to abdomen — which acts as a direct brake on the stress response. Research published in <em>Scientific Reports</em> shows that a single session of slow, deep breathing measurably increases vagal tone and reduces anxiety within minutes.</p>
-  </div>
-  <div class="ans-diagram fade-in">
-    <div class="ans-card sympathetic">
-      <p class="ans-label">Sympathetic · Fight or Flight</p>
-      <h3 class="ans-title">The Accelerator</h3>
-      <p class="ans-body">Heart rate rises. Cortisol spikes. Breath shallows. Blood moves to the muscles. The brain narrows its focus. Designed for emergencies — destructive when chronic.</p>
-    </div>
-    <div class="ans-card bridge">
-      <p class="ans-label">The Bridge · Vagus Nerve</p>
-      <h3 class="ans-title">Breath changes everything.</h3>
-      <p class="ans-body">The vagus nerve monitors respiratory rhythm. A longer exhale increases its activity, sending a direct signal: the threat has passed. You are safe. Begin repair.</p>
-    </div>
-    <div class="ans-card parasympathetic">
-      <p class="ans-label">Parasympathetic · Rest & Digest</p>
-      <h3 class="ans-title">The Brake</h3>
-      <p class="ans-body">Heart rate slows. Cortisol falls. Digestion resumes. The prefrontal cortex — responsible for clear thinking — comes back online. This is the state where healing happens.</p>
-    </div>
-  </div>
-</section>
-
-<div class="divider">
-  <div class="divider-line"></div>
-  <span class="divider-mark">What the research shows</span>
-  <div class="divider-line"></div>
-</div>
-
-<section class="research">
-  <div class="research-intro fade-in">
-    <h2>Three mechanisms.<br><em>One practice.</em></h2>
-    <p>The benefits of conscious breathing converge on the same underlying physiology — studied separately, they illuminate how profoundly a ten-minute practice can shift the body.</p>
-  </div>
-  <div class="research-grid">
-    <div class="research-card fade-in">
-      <div class="research-num">一</div>
-      <p class="research-source">Heart Rate Variability</p>
-      <h3 class="research-title">The Resilience Marker</h3>
-      <p class="research-body">HRV — the variation in time between heartbeats — is one of the strongest predictors of longevity, emotional regulation, and cognitive performance. Slow, rhythmic breathing at approximately 6 breaths per minute has been shown to maximise HRV, creating a state of physiological coherence between heart, lungs, and brain. Research from the University of Brussels found that this coherence state also measurably improves decision-making under stress.</p>
-    </div>
-    <div class="research-card fade-in">
-      <div class="research-num">二</div>
-      <p class="research-source">CO₂ Tolerance · The Bohr Effect</p>
-      <h3 class="research-title">Better Oxygen, Paradoxically</h3>
-      <p class="research-body">Counter-intuitively, over-breathing reduces oxygen delivery to cells. The Bohr Effect explains why: oxygen releases from haemoglobin only in the presence of adequate CO₂. Most anxious, shallow breathers are chronically low in CO₂. Breath retention practices — like the hold in 4–7–8 — build CO₂ tolerance, improving cellular oxygenation and reducing the biological drive to over-breathe.</p>
-    </div>
-    <div class="research-card fade-in">
-      <div class="research-num">三</div>
-      <p class="research-source">Cortisol & Emotional Regulation</p>
-      <h3 class="research-title">From Reactive to Responsive</h3>
-      <p class="research-body">The vagus nerve's afferent fibres terminate in the nucleus tractus solitarius, which projects directly to the amygdala — the brain's threat-detection centre. Increased vagal tone reduces amygdala reactivity, creating a measurable buffer between stimulus and response. A 2025 clinical study found that six weeks of regular breathwork produced a large reduction in anxiety scores (Cohen's d = 1.44) — an effect size comparable to pharmacological intervention.</p>
-    </div>
-  </div>
-</section>
-
-<section class="bridge-section">
-  <div class="bridge-inner">
-    <p class="bridge-label">Ancient & Modern</p>
-    <h2 class="bridge-headline">The same discovery,<br><em>two thousand years apart.</em></h2>
-    <div class="bridge-timeline">
-      <div class="timeline-point fade-in">
-        <p class="timeline-era">~200 B.C.</p>
-        <h3 class="timeline-title">Patañjali's Yoga Sutras</h3>
-        <p class="timeline-body">Prāṇāyāma: conscious regulation of the breath to gain mastery over the autonomic functions of the body. The pause between inhale and exhale described as the gateway to mental stillness.</p>
-      </div>
-      <div class="timeline-point fade-in">
-        <p class="timeline-era">15th Century</p>
-        <h3 class="timeline-title">Hatha Yoga Pradīpikā</h3>
-        <p class="timeline-body">Kumbhaka (breath retention) codified as the central practice of prana regulation. The text explicitly links breath control with control of the mind — the same pathway neuroscience would confirm 500 years later.</p>
-      </div>
-      <div class="timeline-point fade-in">
-        <p class="timeline-era">1921</p>
-        <h3 class="timeline-title">Vagus Nerve Identified</h3>
-        <p class="timeline-body">Otto Loewi's Nobel Prize-winning discovery of vagal neurotransmission provides the first modern mechanism for how the nervous system can be downregulated — the same nerve the ancients were stimulating through extended exhalation.</p>
-      </div>
-      <div class="timeline-point fade-in">
-        <p class="timeline-era">Present</p>
-        <h3 class="timeline-title">The Convergence</h3>
-        <p class="timeline-body">Peer-reviewed research now confirms what contemplative traditions always held: deliberate breath patterns directly modulate the autonomic nervous system, HRV, cortisol, and emotional regulation. The bridge was always the exhale.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="science-cta fade-in">
-  <h2>Now that you know <em>why</em> —<br>begin the practice.</h2>
-  <p>Understanding the mechanism is useful. Doing it is transformative. Ten minutes is enough to shift your state.</p>
-  <a class="cta-link" href="practice.html"><span class="cta-link-line"></span> Choose your pattern</a>
-</section>
-
-<footer>
-  <span class="footer-logo">Soft Breathe</span>
-  <nav class="footer-nav">
-    <a href="practice.html">Practice</a>
-    <a href="science.html">Science</a>
-    <a href="collective.html">Collective</a>
+  <nav>
+    <a href="eastern.html" class="nav-logo">Soft Breathe</a>
+    <ul class="nav-links">
+      <li><a href="practice.html">Practice</a></li>
+      <li><a href="science.html" class="active">Science</a></li>
+      <li><a href="collective.html">Collective</a></li>
+    </ul>
   </nav>
-</footer>
 
-<script>
-const cursor = document.getElementById('cursor');
-const ring = document.getElementById('cursorRing');
-let mx = 0, my = 0, rx = 0, ry = 0;
-document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx+'px'; cursor.style.top = my+'px'; });
-(function animateRing() { rx += (mx-rx)*0.12; ry += (my-ry)*0.12; ring.style.left = rx+'px'; ring.style.top = ry+'px'; requestAnimationFrame(animateRing); })();
-document.querySelectorAll('a, button').forEach(el => {
-  el.addEventListener('mouseenter', () => { cursor.style.transform = 'translate(-50%,-50%) scale(2.5)'; ring.style.width = '48px'; ring.style.height = '48px'; });
-  el.addEventListener('mouseleave', () => { cursor.style.transform = 'translate(-50%,-50%) scale(1)'; ring.style.width = '32px'; ring.style.height = '32px'; });
-});
-const observer = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.12 });
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-</script>
+  <section class="page-header">
+    <div>
+      <p class="header-label">The Science</p>
+      <h1 class="header-headline">Why breath is the<br><em>only manual switch</em><br>in your nervous system.</h1>
+    </div>
+    <div class="header-body">
+      Your heart rate, digestion, immune response — all autonomous. Breath is the single exception. The only involuntary
+      function you can consciously override. That exception is everything.
+    </div>
+  </section>
+
+  <div class="divider">
+    <div class="divider-line"></div>
+    <span class="divider-mark">The Mechanism</span>
+    <div class="divider-line"></div>
+  </div>
+
+  <section class="mechanism">
+    <div class="mechanism-text fade-in">
+      <h2>Modern life traps us in<br><em>permanent fight-or-flight.</em></h2>
+      <p>The autonomic nervous system has two modes. Sympathetic — the accelerator — evolved to handle tigers.
+        Parasympathetic — the brake — handles rest, digestion, and recovery. The problem: your body cannot distinguish
+        between a tiger and an unanswered email.</p>
+      <p>Chronic sympathetic dominance elevates cortisol, tightens the diaphragm, and shallows the breath. The shallower
+        your breath becomes, the more threatened your nervous system believes you are. A self-reinforcing loop.</p>
+      <p>The exit is the exhale. A slow, extended exhalation stimulates the vagus nerve — the longest nerve in the body,
+        running from brainstem to abdomen — which acts as a direct brake on the stress response. Research published in
+        <em>Scientific Reports</em> shows that a single session of slow, deep breathing measurably increases vagal tone
+        and reduces anxiety within minutes.</p>
+    </div>
+    <div class="ans-diagram fade-in">
+      <div class="ans-card sympathetic">
+        <p class="ans-label">Sympathetic · Fight or Flight</p>
+        <h3 class="ans-title">The Accelerator</h3>
+        <p class="ans-body">Heart rate rises. Cortisol spikes. Breath shallows. Blood moves to the muscles. The brain
+          narrows its focus. Designed for emergencies — destructive when chronic.</p>
+      </div>
+      <div class="ans-card bridge">
+        <p class="ans-label">The Bridge · Vagus Nerve</p>
+        <h3 class="ans-title">Breath changes everything.</h3>
+        <p class="ans-body">The vagus nerve monitors respiratory rhythm. A longer exhale increases its activity, sending
+          a direct signal: the threat has passed. You are safe. Begin repair.</p>
+      </div>
+      <div class="ans-card parasympathetic">
+        <p class="ans-label">Parasympathetic · Rest & Digest</p>
+        <h3 class="ans-title">The Brake</h3>
+        <p class="ans-body">Heart rate slows. Cortisol falls. Digestion resumes. The prefrontal cortex — responsible for
+          clear thinking — comes back online. This is the state where healing happens.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider">
+    <div class="divider-line"></div>
+    <span class="divider-mark">What the research shows</span>
+    <div class="divider-line"></div>
+  </div>
+
+  <section class="research">
+    <div class="research-intro fade-in">
+      <h2>Three mechanisms.<br><em>One practice.</em></h2>
+      <p>The benefits of conscious breathing converge on the same underlying physiology — studied separately, they
+        illuminate how profoundly a ten-minute practice can shift the body.</p>
+    </div>
+    <div class="research-grid">
+      <div class="research-card fade-in">
+        <div class="research-num">一</div>
+        <p class="research-source">Heart Rate Variability</p>
+        <h3 class="research-title">The Resilience Marker</h3>
+        <p class="research-body">HRV — the variation in time between heartbeats — is one of the strongest predictors of
+          longevity, emotional regulation, and cognitive performance. Slow, rhythmic breathing at approximately 6
+          breaths per minute has been shown to maximise HRV, creating a state of physiological coherence between heart,
+          lungs, and brain. Research from the University of Brussels found that this coherence state also measurably
+          improves decision-making under stress.</p>
+      </div>
+      <div class="research-card fade-in">
+        <div class="research-num">二</div>
+        <p class="research-source">CO₂ Tolerance · The Bohr Effect</p>
+        <h3 class="research-title">Better Oxygen, Paradoxically</h3>
+        <p class="research-body">Counter-intuitively, over-breathing reduces oxygen delivery to cells. The Bohr Effect
+          explains why: oxygen releases from haemoglobin only in the presence of adequate CO₂. Most anxious, shallow
+          breathers are chronically low in CO₂. Breath retention practices — like the hold in 4–7–8 — build CO₂
+          tolerance, improving cellular oxygenation and reducing the biological drive to over-breathe.</p>
+      </div>
+      <div class="research-card fade-in">
+        <div class="research-num">三</div>
+        <p class="research-source">Cortisol & Emotional Regulation</p>
+        <h3 class="research-title">From Reactive to Responsive</h3>
+        <p class="research-body">The vagus nerve's afferent fibres terminate in the nucleus tractus solitarius, which
+          projects directly to the amygdala — the brain's threat-detection centre. Increased vagal tone reduces amygdala
+          reactivity, creating a measurable buffer between stimulus and response. A 2025 clinical study found that six
+          weeks of regular breathwork produced a large reduction in anxiety scores (Cohen's d = 1.44) — an effect size
+          comparable to pharmacological intervention.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bridge-section">
+    <div class="bridge-inner">
+      <p class="bridge-label">Ancient & Modern</p>
+      <h2 class="bridge-headline">The same discovery,<br><em>two thousand years apart.</em></h2>
+      <div class="bridge-timeline">
+        <div class="timeline-point fade-in">
+          <p class="timeline-era">~200 B.C.</p>
+          <h3 class="timeline-title">Patañjali's Yoga Sutras</h3>
+          <p class="timeline-body">Prāṇāyāma: conscious regulation of the breath to gain mastery over the autonomic
+            functions of the body. The pause between inhale and exhale described as the gateway to mental stillness.</p>
+        </div>
+        <div class="timeline-point fade-in">
+          <p class="timeline-era">15th Century</p>
+          <h3 class="timeline-title">Hatha Yoga Pradīpikā</h3>
+          <p class="timeline-body">Kumbhaka (breath retention) codified as the central practice of prana regulation. The
+            text explicitly links breath control with control of the mind — the same pathway neuroscience would confirm
+            500 years later.</p>
+        </div>
+        <div class="timeline-point fade-in">
+          <p class="timeline-era">1921</p>
+          <h3 class="timeline-title">Vagus Nerve Identified</h3>
+          <p class="timeline-body">Otto Loewi's Nobel Prize-winning discovery of vagal neurotransmission provides the
+            first modern mechanism for how the nervous system can be downregulated — the same nerve the ancients were
+            stimulating through extended exhalation.</p>
+        </div>
+        <div class="timeline-point fade-in">
+          <p class="timeline-era">Present</p>
+          <h3 class="timeline-title">The Convergence</h3>
+          <p class="timeline-body">Peer-reviewed research now confirms what contemplative traditions always held:
+            deliberate breath patterns directly modulate the autonomic nervous system, HRV, cortisol, and emotional
+            regulation. The bridge was always the exhale.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="science-cta fade-in">
+    <h2>Now that you know <em>why</em> —<br>begin the practice.</h2>
+    <p>Understanding the mechanism is useful. Doing it is transformative. Ten minutes is enough to shift your state.</p>
+    <a class="cta-link" href="practice.html"><span class="cta-link-line"></span> Choose your pattern</a>
+  </section>
+
+  <footer>
+    <span class="footer-logo">Soft Breathe</span>
+    <nav class="footer-nav">
+      <a href="practice.html">Practice</a>
+      <a href="science.html">Science</a>
+      <a href="collective.html">Collective</a>
+    </nav>
+  </footer>
+
+  <script>
+    const cursor = document.getElementById('cursor');
+    const ring = document.getElementById('cursorRing');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx + 'px'; cursor.style.top = my + 'px'; });
+    (function animateRing() { rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12; ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; requestAnimationFrame(animateRing); })();
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('mouseenter', () => { cursor.style.transform = 'translate(-50%,-50%) scale(2.5)'; ring.style.width = '48px'; ring.style.height = '48px'; });
+      el.addEventListener('mouseleave', () => { cursor.style.transform = 'translate(-50%,-50%) scale(1)'; ring.style.width = '32px'; ring.style.height = '32px'; });
+    });
+    const observer = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.12 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
 </body>
+
 </html>

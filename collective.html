@@ -1,207 +1,680 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Collective — Soft Breathe</title>
-<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Noto+Serif:ital,wght@0,300;0,400;1,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-:root {
-  --ink: #1a1a18; --ink-soft: #4a4a45; --ink-faint: #8a8a80; --ink-ghost: #b8b8b0;
-  --paper: #f5f3ee; --paper-warm: #ede9e0; --paper-dark: #e0dbd0; --brush: #c8c0b0;
-}
-html { scroll-behavior: smooth; }
-body { background: var(--paper); font-family: 'Noto Serif', serif; color: var(--ink); overflow-x: hidden; cursor: none; }
-.cursor { position: fixed; width: 6px; height: 6px; background: var(--ink); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); }
-.cursor-ring { position: fixed; width: 32px; height: 32px; border: 1px solid rgba(26,26,24,0.25); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: width 0.3s, height 0.3s; }
-body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 1000; opacity: 0.6; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Collective — Soft Breathe</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Noto+Serif:ital,wght@0,300;0,400;1,300&family=DM+Mono:wght@300;400&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 32px 56px; }
-.nav-logo { font-family: 'IM Fell English', serif; font-size: 15px; letter-spacing: 0.12em; color: var(--ink-soft); text-decoration: none; }
-.nav-links { display: flex; gap: 40px; list-style: none; }
-.nav-links a { font-family: 'DM Mono', monospace; font-size: 10px; font-weight: 300; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.3s; }
-.nav-links a:hover, .nav-links a.active { color: var(--ink); }
+    :root {
+      --ink: #1a1a18;
+      --ink-soft: #4a4a45;
+      --ink-faint: #8a8a80;
+      --ink-ghost: #b8b8b0;
+      --paper: #f5f3ee;
+      --paper-warm: #ede9e0;
+      --paper-dark: #e0dbd0;
+      --brush: #c8c0b0;
+    }
 
-/* Hero */
-.hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 140px 56px 100px; position: relative; }
-.hero-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--ink-ghost); margin-bottom: 32px; opacity: 0; animation: fadeUp 0.8s ease 0.3s forwards; }
-.hero-headline { font-family: 'IM Fell English', serif; font-size: clamp(40px, 6vw, 76px); line-height: 1.1; color: var(--ink); max-width: 700px; margin-bottom: 32px; opacity: 0; animation: fadeUp 1s ease 0.5s forwards; }
-.hero-headline em { font-style: italic; color: var(--ink-soft); }
-.hero-body { font-size: 15px; font-weight: 300; font-style: italic; color: var(--ink-faint); line-height: 1.9; max-width: 480px; margin-bottom: 64px; opacity: 0; animation: fadeUp 0.9s ease 0.7s forwards; }
+    html {
+      scroll-behavior: smooth;
+    }
 
-/* Email form — hero */
-.hero-form { display: flex; border: 1px solid var(--paper-dark); background: var(--paper-warm); opacity: 0; animation: fadeUp 0.9s ease 0.9s forwards; }
-.hero-input { padding: 18px 32px; border: none; background: transparent; font-family: 'Noto Serif', serif; font-size: 14px; font-style: italic; color: var(--ink); outline: none; width: 320px; }
-.hero-input::placeholder { color: var(--ink-ghost); }
-.hero-submit { padding: 18px 36px; background: var(--ink); color: var(--paper); border: none; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; transition: background 0.3s; white-space: nowrap; }
-.hero-submit:hover { background: var(--ink-soft); }
-.hero-note { margin-top: 16px; font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.15em; color: var(--ink-ghost); opacity: 0; animation: fadeUp 0.8s ease 1.1s forwards; }
+    body {
+      background: var(--paper);
+      font-family: 'Noto Serif', serif;
+      color: var(--ink);
+      overflow-x: hidden;
+      cursor: none;
+    }
 
-/* Manifesto */
-.manifesto { background: var(--ink); padding: 100px 56px; }
-.manifesto-inner { max-width: 760px; margin: 0 auto; }
-.manifesto-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--brush); margin-bottom: 40px; opacity: 0.6; }
-.manifesto-text { font-family: 'IM Fell English', serif; font-style: italic; font-size: clamp(20px, 2.8vw, 30px); line-height: 1.6; color: var(--paper); margin-bottom: 48px; }
-.manifesto-text strong { font-style: normal; color: var(--brush); }
-.manifesto-rule { width: 48px; height: 1px; background: var(--brush); opacity: 0.4; margin-bottom: 32px; }
-.manifesto-attribution { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brush); opacity: 0.6; }
+    .cursor {
+      position: fixed;
+      width: 6px;
+      height: 6px;
+      background: var(--ink);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+    }
 
-/* What you receive */
-.receive { padding: 100px 56px; }
-.receive-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--ink-ghost); margin-bottom: 24px; }
-.receive-headline { font-family: 'IM Fell English', serif; font-size: clamp(28px, 4vw, 46px); line-height: 1.2; color: var(--ink); margin-bottom: 64px; }
-.receive-headline em { font-style: italic; color: var(--ink-soft); }
-.receive-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-.receive-card { background: var(--paper-warm); padding: 48px 40px; transition: background 0.4s; }
-.receive-card:hover { background: var(--paper-dark); }
-.receive-card:first-child { border-radius: 4px 0 0 4px; }
-.receive-card:last-child { border-radius: 0 4px 4px 0; }
-.receive-glyph { font-family: 'IM Fell English', serif; font-size: 56px; color: var(--paper-dark); line-height: 1; margin-bottom: 24px; transition: color 0.4s; }
-.receive-card:hover .receive-glyph { color: var(--brush); }
-.receive-title { font-family: 'IM Fell English', serif; font-size: 20px; color: var(--ink); margin-bottom: 12px; }
-.receive-body { font-size: 13px; font-style: italic; color: var(--ink-faint); line-height: 1.9; }
+    .cursor-ring {
+      position: fixed;
+      width: 32px;
+      height: 32px;
+      border: 1px solid rgba(26, 26, 24, 0.25);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: width 0.3s, height 0.3s;
+    }
 
-/* Sample issue */
-.sample { padding: 0 56px 100px; }
-.sample-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--ink-ghost); margin-bottom: 48px; }
-.issue-card { background: var(--paper-warm); border: 1px solid var(--paper-dark); border-radius: 4px; max-width: 680px; overflow: hidden; }
-.issue-header { background: var(--ink); padding: 32px 48px; }
-.issue-meta { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--brush); margin-bottom: 12px; opacity: 0.6; }
-.issue-title { font-family: 'IM Fell English', serif; font-style: italic; font-size: 22px; color: var(--paper); }
-.issue-body { padding: 48px; }
-.issue-section-title { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ink-ghost); margin-bottom: 16px; }
-.issue-text { font-size: 14px; font-style: italic; color: var(--ink-faint); line-height: 1.95; margin-bottom: 40px; }
-.issue-practice { background: var(--paper); border: 1px solid var(--paper-dark); padding: 28px 32px; margin-bottom: 40px; }
-.issue-practice-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brush); margin-bottom: 10px; }
-.issue-practice-text { font-size: 13px; font-style: italic; color: var(--ink-soft); line-height: 1.8; }
-.issue-fade { font-size: 11px; font-style: italic; color: var(--ink-ghost); text-align: center; padding-top: 8px; }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 50;
+      opacity: 0.6;
+    }
 
-footer { border-top: 1px solid var(--paper-dark); padding: 48px 56px; display: flex; align-items: center; justify-content: space-between; }
-.footer-logo { font-family: 'IM Fell English', serif; font-size: 15px; color: var(--ink-ghost); }
-.footer-nav { display: flex; gap: 32px; }
-.footer-nav a { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-ghost); text-decoration: none; transition: color 0.3s; }
-.footer-nav a:hover { color: var(--ink); }
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 32px 80px;
+      background: rgba(245, 243, 238, 0.85);
+      backdrop-filter: blur(12px);
+    }
 
-@keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
-.fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.8s ease, transform 0.8s ease; }
-.fade-in.visible { opacity: 1; transform: translateY(0); }
+    .nav-logo {
+      font-family: 'IM Fell English', serif;
+      font-size: 15px;
+      letter-spacing: 0.12em;
+      color: var(--ink-soft);
+      text-decoration: none;
+    }
 
-@media (max-width: 768px) {
-  nav { padding: 24px 28px; }
-  .nav-links { display: none; }
-  .hero { padding: 120px 28px 80px; }
-  .hero-form { flex-direction: column; }
-  .hero-input { width: 100%; }
-  .manifesto { padding: 60px 28px; }
-  .receive { padding: 60px 28px; }
-  .receive-grid { grid-template-columns: 1fr; }
-  .receive-card:first-child { border-radius: 4px 4px 0 0; }
-  .receive-card:last-child { border-radius: 0 0 4px 4px; }
-  .sample { padding: 0 28px 60px; }
-  .issue-body { padding: 28px; }
-  footer { padding: 40px 28px; flex-direction: column; gap: 24px; }
-}
-</style>
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--ink);
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 140px 56px 100px;
+      position: relative;
+    }
+
+    .hero-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--ink-ghost);
+      margin-bottom: 32px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.3s forwards;
+    }
+
+    .hero-headline {
+      font-family: 'IM Fell English', serif;
+      font-size: clamp(40px, 6vw, 76px);
+      line-height: 1.1;
+      color: var(--ink);
+      max-width: 700px;
+      margin-bottom: 32px;
+      opacity: 0;
+      animation: fadeUp 1s ease 0.5s forwards;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: var(--ink-soft);
+    }
+
+    .hero-body {
+      font-size: 15px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--ink-faint);
+      line-height: 1.9;
+      max-width: 480px;
+      margin-bottom: 64px;
+      opacity: 0;
+      animation: fadeUp 0.9s ease 0.7s forwards;
+    }
+
+    /* Email form — hero */
+    .hero-form {
+      display: flex;
+      border: 1px solid var(--paper-dark);
+      background: var(--paper-warm);
+      opacity: 0;
+      animation: fadeUp 0.9s ease 0.9s forwards;
+    }
+
+    .hero-input {
+      padding: 18px 32px;
+      border: none;
+      background: transparent;
+      font-family: 'Noto Serif', serif;
+      font-size: 14px;
+      font-style: italic;
+      color: var(--ink);
+      outline: none;
+      width: 320px;
+    }
+
+    .hero-input::placeholder {
+      color: var(--ink-ghost);
+    }
+
+    .hero-submit {
+      padding: 18px 36px;
+      background: var(--ink);
+      color: var(--paper);
+      border: none;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.3s;
+      white-space: nowrap;
+    }
+
+    .hero-submit:hover {
+      background: var(--ink-soft);
+    }
+
+    .hero-note {
+      margin-top: 16px;
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      color: var(--ink-ghost);
+      opacity: 0;
+      animation: fadeUp 0.8s ease 1.1s forwards;
+    }
+
+    /* Manifesto */
+    .manifesto {
+      background: var(--ink);
+      padding: 100px 80px;
+    }
+
+    .manifesto-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .manifesto-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--brush);
+      margin-bottom: 40px;
+      opacity: 0.6;
+    }
+
+    .manifesto-text {
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: clamp(20px, 2.8vw, 30px);
+      line-height: 1.6;
+      color: var(--paper);
+      margin-bottom: 48px;
+    }
+
+    .manifesto-text strong {
+      font-style: normal;
+      color: var(--brush);
+    }
+
+    .manifesto-rule {
+      width: 48px;
+      height: 1px;
+      background: var(--brush);
+      opacity: 0.4;
+      margin-bottom: 32px;
+    }
+
+    .manifesto-attribution {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--brush);
+      opacity: 0.6;
+    }
+
+    /* What you receive */
+    .receive {
+      padding: 100px 80px;
+    }
+
+    .receive-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--ink-ghost);
+      margin-bottom: 24px;
+    }
+
+    .receive-headline {
+      font-family: 'IM Fell English', serif;
+      font-size: clamp(28px, 4vw, 46px);
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 64px;
+    }
+
+    .receive-headline em {
+      font-style: italic;
+      color: var(--ink-soft);
+    }
+
+    .receive-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .receive-card {
+      background: var(--paper-warm);
+      padding: 48px 40px;
+      transition: background 0.4s;
+    }
+
+    .receive-card:hover {
+      background: var(--paper-dark);
+    }
+
+    .receive-card:first-child {
+      border-radius: 4px 0 0 4px;
+    }
+
+    .receive-card:last-child {
+      border-radius: 0 4px 4px 0;
+    }
+
+    .receive-glyph {
+      font-family: 'IM Fell English', serif;
+      font-size: 56px;
+      color: var(--paper-dark);
+      line-height: 1;
+      margin-bottom: 24px;
+      transition: color 0.4s;
+    }
+
+    .receive-card:hover .receive-glyph {
+      color: var(--brush);
+    }
+
+    .receive-title {
+      font-family: 'IM Fell English', serif;
+      font-size: 20px;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+
+    .receive-body {
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-faint);
+      line-height: 1.9;
+    }
+
+    /* Sample issue */
+    .sample {
+      padding: 0 56px 100px;
+    }
+
+    .sample-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--ink-ghost);
+      margin-bottom: 48px;
+    }
+
+    .issue-card {
+      background: var(--paper-warm);
+      border: 1px solid var(--paper-dark);
+      border-radius: 4px;
+      max-width: 680px;
+      overflow: hidden;
+    }
+
+    .issue-header {
+      background: var(--ink);
+      padding: 32px 48px;
+    }
+
+    .issue-meta {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--brush);
+      margin-bottom: 12px;
+      opacity: 0.6;
+    }
+
+    .issue-title {
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: 22px;
+      color: var(--paper);
+    }
+
+    .issue-body {
+      padding: 48px;
+    }
+
+    .issue-section-title {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--ink-ghost);
+      margin-bottom: 16px;
+    }
+
+    .issue-text {
+      font-size: 14px;
+      font-style: italic;
+      color: var(--ink-faint);
+      line-height: 1.95;
+      margin-bottom: 40px;
+    }
+
+    .issue-practice {
+      background: var(--paper);
+      border: 1px solid var(--paper-dark);
+      padding: 28px 32px;
+      margin-bottom: 40px;
+    }
+
+    .issue-practice-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--brush);
+      margin-bottom: 10px;
+    }
+
+    .issue-practice-text {
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-soft);
+      line-height: 1.8;
+    }
+
+    .issue-fade {
+      font-size: 11px;
+      font-style: italic;
+      color: var(--ink-ghost);
+      text-align: center;
+      padding-top: 8px;
+    }
+
+    footer {
+      border-top: 1px solid var(--paper-dark);
+      padding: 48px 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-logo {
+      font-family: 'IM Fell English', serif;
+      font-size: 15px;
+      color: var(--ink-ghost);
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 32px;
+    }
+
+    .footer-nav a {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-ghost);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-nav a:hover {
+      color: var(--ink);
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 24px 28px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 120px 28px 80px;
+      }
+
+      .hero-form {
+        flex-direction: column;
+      }
+
+      .hero-input {
+        width: 100%;
+      }
+
+      .manifesto {
+        padding: 60px 28px;
+      }
+
+      .receive {
+        padding: 60px 28px;
+      }
+
+      .receive-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .receive-card:first-child {
+        border-radius: 4px 4px 0 0;
+      }
+
+      .receive-card:last-child {
+        border-radius: 0 0 4px 4px;
+      }
+
+      .sample {
+        padding: 0 28px 60px;
+      }
+
+      .issue-body {
+        padding: 28px;
+      }
+
+      footer {
+        padding: 40px 28px;
+        flex-direction: column;
+        gap: 24px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
 
-<nav>
-  <a href="eastern.html" class="nav-logo">Soft Breathe</a>
-  <ul class="nav-links">
-    <li><a href="practice.html">Practice</a></li>
-    <li><a href="science.html">Science</a></li>
-    <li><a href="collective.html" class="active">Collective</a></li>
-  </ul>
-</nav>
-
-<section class="hero">
-  <p class="hero-label">The Collective</p>
-  <h1 class="hero-headline">A weekly letter on<br><em>breath, stillness,</em><br>and living deliberately.</h1>
-  <p class="hero-body">No noise. No streaks. One practice, one piece of ancient wisdom translated for modern life, and one small shift — every week. Written from Bali, read everywhere.</p>
-  <div class="hero-form">
-    <input class="hero-input" type="email" placeholder="your email address">
-    <button class="hero-submit">Join the Collective</button>
-  </div>
-  <p class="hero-note">Weekly. No spam. Unsubscribe any time.</p>
-</section>
-
-<section class="manifesto">
-  <div class="manifesto-inner fade-in">
-    <p class="manifesto-label">Why this exists</p>
-    <p class="manifesto-text">Most apps want <strong>more of you</strong>. More time, more taps, more data. They measure your streaks and gamify your stillness until even rest feels like a performance.<br><br>This is the opposite. A letter that asks nothing of you except ten minutes and an open breath. Written by someone who moved to Bali, learned to just breathe, and found that almost everything else followed.</p>
-    <div class="manifesto-rule"></div>
-    <p class="manifesto-attribution">— Soft Breathe · Bali, Indonesia</p>
-  </div>
-</section>
-
-<section class="receive">
-  <p class="receive-label">What you receive</p>
-  <h2 class="receive-headline">One letter.<br><em>Three things inside.</em></h2>
-  <div class="receive-grid">
-    <div class="receive-card fade-in">
-      <div class="receive-glyph">一</div>
-      <h3 class="receive-title">The Practice</h3>
-      <p class="receive-body">A single breathing technique, explained clearly — what it is, where it comes from, when to use it. Short enough to read in two minutes. Useful enough to return to for weeks.</p>
-    </div>
-    <div class="receive-card fade-in">
-      <div class="receive-glyph">二</div>
-      <h3 class="receive-title">The Science</h3>
-      <p class="receive-body">One piece of research or ancient wisdom, translated from the academic or classical into plain language. The mechanism behind why the practice works. Not productivity hacks — real physiology.</p>
-    </div>
-    <div class="receive-card fade-in">
-      <div class="receive-glyph">三</div>
-      <h3 class="receive-title">The Shift</h3>
-      <p class="receive-body">One small observation about living more deliberately. The kind of thought that sits with you through the week. Not advice — more like a question worth sitting with during your next exhale.</p>
-    </div>
-  </div>
-</section>
-
-<section class="sample">
-  <p class="sample-label">Sample issue · Vol. 01</p>
-  <div class="issue-card fade-in">
-    <div class="issue-header">
-      <p class="issue-meta">Soft Breathe · Weekly Letter</p>
-      <h3 class="issue-title">"The exhale is not the end of the breath. It is the beginning of the next one."</h3>
-    </div>
-    <div class="issue-body">
-      <p class="issue-section-title">This week's practice</p>
-      <p class="issue-text">The Relax 4–6 is the simplest pattern in the Soft Breathe library — and arguably the most important. Four counts in through the nose. Six counts out through the mouth. That's it. The asymmetry is everything: a longer exhale than inhale is the fastest way to manually activate the vagus nerve and begin downregulating a stressed nervous system. You can do it in a meeting. On the train. In the thirty seconds before you open a difficult email.</p>
-      <div class="issue-practice">
-        <p class="issue-practice-label">Try it now · 3 minutes</p>
-        <p class="issue-practice-text">Inhale through the nose for 4 counts. Exhale slowly through the mouth for 6. Let the exhale be soft — not forced. Repeat for 10 cycles. Notice what happens to your shoulders around cycle three.</p>
-      </div>
-      <p class="issue-section-title">The science behind it</p>
-      <p class="issue-text">During inhalation, the heart rate naturally speeds up. During exhalation, it slows. This is respiratory sinus arrhythmia — a normal and healthy fluctuation that reflects vagal tone. When the exhale is consistently longer than the inhale, vagal activity increases cumulatively. Research published in <em>Scientific Reports</em> found that a single session of slow, deep breathing significantly increased parasympathetic activity and reduced anxiety scores in both young and older adults.</p>
-      <p class="issue-fade">— Continue reading in your inbox →</p>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <span class="footer-logo">Soft Breathe</span>
-  <nav class="footer-nav">
-    <a href="practice.html">Practice</a>
-    <a href="science.html">Science</a>
-    <a href="collective.html">Collective</a>
+  <nav>
+    <a href="eastern.html" class="nav-logo">Soft Breathe</a>
+    <ul class="nav-links">
+      <li><a href="practice.html">Practice</a></li>
+      <li><a href="science.html">Science</a></li>
+      <li><a href="collective.html" class="active">Collective</a></li>
+    </ul>
   </nav>
-</footer>
 
-<script>
-const cursor = document.getElementById('cursor');
-const ring = document.getElementById('cursorRing');
-let mx = 0, my = 0, rx = 0, ry = 0;
-document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx+'px'; cursor.style.top = my+'px'; });
-(function animateRing() { rx += (mx-rx)*0.12; ry += (my-ry)*0.12; ring.style.left = rx+'px'; ring.style.top = ry+'px'; requestAnimationFrame(animateRing); })();
-document.querySelectorAll('a, button').forEach(el => {
-  el.addEventListener('mouseenter', () => { cursor.style.transform = 'translate(-50%,-50%) scale(2.5)'; ring.style.width = '48px'; ring.style.height = '48px'; });
-  el.addEventListener('mouseleave', () => { cursor.style.transform = 'translate(-50%,-50%) scale(1)'; ring.style.width = '32px'; ring.style.height = '32px'; });
-});
-const observer = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.12 });
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-</script>
+  <section class="hero">
+    <p class="hero-label">The Collective</p>
+    <h1 class="hero-headline">A weekly letter on<br><em>breath, stillness,</em><br>and living deliberately.</h1>
+    <p class="hero-body">No noise. No streaks. One practice, one piece of ancient wisdom translated for modern life, and
+      one small shift — every week. Written from Bali, read everywhere.</p>
+    <div class="hero-form">
+      <input class="hero-input" type="email" placeholder="your email address">
+      <button class="hero-submit">Join the Collective</button>
+    </div>
+    <p class="hero-note">Weekly. No spam. Unsubscribe any time.</p>
+  </section>
+
+  <section class="manifesto">
+    <div class="manifesto-inner fade-in">
+      <p class="manifesto-label">Why this exists</p>
+      <p class="manifesto-text">Most apps want <strong>more of you</strong>. More time, more taps, more data. They
+        measure your streaks and gamify your stillness until even rest feels like a performance.<br><br>This is the
+        opposite. A letter that asks nothing of you except ten minutes and an open breath. Written by someone who moved
+        to Bali, learned to just breathe, and found that almost everything else followed.</p>
+      <div class="manifesto-rule"></div>
+      <p class="manifesto-attribution">— Soft Breathe · Bali, Indonesia</p>
+    </div>
+  </section>
+
+  <section class="receive">
+    <p class="receive-label">What you receive</p>
+    <h2 class="receive-headline">One letter.<br><em>Three things inside.</em></h2>
+    <div class="receive-grid">
+      <div class="receive-card fade-in">
+        <div class="receive-glyph">一</div>
+        <h3 class="receive-title">The Practice</h3>
+        <p class="receive-body">A single breathing technique, explained clearly — what it is, where it comes from, when
+          to use it. Short enough to read in two minutes. Useful enough to return to for weeks.</p>
+      </div>
+      <div class="receive-card fade-in">
+        <div class="receive-glyph">二</div>
+        <h3 class="receive-title">The Science</h3>
+        <p class="receive-body">One piece of research or ancient wisdom, translated from the academic or classical into
+          plain language. The mechanism behind why the practice works. Not productivity hacks — real physiology.</p>
+      </div>
+      <div class="receive-card fade-in">
+        <div class="receive-glyph">三</div>
+        <h3 class="receive-title">The Shift</h3>
+        <p class="receive-body">One small observation about living more deliberately. The kind of thought that sits with
+          you through the week. Not advice — more like a question worth sitting with during your next exhale.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sample">
+    <p class="sample-label">Sample issue · Vol. 01</p>
+    <div class="issue-card fade-in">
+      <div class="issue-header">
+        <p class="issue-meta">Soft Breathe · Weekly Letter</p>
+        <h3 class="issue-title">"The exhale is not the end of the breath. It is the beginning of the next one."</h3>
+      </div>
+      <div class="issue-body">
+        <p class="issue-section-title">This week's practice</p>
+        <p class="issue-text">The Relax 4–6 is the simplest pattern in the Soft Breathe library — and arguably the most
+          important. Four counts in through the nose. Six counts out through the mouth. That's it. The asymmetry is
+          everything: a longer exhale than inhale is the fastest way to manually activate the vagus nerve and begin
+          downregulating a stressed nervous system. You can do it in a meeting. On the train. In the thirty seconds
+          before you open a difficult email.</p>
+        <div class="issue-practice">
+          <p class="issue-practice-label">Try it now · 3 minutes</p>
+          <p class="issue-practice-text">Inhale through the nose for 4 counts. Exhale slowly through the mouth for 6.
+            Let the exhale be soft — not forced. Repeat for 10 cycles. Notice what happens to your shoulders around
+            cycle three.</p>
+        </div>
+        <p class="issue-section-title">The science behind it</p>
+        <p class="issue-text">During inhalation, the heart rate naturally speeds up. During exhalation, it slows. This
+          is respiratory sinus arrhythmia — a normal and healthy fluctuation that reflects vagal tone. When the exhale
+          is consistently longer than the inhale, vagal activity increases cumulatively. Research published in
+          <em>Scientific Reports</em> found that a single session of slow, deep breathing significantly increased
+          parasympathetic activity and reduced anxiety scores in both young and older adults.</p>
+        <p class="issue-fade">— Continue reading in your inbox →</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-logo">Soft Breathe</span>
+    <nav class="footer-nav">
+      <a href="practice.html">Practice</a>
+      <a href="science.html">Science</a>
+      <a href="collective.html">Collective</a>
+    </nav>
+  </footer>
+
+  <script>
+    const cursor = document.getElementById('cursor');
+    const ring = document.getElementById('cursorRing');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx + 'px'; cursor.style.top = my + 'px'; });
+    (function animateRing() { rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12; ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; requestAnimationFrame(animateRing); })();
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('mouseenter', () => { cursor.style.transform = 'translate(-50%,-50%) scale(2.5)'; ring.style.width = '48px'; ring.style.height = '48px'; });
+      el.addEventListener('mouseleave', () => { cursor.style.transform = 'translate(-50%,-50%) scale(1)'; ring.style.width = '32px'; ring.style.height = '32px'; });
+    });
+    const observer = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.12 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
 </body>
+
 </html>

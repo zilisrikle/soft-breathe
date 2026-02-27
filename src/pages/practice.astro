@@ -4,53 +4,60 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="Practice" activePage="practice">
 
+
+
+
 <div class="ink-bg">
   <div class="ink-blob blob-tl" id="blobTl"></div>
   <div class="ink-blob blob-br" id="blobBr"></div>
   <div class="ink-blob blob-center" id="blobCenter"></div>
 </div>
 
+
+
 <div class="practice-layout">
+
   <aside class="panel-left">
     <p class="panel-label">Choose your practice</p>
     <div class="pattern-list-inner">
-      <div class="pattern-item active" data-pattern="relax">
+      <div class="pattern-item active" onclick="selectPattern('relax',this)">
         <div class="p-glyph">一</div>
         <div class="p-name">Relax 4–6</div>
         <div class="p-rhythm">Inhale 4 · Exhale 6</div>
         <div class="p-use">Daily reset, stress at work</div>
       </div>
       <div class="pi-divider"></div>
-      <div class="pattern-item" data-pattern="box">
+      <div class="pattern-item" onclick="selectPattern('box',this)">
         <div class="p-glyph">二</div>
         <div class="p-name">Box Breathing</div>
         <div class="p-rhythm">4 · Hold 4 · 4 · Hold 4</div>
         <div class="p-use">Focus, before important tasks</div>
       </div>
       <div class="pi-divider"></div>
-      <div class="pattern-item" data-pattern="478">
+      <div class="pattern-item" onclick="selectPattern('478',this)">
         <div class="p-glyph">三</div>
         <div class="p-name">4–7–8 Sleep</div>
         <div class="p-rhythm">Inhale 4 · Hold 7 · Exhale 8</div>
         <div class="p-use">Deep rest, before sleep</div>
       </div>
       <div class="pi-divider"></div>
-      <div class="pattern-item" data-pattern="energise">
+      <div class="pattern-item" onclick="selectPattern('energise',this)">
         <div class="p-glyph">四</div>
         <div class="p-name">Energise 6–2</div>
         <div class="p-rhythm">Inhale 6 · Exhale 2</div>
         <div class="p-use">Morning, afternoon fatigue</div>
       </div>
     </div>
+
     <div class="panel-spacer"></div>
     <div class="panel-divider"></div>
     <div class="session-controls">
       <p class="cycles-label">Cycles</p>
       <div class="cycles-row">
-        <button class="cycle-btn" data-cycles="3">3</button>
-        <button class="cycle-btn active" data-cycles="5">5</button>
-        <button class="cycle-btn" data-cycles="8">8</button>
-        <button class="cycle-btn" data-cycles="12">12</button>
+        <button class="cycle-btn" onclick="setCycles(3,this)">3</button>
+        <button class="cycle-btn active" onclick="setCycles(5,this)">5</button>
+        <button class="cycle-btn" onclick="setCycles(8,this)">8</button>
+        <button class="cycle-btn" onclick="setCycles(12,this)">12</button>
       </div>
     </div>
   </aside>
@@ -60,11 +67,14 @@ import Layout from '../layouts/Layout.astro';
       <div class="enso-ring" id="ensoRing">
         <svg viewBox="0 0 400 400" fill="none">
           <defs><filter id="inkBlur"><feGaussianBlur stdDeviation="1.5"/></filter></defs>
-          <path d="M200 52 C295 52,370 127,370 200 C370 278,295 348,215 350 C132 352,52 278,50 200 C48 120,118 50,198 52" stroke="#c8c0b0" stroke-width="1" stroke-linecap="round" fill="none" opacity="0.4" filter="url(#inkBlur)"/>
+          <path d="M200 52 C295 52,370 127,370 200 C370 278,295 348,215 350 C132 352,52 278,50 200 C48 120,118 50,198 52"
+            stroke="#c8c0b0" stroke-width="1" stroke-linecap="round" fill="none" opacity="0.4" filter="url(#inkBlur)"/>
           <path d="M198 52 C204 51,210 51,218 52" stroke="#f5f3ee" stroke-width="5" fill="none"/>
-          <path d="M200 72 C284 72,348 136,348 200 C348 268,284 330,215 332 C144 334,72 272,70 200 C68 126,132 70,198 72" stroke="#d8d4cc" stroke-width="0.5" fill="none" opacity="0.3"/>
+          <path d="M200 72 C284 72,348 136,348 200 C348 268,284 330,215 332 C144 334,72 272,70 200 C68 126,132 70,198 72"
+            stroke="#d8d4cc" stroke-width="0.5" fill="none" opacity="0.3"/>
         </svg>
       </div>
+
       <div class="orb-wrapper">
         <div class="phase-arc">
           <svg viewBox="0 0 110 110">
@@ -73,7 +83,7 @@ import Layout from '../layouts/Layout.astro';
           </svg>
         </div>
         <div class="orb-aura" id="orbAura"></div>
-        <div class="orb-core" id="orbCore">
+        <div class="orb-core" id="orbCore" onclick="toggleSession()">
           <div class="orb-kanji" id="orbKanji">息</div>
           <div class="orb-phase" id="orbPhase">begin</div>
           <div class="orb-count" id="orbCount"></div>
@@ -98,7 +108,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </div>
 
-    <button class="action-btn" id="actionBtn">
+    <button class="action-btn" id="actionBtn" onclick="toggleSession()">
       <span class="action-btn-line"></span>
       Begin the practice
     </button>
@@ -107,7 +117,7 @@ import Layout from '../layouts/Layout.astro';
       <div class="completion-kanji">息</div>
       <h2 class="completion-title">Session <em>complete.</em></h2>
       <p class="completion-body">Take a moment in the stillness. Both channels open. The kite at rest. This is sandhyā.</p>
-      <button class="completion-btn" id="resetBtn">
+      <button class="completion-btn" onclick="resetSession()">
         <span class="completion-btn-line"></span>
         Begin again
       </button>
@@ -115,94 +125,348 @@ import Layout from '../layouts/Layout.astro';
   </main>
 </div>
 
+<script>
+const PATTERNS = {
+  relax:    { name:'Relax 4–6',    phases:[{label:'Inhale',kanji:'吸',s:4,type:'inhale'},{label:'Exhale',kanji:'呼',s:6,type:'exhale'}] },
+  box:      { name:'Box Breathing',phases:[{label:'Inhale',kanji:'吸',s:4,type:'inhale'},{label:'Hold',kanji:'止',s:4,type:'hold'},{label:'Exhale',kanji:'呼',s:4,type:'exhale'},{label:'Hold',kanji:'止',s:4,type:'hold'}] },
+  '478':    { name:'4–7–8 Sleep',  phases:[{label:'Inhale',kanji:'吸',s:4,type:'inhale'},{label:'Hold',kanji:'止',s:7,type:'hold'},{label:'Exhale',kanji:'呼',s:8,type:'exhale'}] },
+  energise: { name:'Energise 6–2',phases:[{label:'Inhale',kanji:'吸',s:6,type:'inhale'},{label:'Exhale',kanji:'呼',s:2,type:'exhale'}] }
+};
+
+let currentKey='relax', totalCycles=5, running=false;
+let currentCycle=0, currentPhaseIdx=0;
+let phaseTimer=null, countTimer=null, animFrame=null;
+
+const $ = id => document.getElementById(id);
+const orbCore=$('orbCore'), orbKanji=$('orbKanji'), orbPhase=$('orbPhase'), orbCount=$('orbCount');
+const orbAura=$('orbAura'), arcFill=$('arcFill'), actionBtn=$('actionBtn');
+const completion=$('completion'), ensoRing=$('ensoRing');
+const blobTl=$('blobTl'), blobBr=$('blobBr'), blobCenter=$('blobCenter');
+
+function selectPattern(key, el) {
+  if (running) return;
+  currentKey = key;
+  document.querySelectorAll('.pattern-item').forEach(i=>i.classList.remove('active'));
+  el.classList.add('active');
+  $('infoPattern').textContent = PATTERNS[key].name;
+  refreshInfo(); buildDots();
+}
+
+function setCycles(n, el) {
+  if (running) return;
+  totalCycles = n;
+  document.querySelectorAll('.cycle-btn').forEach(b=>b.classList.toggle('active', parseInt(b.textContent)===n));
+  refreshInfo(); buildDots();
+}
+
+function refreshInfo() {
+  const total = PATTERNS[currentKey].phases.reduce((s,p)=>s+p.s,0) * totalCycles;
+  const m = Math.floor(total/60), s = total%60;
+  $('infoTime').textContent = s===0 ? `${m}m` : `${m}m ${s}s`;
+}
+
+function buildDots() {
+  const d=$('cycleDots'); d.innerHTML='';
+  for(let i=0;i<totalCycles;i++){const dot=document.createElement('div');dot.className='cdot';dot.id='cdot-'+i;d.appendChild(dot);}
+}
+
+function updateDots() {
+  for(let i=0;i<totalCycles;i++){
+    const d=$('cdot-'+i); if(!d) continue;
+    d.classList.remove('active','done');
+    if(i<currentCycle) d.classList.add('done');
+    else if(i===currentCycle) d.classList.add('active');
+  }
+}
+
+function toggleSession() { running ? stopSession() : startSession(); }
+
+function startSession() {
+  running=true; currentCycle=0; currentPhaseIdx=0;
+  completion.classList.remove('visible');
+  actionBtn.innerHTML='<span class="action-btn-line"></span>End session';
+  orbAura.style.opacity='0.8';
+  runPhase();
+}
+
+function stopSession() {
+  running=false;
+  clearTimeout(phaseTimer); clearInterval(countTimer); cancelAnimationFrame(animFrame);
+  resetVisual();
+  actionBtn.innerHTML='<span class="action-btn-line"></span>Begin the practice';
+  buildDots(); setAmbient('idle');
+}
+
+function runPhase() {
+  if(!running) return;
+  const phase = PATTERNS[currentKey].phases[currentPhaseIdx];
+  updateDots();
+  setAmbient(phase.type);
+  orbKanji.textContent = phase.kanji;
+  orbPhase.textContent = phase.label.toLowerCase();
+  animateArc(phase);
+  animateOrb(phase);
+
+  let rem = phase.s;
+  orbCount.textContent = rem;
+  clearInterval(countTimer);
+  countTimer = setInterval(()=>{ rem--; if(rem>0) orbCount.textContent=rem; }, 1000);
+
+  phaseTimer = setTimeout(()=>{
+    clearInterval(countTimer);
+    currentPhaseIdx++;
+    const phases = PATTERNS[currentKey].phases;
+    if(currentPhaseIdx >= phases.length){
+      currentPhaseIdx=0; currentCycle++;
+      if(currentCycle>=totalCycles){ finishSession(); return; }
+    }
+    runPhase();
+  }, phase.s*1000);
+}
+
+function animateOrb(phase) {
+  cancelAnimationFrame(animFrame);
+  const dur = phase.s*1000, start = Date.now();
+  if(phase.type==='inhale'){
+    const go=()=>{ const t=Math.min((Date.now()-start)/dur,1), e=1-Math.pow(1-t,2.5);
+      orbCore.style.transform=`scale(${1+e*0.18})`; orbAura.style.transform=`scale(${1+e*0.3})`;
+      if(t<1&&running) animFrame=requestAnimationFrame(go); };
+    requestAnimationFrame(go);
+  } else if(phase.type==='exhale'){
+    const go=()=>{ const t=Math.min((Date.now()-start)/dur,1), e=Math.pow(t,0.5);
+      orbCore.style.transform=`scale(${1.18-e*0.18})`; orbAura.style.transform=`scale(${1.3-e*0.3})`;
+      if(t<1&&running) animFrame=requestAnimationFrame(go); };
+    requestAnimationFrame(go);
+  } else {
+    const go=()=>{ const p=Math.sin((Date.now()-start)*0.003)*0.01;
+      orbCore.style.transform=`scale(${1.18+p})`; orbAura.style.transform=`scale(${1.28+p*1.5})`;
+      if(running&&(Date.now()-start)<dur) animFrame=requestAnimationFrame(go); };
+    requestAnimationFrame(go);
+  }
+}
+
+function animateArc(phase) {
+  arcFill.style.transition='none';
+  arcFill.style.strokeDashoffset='314';
+  arcFill.style.stroke = {inhale:'#b0a894',hold:'#c8c0b0',exhale:'#8a9e95'}[phase.type]||'#b0a894';
+  requestAnimationFrame(()=>{
+    arcFill.style.transition=`stroke-dashoffset ${phase.s}s linear`;
+    arcFill.style.strokeDashoffset='0';
+  });
+}
+
+function setAmbient(type) {
+  if(type==='inhale'){ blobTl.style.opacity='0.35'; blobCenter.style.opacity='0.25'; blobBr.style.opacity='0.12'; }
+  else if(type==='exhale'){ blobTl.style.opacity='0.12'; blobCenter.style.opacity='0.1'; blobBr.style.opacity='0.32'; }
+  else if(type==='hold'){ blobCenter.style.opacity='0.22'; }
+  else { blobTl.style.opacity='0.25'; blobBr.style.opacity='0.2'; blobCenter.style.opacity='0.15'; }
+}
+
+function resetVisual() {
+  orbCore.style.transform='scale(1)'; orbAura.style.transform='scale(1)'; orbAura.style.opacity='0';
+  orbKanji.textContent='息'; orbPhase.textContent='begin'; orbCount.textContent='';
+  arcFill.style.strokeDashoffset='314';
+}
+
+function finishSession() {
+  running=false; clearTimeout(phaseTimer); clearInterval(countTimer); cancelAnimationFrame(animFrame);
+  for(let i=0;i<totalCycles;i++){const d=$('cdot-'+i);if(d){d.classList.remove('active');d.classList.add('done');}}
+  orbKanji.textContent='息'; orbPhase.textContent='complete'; orbCount.textContent='';
+  orbCore.style.transform='scale(1.04)'; arcFill.style.strokeDashoffset='0';
+  actionBtn.innerHTML='<span class="action-btn-line"></span>Begin the practice';
+  setTimeout(()=>completion.classList.add('visible'),600);
+  setAmbient('idle');
+}
+
+function resetSession() {
+  completion.classList.remove('visible'); resetVisual(); buildDots();
+  currentCycle=0; currentPhaseIdx=0;
+}
+
+// Enso slow rotation
+let ensoAngle=0;
+(function rot(){ensoAngle+=0.012;ensoRing.style.transform=`rotate(${ensoAngle}deg)`;requestAnimationFrame(rot);})();
+
+buildDots(); refreshInfo();
+</script>
+
 </Layout>
 
-<script src="../scripts/practice.ts"></script>
-
-<style is:global>
-  html, body { height: 100%; overflow: hidden; }
-</style>
-
 <style>
-  .ink-bg { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
-  .ink-blob { position: absolute; border-radius: 50%; filter: blur(80px); transition: all 4s ease; }
-  .blob-tl { width: 50vw; height: 50vw; top: -15vw; left: -15vw; background: #d8d4cc; opacity: 0.25; }
-  .blob-br { width: 45vw; height: 45vw; bottom: -10vw; right: -10vw; background: #ccc8be; opacity: 0.2; }
-  .blob-center { width: 35vw; height: 35vw; top: 50%; left: 50%; transform: translate(-50%,-50%); background: #e0dbd2; opacity: 0.15; }
 
-  .practice-layout { position: relative; z-index: 1; height: 100vh; display: grid; grid-template-columns: 260px 1fr; align-items: stretch; }
-  .panel-left { border-right: 1px solid var(--paper-dark); display: flex; flex-direction: column; padding: 96px 0 40px; overflow-y: auto; }
-  .panel-label { font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--ink-ghost); padding: 0 32px; margin-bottom: 28px; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-  .pattern-item { display: flex; flex-direction: column; padding: 18px 32px; cursor: pointer; border-left: 2px solid transparent; transition: all 0.3s ease; }
-  .pattern-item:hover { background: var(--paper-warm); }
-  .pattern-item.active { border-left-color: var(--ink-soft); background: var(--paper-warm); }
-  .pi-divider { height: 1px; background: var(--paper-dark); margin: 0 32px; }
-  .p-glyph { font-family: 'IM Fell English', serif; font-size: 24px; color: var(--paper-dark); line-height: 1; margin-bottom: 8px; transition: color 0.3s; }
-  .pattern-item.active .p-glyph, .pattern-item:hover .p-glyph { color: var(--brush); }
-  .p-name { font-family: 'IM Fell English', serif; font-size: 15px; color: var(--ink); margin-bottom: 3px; }
-  .p-rhythm { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.12em; color: var(--ink-ghost); margin-bottom: 4px; }
-  .p-use { font-size: 11px; font-style: italic; color: var(--ink-faint); line-height: 1.4; }
+:root {
+  --ink: #1a1a18;
+  --ink-soft: #4a4a45;
+  --ink-faint: #8a8a80;
+  --ink-ghost: #b8b8b0;
+  --paper: #f5f3ee;
+  --paper-warm: #ede9e0;
+  --paper-dark: #e0dbd0;
+  --brush: #c8c0b0;
+}
 
-  .panel-spacer { flex: 1; }
-  .panel-divider { height: 1px; background: var(--paper-dark); margin: 0 32px 24px; }
-  .session-controls { padding: 0 32px; }
-  .cycles-label { font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ink-ghost); margin-bottom: 10px; }
-  .cycles-row { display: flex; gap: 6px; }
-  .cycle-btn { width: 34px; height: 30px; border: 1px solid var(--paper-dark); background: transparent; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--ink-faint); cursor: pointer; transition: all 0.2s; border-radius: 2px; }
-  .cycle-btn:hover { border-color: var(--brush); color: var(--ink-soft); }
-  .cycle-btn.active { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+html, body { height: 100%; background: var(--paper); font-family: 'Noto Serif', serif; color: var(--ink); overflow: hidden; cursor: none; }
 
-  .panel-right { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 80px 48px 48px; position: relative; }
-  .enso-container { position: relative; width: min(400px, 48vw); height: min(400px, 48vw); display: flex; align-items: center; justify-content: center; margin-bottom: 40px; }
-  .enso-ring { position: absolute; inset: 0; }
-  .enso-ring svg { width: 100%; height: 100%; }
-  .orb-wrapper { position: relative; width: 52%; height: 52%; display: flex; align-items: center; justify-content: center; }
-  .orb-aura { position: absolute; inset: -20px; border-radius: 50%; background: radial-gradient(circle, var(--paper-dark), transparent 70%); opacity: 0; transition: opacity 1s ease; }
-  .orb-core { position: relative; width: 100%; height: 100%; border-radius: 50%; background: radial-gradient(circle at 38% 32%, #f0ede6, var(--paper-dark) 55%, var(--brush) 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; cursor: pointer; box-shadow: 0 0 0 1px rgba(200,192,176,0.3), 0 8px 40px rgba(180,172,158,0.2), inset 0 1px 0 rgba(255,255,255,0.5); transition: box-shadow 0.5s ease; }
-  .phase-arc { position: absolute; inset: -14px; border-radius: 50%; pointer-events: none; }
-  .phase-arc svg { width: 100%; height: 100%; transform: rotate(-90deg); }
-  .arc-track { fill: none; stroke: var(--paper-dark); stroke-width: 1; }
-  .arc-fill { fill: none; stroke: var(--brush); stroke-width: 1.2; stroke-linecap: round; stroke-dasharray: 314; stroke-dashoffset: 314; }
-  .orb-kanji { font-family: 'IM Fell English', serif; font-size: clamp(26px, 4.5vw, 42px); color: var(--ink-soft); line-height: 1; transition: all 0.5s ease; user-select: none; }
-  .orb-phase { font-family: 'IM Fell English', serif; font-style: italic; font-size: clamp(10px, 1.4vw, 13px); color: var(--ink-ghost); letter-spacing: 0.06em; transition: all 0.4s ease; user-select: none; }
-  .orb-count { font-family: 'DM Mono', monospace; font-size: clamp(9px, 1.1vw, 12px); font-weight: 300; color: var(--brush); letter-spacing: 0.2em; transition: all 0.3s ease; user-select: none; min-height: 1em; }
+body::before {
+  content: ''; position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 50; opacity: 0.6;
+}
 
-  .info-row { display: flex; align-items: center; gap: 40px; }
-  .info-item { display: flex; flex-direction: column; align-items: center; gap: 4px; }
-  .info-value { font-family: 'IM Fell English', serif; font-size: 20px; color: var(--ink-soft); }
-  .info-label { font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--ink-ghost); }
-  .info-divider { width: 1px; height: 28px; background: var(--paper-dark); }
-  .cycle-dots { display: flex; gap: 7px; align-items: center; }
-  .cdot { width: 5px; height: 5px; border-radius: 50%; background: var(--paper-dark); transition: all 0.4s ease; }
-  .cdot.active { background: var(--brush); transform: scale(1.4); }
-  .cdot.done { background: var(--ink-ghost); }
+.ink-bg { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+.ink-blob { position: absolute; border-radius: 50%; filter: blur(80px); transition: all 4s ease; }
+.blob-tl { width: 50vw; height: 50vw; top: -15vw; left: -15vw; background: #d8d4cc; opacity: 0.25; }
+.blob-br { width: 45vw; height: 45vw; bottom: -10vw; right: -10vw; background: #ccc8be; opacity: 0.2; }
+.blob-center { width: 35vw; height: 35vw; top: 50%; left: 50%; transform: translate(-50%,-50%); background: #e0dbd2; opacity: 0.15; }
 
-  .action-btn { margin-top: 32px; display: inline-flex; align-items: center; gap: 16px; font-family: 'DM Mono', monospace; font-size: 10px; font-weight: 300; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-soft); background: none; border: none; cursor: pointer; transition: gap 0.3s, color 0.3s; padding: 0; }
-  .action-btn:hover { gap: 22px; color: var(--ink); }
-  .action-btn-line { width: 32px; height: 1px; background: currentColor; transition: width 0.3s; }
-  .action-btn:hover .action-btn-line { width: 48px; }
+.cursor { position: fixed; width: 5px; height: 5px; background: var(--ink); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: transform 0.15s; }
+.cursor-ring { position: fixed; width: 28px; height: 28px; border: 1px solid rgba(26,26,24,0.2); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: width 0.3s, height 0.3s; }
 
-  .completion { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(245,243,238,0.94); backdrop-filter: blur(10px); opacity: 0; pointer-events: none; transition: opacity 0.8s ease; z-index: 10; text-align: center; padding: 48px; }
-  .completion.visible { opacity: 1; pointer-events: all; }
-  .completion-kanji { font-family: 'IM Fell English', serif; font-size: 72px; color: var(--brush); line-height: 1; margin-bottom: 24px; }
-  .completion-title { font-family: 'IM Fell English', serif; font-size: 30px; color: var(--ink); margin-bottom: 12px; }
-  .completion-title em { font-style: italic; color: var(--ink-soft); }
-  .completion-body { font-size: 13px; font-style: italic; color: var(--ink-faint); line-height: 1.95; max-width: 340px; margin-bottom: 44px; }
-  .completion-btn { display: inline-flex; align-items: center; gap: 16px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-soft); background: none; border: none; cursor: pointer; transition: gap 0.3s; }
-  .completion-btn:hover { gap: 22px; }
-  .completion-btn-line { width: 32px; height: 1px; background: var(--ink-soft); transition: width 0.3s; }
-  .completion-btn:hover .completion-btn-line { width: 48px; }
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; align-items: center; justify-content: space-between; padding: 28px 80px; background: rgba(245,243,238,0.85); backdrop-filter: blur(12px); }
+.nav-logo { font-family: 'IM Fell English', serif; font-size: 14px; letter-spacing: 0.1em; color: var(--ink-soft); text-decoration: none; }
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a { font-family: 'DM Mono', monospace; font-size: 9px; font-weight: 300; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-ghost); text-decoration: none; transition: color 0.3s; }
+.nav-links a:hover, .nav-links a.active { color: var(--ink-soft); }
 
-  @media (max-width: 768px) {
-    html, body { overflow: auto; }
-    .practice-layout { grid-template-columns: 1fr; height: auto; }
-    .panel-left { border-right: none; border-bottom: 1px solid var(--paper-dark); padding: 72px 0 20px; overflow-x: auto; overflow-y: hidden; }
-    .pattern-list-inner { display: flex; flex-direction: row; padding: 0 20px; min-width: max-content; }
-    .pattern-item { min-width: 150px; border-left: none; border-bottom: 2px solid transparent; padding: 14px 18px; }
-    .pattern-item.active { border-left-color: transparent; border-bottom-color: var(--ink-soft); }
-    .panel-spacer, .panel-divider, .session-controls { display: none; }
-    .panel-right { min-height: 85vh; padding: 32px 24px; }
-    .enso-container { width: min(300px, 78vw); height: min(300px, 78vw); }
-  }
+/* Layout */
+.practice-layout {
+  position: relative; z-index: 1; height: 100vh;
+  display: grid; grid-template-columns: 260px 1fr; align-items: stretch;
+}
+
+/* Left panel */
+.panel-left {
+  border-right: 1px solid var(--paper-dark);
+  display: flex; flex-direction: column;
+  padding: 96px 0 40px; overflow-y: auto;
+}
+.panel-label { font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--ink-ghost); padding: 0 32px; margin-bottom: 28px; }
+
+.pattern-item {
+  display: flex; flex-direction: column; padding: 18px 32px;
+  cursor: pointer; border-left: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+.pattern-item:hover { background: var(--paper-warm); }
+.pattern-item.active { border-left-color: var(--ink-soft); background: var(--paper-warm); }
+.pi-divider { height: 1px; background: var(--paper-dark); margin: 0 32px; }
+.p-glyph { font-family: 'IM Fell English', serif; font-size: 24px; color: var(--paper-dark); line-height: 1; margin-bottom: 8px; transition: color 0.3s; }
+.pattern-item.active .p-glyph, .pattern-item:hover .p-glyph { color: var(--brush); }
+.p-name { font-family: 'IM Fell English', serif; font-size: 15px; color: var(--ink); margin-bottom: 3px; }
+.p-rhythm { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.12em; color: var(--ink-ghost); margin-bottom: 4px; }
+.p-use { font-size: 11px; font-style: italic; color: var(--ink-faint); line-height: 1.4; }
+
+.panel-spacer { flex: 1; }
+.panel-divider { height: 1px; background: var(--paper-dark); margin: 0 32px 24px; }
+.session-controls { padding: 0 32px; }
+.cycles-label { font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ink-ghost); margin-bottom: 10px; }
+.cycles-row { display: flex; gap: 6px; }
+.cycle-btn {
+  width: 34px; height: 30px; border: 1px solid var(--paper-dark); background: transparent;
+  font-family: 'DM Mono', monospace; font-size: 11px; color: var(--ink-faint); cursor: pointer;
+  transition: all 0.2s; border-radius: 2px;
+}
+.cycle-btn:hover { border-color: var(--brush); color: var(--ink-soft); }
+.cycle-btn.active { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+
+/* Right panel */
+.panel-right {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 80px 48px 48px; position: relative;
+}
+
+.enso-container {
+  position: relative;
+  width: min(400px, 48vw); height: min(400px, 48vw);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 40px;
+}
+
+.enso-ring { position: absolute; inset: 0; }
+.enso-ring svg { width: 100%; height: 100%; }
+
+.orb-wrapper {
+  position: relative; width: 52%; height: 52%;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.orb-aura {
+  position: absolute; inset: -20px; border-radius: 50%;
+  background: radial-gradient(circle, var(--paper-dark), transparent 70%);
+  opacity: 0; transition: opacity 1s ease;
+}
+
+.orb-core {
+  position: relative; width: 100%; height: 100%; border-radius: 50%;
+  background: radial-gradient(circle at 38% 32%, #f0ede6, var(--paper-dark) 55%, var(--brush) 100%);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 5px; cursor: pointer;
+  box-shadow: 0 0 0 1px rgba(200,192,176,0.3), 0 8px 40px rgba(180,172,158,0.2), inset 0 1px 0 rgba(255,255,255,0.5);
+  transition: box-shadow 0.5s ease;
+}
+
+.phase-arc { position: absolute; inset: -14px; border-radius: 50%; pointer-events: none; }
+.phase-arc svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.arc-track { fill: none; stroke: var(--paper-dark); stroke-width: 1; }
+.arc-fill { fill: none; stroke: var(--brush); stroke-width: 1.2; stroke-linecap: round; stroke-dasharray: 314; stroke-dashoffset: 314; }
+
+.orb-kanji { font-family: 'IM Fell English', serif; font-size: clamp(26px, 4.5vw, 42px); color: var(--ink-soft); line-height: 1; transition: all 0.5s ease; user-select: none; }
+.orb-phase { font-family: 'IM Fell English', serif; font-style: italic; font-size: clamp(10px, 1.4vw, 13px); color: var(--ink-ghost); letter-spacing: 0.06em; transition: all 0.4s ease; user-select: none; }
+.orb-count { font-family: 'DM Mono', monospace; font-size: clamp(9px, 1.1vw, 12px); font-weight: 300; color: var(--brush); letter-spacing: 0.2em; transition: all 0.3s ease; user-select: none; min-height: 1em; }
+
+/* Bottom info */
+.info-row { display: flex; align-items: center; gap: 40px; }
+.info-item { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.info-value { font-family: 'IM Fell English', serif; font-size: 20px; color: var(--ink-soft); }
+.info-label { font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--ink-ghost); }
+.info-divider { width: 1px; height: 28px; background: var(--paper-dark); }
+.cycle-dots { display: flex; gap: 7px; align-items: center; }
+.cdot { width: 5px; height: 5px; border-radius: 50%; background: var(--paper-dark); transition: all 0.4s ease; }
+.cdot.active { background: var(--brush); transform: scale(1.4); }
+.cdot.done { background: var(--ink-ghost); }
+
+.action-btn {
+  margin-top: 32px; display: inline-flex; align-items: center; gap: 16px;
+  font-family: 'DM Mono', monospace; font-size: 10px; font-weight: 300;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-soft);
+  background: none; border: none; cursor: pointer; transition: gap 0.3s, color 0.3s; padding: 0;
+}
+.action-btn:hover { gap: 22px; color: var(--ink); }
+.action-btn-line { width: 32px; height: 1px; background: currentColor; transition: width 0.3s; }
+.action-btn:hover .action-btn-line { width: 48px; }
+
+/* Completion */
+.completion {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  background: rgba(245,243,238,0.94); backdrop-filter: blur(10px);
+  opacity: 0; pointer-events: none; transition: opacity 0.8s ease; z-index: 10;
+  text-align: center; padding: 48px;
+}
+.completion.visible { opacity: 1; pointer-events: all; }
+.completion-kanji { font-family: 'IM Fell English', serif; font-size: 72px; color: var(--brush); line-height: 1; margin-bottom: 24px; }
+.completion-title { font-family: 'IM Fell English', serif; font-size: 30px; color: var(--ink); margin-bottom: 12px; }
+.completion-title em { font-style: italic; color: var(--ink-soft); }
+.completion-body { font-size: 13px; font-style: italic; color: var(--ink-faint); line-height: 1.95; max-width: 340px; margin-bottom: 44px; }
+.completion-btn { display: inline-flex; align-items: center; gap: 16px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-soft); background: none; border: none; cursor: pointer; transition: gap 0.3s; }
+.completion-btn:hover { gap: 22px; }
+.completion-btn-line { width: 32px; height: 1px; background: var(--ink-soft); transition: width 0.3s; }
+.completion-btn:hover .completion-btn-line { width: 48px; }
+
+@media (max-width: 768px) {
+  nav { padding: 20px 24px; }
+  .nav-links { display: none; }
+  html, body { overflow: auto; }
+  .practice-layout { grid-template-columns: 1fr; height: auto; }
+  .panel-left { border-right: none; border-bottom: 1px solid var(--paper-dark); padding: 72px 0 20px; overflow-x: auto; overflow-y: hidden; }
+  .pattern-list-inner { display: flex; flex-direction: row; padding: 0 20px; min-width: max-content; }
+  .pattern-item { min-width: 150px; border-left: none; border-bottom: 2px solid transparent; padding: 14px 18px; }
+  .pattern-item.active { border-left-color: transparent; border-bottom-color: var(--ink-soft); }
+  .panel-spacer, .panel-divider, .session-controls { display: none; }
+  .panel-right { min-height: 85vh; padding: 32px 24px; }
+  .enso-container { width: min(300px, 78vw); height: min(300px, 78vw); }
+}
+
 </style>
