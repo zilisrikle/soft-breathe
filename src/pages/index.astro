@@ -1,3 +1,907 @@
 ---
-return Astro.redirect('/practice');
+import Layout from '../layouts/Layout.astro';
 ---
+
+<Layout title="eastern" activePage="eastern">
+
+
+    <!-- Custom cursor -->
+    
+
+    <!-- Ink wash background -->
+    <div class="ink-bg">
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <filter id="inkBlur">
+                    <feGaussianBlur stdDeviation="40" />
+                </filter>
+            </defs>
+            <!-- Soft ink wash marks -->
+            <ellipse cx="15%" cy="20%" rx="180" ry="120" fill="#d8d4cc" opacity="0.25" filter="url(#inkBlur)" />
+            <ellipse cx="85%" cy="75%" rx="220" ry="160" fill="#ccc8be" opacity="0.2" filter="url(#inkBlur)" />
+            <ellipse cx="60%" cy="30%" rx="100" ry="80" fill="#e0dbd2" opacity="0.18" filter="url(#inkBlur)" />
+        </svg>
+    </div>
+
+    <!-- Nav -->
+    
+
+    <!-- Hero -->
+    <section class="hero" id="practice">
+        <div class="hero-left">
+            <p class="hero-number">— Patañjali · ~200 B.C.</p>
+
+            <h1 class="hero-headline">
+                The mind is a kite.<br>
+                <em>The breath</em><br>
+                is the string.
+            </h1>
+
+            <div class="hero-rule"></div>
+
+            <p class="hero-sub">
+                Left untended, the mind floats away — into worry, into noise, into everything except here. Breath is the
+                only thread that pulls it back. Not by force. By rhythm. Soft Breathe is where that thread becomes a
+                daily practice.
+            </p>
+
+            <a href="breathe.html" class="hero-cta">
+                <span class="hero-cta-line"></span>
+                Take hold of the string
+            </a>
+        </div>
+
+        <div class="hero-right">
+            <div class="enso-wrapper">
+                <!-- Enso circle SVG — hand-drawn feel -->
+                <svg class="enso-svg" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="
+          M200 60
+          C290 60, 360 130, 360 200
+          C360 275, 290 345, 210 348
+          C130 351, 58 282, 56 205
+          C54 128, 118 62, 195 60
+        " stroke="#c8c0b0" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.6" />
+                    <path d="
+          M205 58
+          C298 56, 372 128, 370 202
+          C368 278, 296 352, 218 352
+          C138 352, 66 280, 64 202
+          C62 122, 132 56, 205 58
+        " stroke="#a8a098" stroke-width="0.5" stroke-linecap="round" fill="none" opacity="0.3" />
+                    <!-- Small gap for enso incompleteness -->
+                    <path d="M200 58 C210 57, 218 57, 226 58" stroke="var(--paper)" stroke-width="4" fill="none" />
+                </svg>
+
+                <div class="enso-text-wrapper">
+                    <div class="enso-kanji">息</div>
+                    <div class="enso-latin">breath · 息 · prāṇa</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider">
+        <div class="divider-line"></div>
+        <span class="divider-mark">Prāṇa · Vagus · Sandhyā</span>
+        <div class="divider-line"></div>
+    </div>
+
+    <!-- Wisdom -->
+    <section class="wisdom" id="wisdom">
+        <div class="wisdom-intro">
+            <p class="wisdom-label">The same discovery, 2,000 years apart</p>
+            <h2 class="wisdom-headline">
+                Breath is the only door<br>
+                between the <em>conscious</em><br>
+                and the <em>autonomous.</em>
+            </h2>
+            <p class="wisdom-body">
+                Your heartbeat, digestion, immune response — all beyond reach. Breath alone crosses the threshold.
+                Patañjali understood this in 200 B.C. Neuroscience confirmed it in the 20th century. The mechanism was
+                always the same: regulate the lungs, and the heart and vagus nerve follow.
+            </p>
+        </div>
+
+        <div class="wisdom-pillars">
+            <div class="pillar">
+                <div class="pillar-mark">一</div>
+                <p class="pillar-source">Patañjali · Yoga Sutras · ~200 B.C.</p>
+                <h3 class="pillar-title">Prāṇa</h3>
+                <p class="pillar-body">The subtle force that links mind and body — like a kite and its string. By
+                    learning to regulate inhalation, exhalation, and the pause between them, the practitioner gains
+                    conscious access to the processes the body normally runs alone.</p>
+            </div>
+            <div class="pillar">
+                <div class="pillar-mark">二</div>
+                <p class="pillar-source">Neuroscience · Vagus Nerve · Present</p>
+                <h3 class="pillar-title">The Vagus Bridge</h3>
+                <p class="pillar-body">By regulating the motion of the lungs, the heart and vagus nerve are also
+                    controlled. Modern research confirms: a slow extended exhale stimulates the vagus nerve directly —
+                    shifting the nervous system from threat into rest within minutes.</p>
+            </div>
+            <div class="pillar">
+                <div class="pillar-mark">三</div>
+                <p class="pillar-source">Patañjali · Yoga Sutras · ~200 B.C.</p>
+                <h3 class="pillar-title">Sandhyā</h3>
+                <p class="pillar-body">The moment when both nostrils are open and free of obstruction — a rare,
+                    spontaneous equilibrium. The extension of such moments is called sandhyā. Conscious breathing is the
+                    practice of learning to find it, and stay.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider">
+        <div class="divider-line"></div>
+        <span class="divider-mark">· · ·</span>
+        <div class="divider-line"></div>
+    </div>
+
+    <!-- Quote -->
+    <section class="quote-section">
+        <div class="quote-mark">"</div>
+        <p class="quote-text">
+            The mind and prana are closely linked — like a kite and a string. When the string is skillfully held, the
+            kite can be made to fly in the desired direction.
+        </p>
+        <p class="quote-attr">— Patañjali · Yoga Sutras · ~200 B.C.</p>
+    </section>
+
+    <!-- Collective -->
+    <section class="collective" id="collective">
+        <div>
+            <p class="collective-label">The Collective</p>
+            <h2 class="collective-headline">
+                Weekly dispatches on<br><em>prana, neuroscience,</em><br>and the string.
+            </h2>
+            <p class="collective-body">
+                One practice. One piece of ancient wisdom translated for modern life. One small shift in how you move
+                through the week. No noise. Written from Bali.
+            </p>
+            <div class="ink-form">
+                <input class="ink-input" type="email" placeholder="your email address">
+                <button class="ink-submit">Join the Collective →</button>
+            </div>
+        </div>
+
+        <div class="collective-visual">
+            <div class="scroll-text">Breathe</div>
+            <div class="collective-aside">
+                <p class="aside-line">
+                    "The moment when both nostrils are open and free — that is sandhyā. The practice is learning to stay
+                    there."
+                </p>
+                <p class="aside-line">
+                    The string is always in your hand. Most of us just forget we're holding it.
+                </p>
+                <p class="aside-line">
+                    No streaks. No scores. Just the kite, the string, and the next breath.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    
+
+    <script>
+        // Custom cursor
+        
+
+        function animateRing() {
+            rx += (mx - rx) * 0.12;
+            ry += (my - ry) * 0.12;
+            ring.style.left = rx + 'px';
+            ring.style.top = ry + 'px';
+            requestAnimationFrame(animateRing);
+        }
+        animateRing();
+
+        // Hover effects
+        document.querySelectorAll('a, button, .pillar').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.style.transform = 'translate(-50%,-50%) scale(2.5)';
+                ring.style.width = '48px';
+                ring.style.height = '48px';
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.style.transform = 'translate(-50%,-50%) scale(1)';
+                ring.style.width = '32px';
+                ring.style.height = '32px';
+            });
+        });
+
+        // Scroll reveal
+        
+    </script>
+
+</Layout>
+
+<style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --ink: #1a1a18;
+            --ink-mid: #2e2e2b;
+            --ink-soft: #4a4a45;
+            --ink-faint: #8a8a80;
+            --ink-ghost: #b8b8b0;
+            --paper: #f5f3ee;
+            --paper-warm: #ede9e0;
+            --paper-dark: #e0dbd0;
+            --brush: #c8c0b0;
+            --accent: #5a4a3a;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--paper);
+            font-family: 'Noto Serif', serif;
+            color: var(--ink);
+            overflow-x: hidden;
+            cursor: none;
+        }
+
+        /* Custom cursor */
+        .cursor {
+            position: fixed;
+            width: 6px;
+            height: 6px;
+            background: var(--ink);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.15s ease, opacity 0.3s;
+            transform: translate(-50%, -50%);
+        }
+
+        .cursor-ring {
+            position: fixed;
+            width: 32px;
+            height: 32px;
+            border: 1px solid rgba(26, 26, 24, 0.25);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            transition: transform 0.4s ease, width 0.3s, height 0.3s;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Ink wash texture overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.6;
+        }
+
+        /* Ink wash SVG background marks */
+        .ink-bg {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        /* ── Nav ── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 32px 80px;
+            background: rgba(245, 243, 238, 0.85);
+            backdrop-filter: blur(12px);
+        }
+
+        .nav-logo {
+            font-family: 'IM Fell English', serif;
+            font-size: 15px;
+            letter-spacing: 0.12em;
+            color: var(--ink-soft);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: 'DM Mono', monospace;
+            font-size: 10px;
+            font-weight: 300;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--ink-faint);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--ink);
+        }
+
+        /* ── Hero ── */
+        .hero {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            padding: 120px 80px 80px;
+            gap: 80px;
+        }
+
+        .hero-left {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .hero-number {
+            font-family: 'DM Mono', monospace;
+            font-size: 10px;
+            font-weight: 300;
+            letter-spacing: 0.3em;
+            color: var(--ink-ghost);
+            margin-bottom: 48px;
+            opacity: 0;
+            animation: inkReveal 1.2s ease 0.3s forwards;
+        }
+
+        .hero-headline {
+            font-family: 'IM Fell English', serif;
+            font-size: clamp(40px, 5vw, 68px);
+            font-weight: 400;
+            line-height: 1.08;
+            color: var(--ink);
+            margin-bottom: 48px;
+            opacity: 0;
+            animation: inkReveal 1.4s ease 0.5s forwards;
+        }
+
+        .hero-headline em {
+            font-style: italic;
+            color: var(--ink-soft);
+        }
+
+        .hero-rule {
+            width: 48px;
+            height: 1px;
+            background: var(--brush);
+            margin-bottom: 32px;
+            opacity: 0;
+            animation: inkReveal 1s ease 0.9s forwards;
+        }
+
+        .hero-sub {
+            font-size: 14px;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--ink-faint);
+            line-height: 1.9;
+            max-width: 380px;
+            margin-bottom: 56px;
+            opacity: 0;
+            animation: inkReveal 1.2s ease 1.1s forwards;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            font-weight: 300;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--ink);
+            text-decoration: none;
+            opacity: 0;
+            animation: inkReveal 1s ease 1.3s forwards;
+            transition: gap 0.3s;
+        }
+
+        .hero-cta:hover {
+            gap: 24px;
+        }
+
+        .hero-cta-line {
+            width: 40px;
+            height: 1px;
+            background: var(--ink);
+            transition: width 0.3s;
+        }
+
+        .hero-cta:hover .hero-cta-line {
+            width: 56px;
+        }
+
+        /* Hero right — ink circle */
+        .hero-right {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            animation: inkReveal 2s ease 0.8s forwards;
+        }
+
+        .enso-wrapper {
+            position: relative;
+            width: min(420px, 45vw);
+            height: min(420px, 45vw);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .enso-svg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            animation: ensoRotate 40s linear infinite;
+        }
+
+        .enso-text-wrapper {
+            position: relative;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .enso-kanji {
+            font-family: 'IM Fell English', serif;
+            font-size: clamp(56px, 8vw, 96px);
+            color: var(--ink);
+            line-height: 1;
+            animation: breatheText 5s ease-in-out infinite;
+        }
+
+        .enso-latin {
+            font-family: 'DM Mono', monospace;
+            font-size: 9px;
+            font-weight: 300;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            color: var(--ink-ghost);
+        }
+
+        /* ── Divider ── */
+        .section-divider {
+            position: relative;
+            z-index: 1;
+            padding: 0 80px;
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .divider-line {
+            flex: 1;
+            height: 1px;
+            background: var(--paper-dark);
+        }
+
+        .divider-mark {
+            font-family: 'DM Mono', monospace;
+            font-size: 9px;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--ink-ghost);
+            white-space: nowrap;
+        }
+
+        /* ── Wisdom section ── */
+        .wisdom {
+            position: relative;
+            z-index: 1;
+            padding: 120px 80px;
+        }
+
+        .wisdom-intro {
+            max-width: 560px;
+            margin-bottom: 100px;
+        }
+
+        .wisdom-label {
+            font-family: 'DM Mono', monospace;
+            font-size: 9px;
+            font-weight: 300;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--ink-ghost);
+            margin-bottom: 28px;
+        }
+
+        .wisdom-headline {
+            font-family: 'IM Fell English', serif;
+            font-size: clamp(28px, 4vw, 44px);
+            line-height: 1.2;
+            color: var(--ink);
+            margin-bottom: 28px;
+        }
+
+        .wisdom-headline em {
+            font-style: italic;
+            color: var(--ink-soft);
+        }
+
+        .wisdom-body {
+            font-size: 14px;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--ink-faint);
+            line-height: 2;
+        }
+
+        /* Wisdom pillars */
+        .wisdom-pillars {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2px;
+        }
+
+        .pillar {
+            background: var(--paper-warm);
+            padding: 56px 44px;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            position: relative;
+            overflow: hidden;
+            transition: background 0.4s;
+        }
+
+        .pillar:hover {
+            background: var(--paper-dark);
+        }
+
+        .pillar:first-child {
+            border-radius: 4px 0 0 4px;
+        }
+
+        .pillar:last-child {
+            border-radius: 0 4px 4px 0;
+        }
+
+        .pillar-mark {
+            font-family: 'IM Fell English', serif;
+            font-size: 72px;
+            color: var(--paper-dark);
+            line-height: 1;
+            margin-bottom: 32px;
+            transition: color 0.4s;
+        }
+
+        .pillar:hover .pillar-mark {
+            color: var(--brush);
+        }
+
+        .pillar-source {
+            font-family: 'DM Mono', monospace;
+            font-size: 9px;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--ink-ghost);
+            margin-bottom: 16px;
+        }
+
+        .pillar-title {
+            font-family: 'IM Fell English', serif;
+            font-size: 20px;
+            color: var(--ink);
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        .pillar-body {
+            font-size: 13px;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--ink-faint);
+            line-height: 1.9;
+        }
+
+        /* ── Quote section ── */
+        .quote-section {
+            position: relative;
+            z-index: 1;
+            padding: 120px 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background: var(--paper-warm);
+        }
+
+        .quote-mark {
+            font-family: 'IM Fell English', serif;
+            font-size: 120px;
+            color: var(--paper-dark);
+            line-height: 0.6;
+            margin-bottom: 48px;
+        }
+
+        .quote-text {
+            font-family: 'IM Fell English', serif;
+            font-style: italic;
+            font-size: clamp(22px, 3.5vw, 38px);
+            line-height: 1.4;
+            color: var(--ink);
+            max-width: 720px;
+            margin-bottom: 40px;
+        }
+
+        .quote-attr {
+            font-family: 'DM Mono', monospace;
+            font-size: 9px;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--ink-ghost);
+        }
+
+        /* ── Community ── */
+        .collective {
+            position: relative;
+            z-index: 1;
+            padding: 120px 80px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: center;
+        }
+
+        .collective-label {
+            font-family: 'DM Mono', monospace;
+            font-size: 9px;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--ink-ghost);
+            margin-bottom: 28px;
+        }
+
+        .collective-headline {
+            font-family: 'IM Fell English', serif;
+            font-size: clamp(28px, 4vw, 46px);
+            line-height: 1.2;
+            color: var(--ink);
+            margin-bottom: 24px;
+        }
+
+        .collective-headline em {
+            font-style: italic;
+            color: var(--ink-soft);
+        }
+
+        .collective-body {
+            font-size: 14px;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--ink-faint);
+            line-height: 1.9;
+            margin-bottom: 48px;
+        }
+
+        .ink-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            border: 1px solid var(--paper-dark);
+            background: var(--paper-warm);
+        }
+
+        .ink-input {
+            padding: 18px 24px;
+            border: none;
+            background: transparent;
+            font-family: 'Noto Serif', serif;
+            font-size: 13px;
+            font-style: italic;
+            color: var(--ink);
+            outline: none;
+            border-bottom: 1px solid var(--paper-dark);
+        }
+
+        .ink-input::placeholder {
+            color: var(--ink-ghost);
+        }
+
+        .ink-submit {
+            padding: 16px 24px;
+            background: var(--ink);
+            color: var(--paper);
+            border: none;
+            font-family: 'DM Mono', monospace;
+            font-size: 10px;
+            font-weight: 300;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.3s;
+            text-align: left;
+        }
+
+        .ink-submit:hover {
+            background: var(--ink-soft);
+        }
+
+        .collective-visual {
+            position: relative;
+        }
+
+        .scroll-text {
+            writing-mode: vertical-rl;
+            font-family: 'IM Fell English', serif;
+            font-style: italic;
+            font-size: clamp(64px, 10vw, 120px);
+            color: var(--paper-dark);
+            line-height: 1;
+            user-select: none;
+            letter-spacing: -0.02em;
+        }
+
+        .collective-aside {
+            position: absolute;
+            top: 0;
+            left: 64px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .aside-line {
+            font-size: 13px;
+            font-style: italic;
+            color: var(--ink-faint);
+            line-height: 1.8;
+            max-width: 280px;
+            padding-left: 20px;
+            border-left: 1px solid var(--brush);
+        }
+
+        /* ── Footer ── */
+        footer {
+            position: relative;
+            z-index: 1;
+            border-top: 1px solid var(--paper-dark);
+            padding: 48px 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .footer-logo {
+            font-family: 'IM Fell English', serif;
+            font-size: 15px;
+            color: var(--ink-ghost);
+            letter-spacing: 0.08em;
+        }
+
+        .footer-copy {
+            font-family: 'DM Mono', monospace;
+            font-size: 9px;
+            letter-spacing: 0.2em;
+            color: var(--ink-ghost);
+        }
+
+        /* ── Animations ── */
+        @keyframes inkReveal {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes ensoRotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes breatheText {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.85;
+            }
+
+            50% {
+                transform: scale(1.04);
+                opacity: 1;
+            }
+        }
+
+        /* ── Mobile ── */
+        @media (max-width: 768px) {
+            nav {
+                padding: 24px 28px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 100px 28px 60px;
+                gap: 60px;
+            }
+
+            .hero-right {
+                display: none;
+            }
+
+            .section-divider {
+                padding: 0 28px;
+            }
+
+            .wisdom {
+                padding: 80px 28px;
+            }
+
+            .wisdom-pillars {
+                grid-template-columns: 1fr;
+            }
+
+            .pillar:first-child {
+                border-radius: 4px 4px 0 0;
+            }
+
+            .pillar:last-child {
+                border-radius: 0 0 4px 4px;
+            }
+
+            .quote-section {
+                padding: 80px 28px;
+            }
+
+            .collective {
+                grid-template-columns: 1fr;
+                padding: 80px 28px;
+                gap: 60px;
+            }
+
+            .collective-visual {
+                display: none;
+            }
+
+            footer {
+                padding: 40px 28px;
+                flex-direction: column;
+                gap: 16px;
+            }
+        }
+    
+</style>
