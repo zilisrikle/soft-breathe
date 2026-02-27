@@ -1,0 +1,16 @@
+---
+interface Props {
+  activePage: string;
+}
+
+const { activePage } = Astro.props;
+---
+
+<nav>
+  <a href="/practice" class="nav-logo">Soft Breathe</a>
+  <ul class="nav-links">
+    <li><a href="/practice" class:list={[{ active: activePage === 'practice' }]}>Practice</a></li>
+    <li><a href="/science" class:list={[{ active: activePage === 'science' }]}>Science</a></li>
+    <li><a href="/collective" class:list={[{ active: activePage === 'collective' }]}>Collective</a></li>
+  </ul>
+</nav>

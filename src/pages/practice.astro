@@ -1,0 +1,208 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Practice" activePage="practice">
+
+<div class="ink-bg">
+  <div class="ink-blob blob-tl" id="blobTl"></div>
+  <div class="ink-blob blob-br" id="blobBr"></div>
+  <div class="ink-blob blob-center" id="blobCenter"></div>
+</div>
+
+<div class="practice-layout">
+  <aside class="panel-left">
+    <p class="panel-label">Choose your practice</p>
+    <div class="pattern-list-inner">
+      <div class="pattern-item active" data-pattern="relax">
+        <div class="p-glyph">一</div>
+        <div class="p-name">Relax 4–6</div>
+        <div class="p-rhythm">Inhale 4 · Exhale 6</div>
+        <div class="p-use">Daily reset, stress at work</div>
+      </div>
+      <div class="pi-divider"></div>
+      <div class="pattern-item" data-pattern="box">
+        <div class="p-glyph">二</div>
+        <div class="p-name">Box Breathing</div>
+        <div class="p-rhythm">4 · Hold 4 · 4 · Hold 4</div>
+        <div class="p-use">Focus, before important tasks</div>
+      </div>
+      <div class="pi-divider"></div>
+      <div class="pattern-item" data-pattern="478">
+        <div class="p-glyph">三</div>
+        <div class="p-name">4–7–8 Sleep</div>
+        <div class="p-rhythm">Inhale 4 · Hold 7 · Exhale 8</div>
+        <div class="p-use">Deep rest, before sleep</div>
+      </div>
+      <div class="pi-divider"></div>
+      <div class="pattern-item" data-pattern="energise">
+        <div class="p-glyph">四</div>
+        <div class="p-name">Energise 6–2</div>
+        <div class="p-rhythm">Inhale 6 · Exhale 2</div>
+        <div class="p-use">Morning, afternoon fatigue</div>
+      </div>
+    </div>
+    <div class="panel-spacer"></div>
+    <div class="panel-divider"></div>
+    <div class="session-controls">
+      <p class="cycles-label">Cycles</p>
+      <div class="cycles-row">
+        <button class="cycle-btn" data-cycles="3">3</button>
+        <button class="cycle-btn active" data-cycles="5">5</button>
+        <button class="cycle-btn" data-cycles="8">8</button>
+        <button class="cycle-btn" data-cycles="12">12</button>
+      </div>
+    </div>
+  </aside>
+
+  <main class="panel-right">
+    <div class="enso-container">
+      <div class="enso-ring" id="ensoRing">
+        <svg viewBox="0 0 400 400" fill="none">
+          <defs><filter id="inkBlur"><feGaussianBlur stdDeviation="1.5"/></filter></defs>
+          <path d="M200 52 C295 52,370 127,370 200 C370 278,295 348,215 350 C132 352,52 278,50 200 C48 120,118 50,198 52" stroke="#c8c0b0" stroke-width="1" stroke-linecap="round" fill="none" opacity="0.4" filter="url(#inkBlur)"/>
+          <path d="M198 52 C204 51,210 51,218 52" stroke="#f5f3ee" stroke-width="5" fill="none"/>
+          <path d="M200 72 C284 72,348 136,348 200 C348 268,284 330,215 332 C144 334,72 272,70 200 C68 126,132 70,198 72" stroke="#d8d4cc" stroke-width="0.5" fill="none" opacity="0.3"/>
+        </svg>
+      </div>
+      <div class="orb-wrapper">
+        <div class="phase-arc">
+          <svg viewBox="0 0 110 110">
+            <circle class="arc-track" cx="55" cy="55" r="50"/>
+            <circle class="arc-fill" id="arcFill" cx="55" cy="55" r="50"/>
+          </svg>
+        </div>
+        <div class="orb-aura" id="orbAura"></div>
+        <div class="orb-core" id="orbCore">
+          <div class="orb-kanji" id="orbKanji">息</div>
+          <div class="orb-phase" id="orbPhase">begin</div>
+          <div class="orb-count" id="orbCount"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-row">
+      <div class="info-item">
+        <div class="info-value" id="infoPattern">Relax 4–6</div>
+        <div class="info-label">Pattern</div>
+      </div>
+      <div class="info-divider"></div>
+      <div class="info-item">
+        <div class="cycle-dots" id="cycleDots"></div>
+        <div class="info-label">Cycles</div>
+      </div>
+      <div class="info-divider"></div>
+      <div class="info-item">
+        <div class="info-value" id="infoTime">—</div>
+        <div class="info-label">Duration</div>
+      </div>
+    </div>
+
+    <button class="action-btn" id="actionBtn">
+      <span class="action-btn-line"></span>
+      Begin the practice
+    </button>
+
+    <div class="completion" id="completion">
+      <div class="completion-kanji">息</div>
+      <h2 class="completion-title">Session <em>complete.</em></h2>
+      <p class="completion-body">Take a moment in the stillness. Both channels open. The kite at rest. This is sandhyā.</p>
+      <button class="completion-btn" id="resetBtn">
+        <span class="completion-btn-line"></span>
+        Begin again
+      </button>
+    </div>
+  </main>
+</div>
+
+</Layout>
+
+<script src="../scripts/practice.ts"></script>
+
+<style is:global>
+  html, body { height: 100%; overflow: hidden; }
+</style>
+
+<style>
+  .ink-bg { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+  .ink-blob { position: absolute; border-radius: 50%; filter: blur(80px); transition: all 4s ease; }
+  .blob-tl { width: 50vw; height: 50vw; top: -15vw; left: -15vw; background: #d8d4cc; opacity: 0.25; }
+  .blob-br { width: 45vw; height: 45vw; bottom: -10vw; right: -10vw; background: #ccc8be; opacity: 0.2; }
+  .blob-center { width: 35vw; height: 35vw; top: 50%; left: 50%; transform: translate(-50%,-50%); background: #e0dbd2; opacity: 0.15; }
+
+  .practice-layout { position: relative; z-index: 1; height: 100vh; display: grid; grid-template-columns: 260px 1fr; align-items: stretch; }
+  .panel-left { border-right: 1px solid var(--paper-dark); display: flex; flex-direction: column; padding: 96px 0 40px; overflow-y: auto; }
+  .panel-label { font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--ink-ghost); padding: 0 32px; margin-bottom: 28px; }
+
+  .pattern-item { display: flex; flex-direction: column; padding: 18px 32px; cursor: pointer; border-left: 2px solid transparent; transition: all 0.3s ease; }
+  .pattern-item:hover { background: var(--paper-warm); }
+  .pattern-item.active { border-left-color: var(--ink-soft); background: var(--paper-warm); }
+  .pi-divider { height: 1px; background: var(--paper-dark); margin: 0 32px; }
+  .p-glyph { font-family: 'IM Fell English', serif; font-size: 24px; color: var(--paper-dark); line-height: 1; margin-bottom: 8px; transition: color 0.3s; }
+  .pattern-item.active .p-glyph, .pattern-item:hover .p-glyph { color: var(--brush); }
+  .p-name { font-family: 'IM Fell English', serif; font-size: 15px; color: var(--ink); margin-bottom: 3px; }
+  .p-rhythm { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.12em; color: var(--ink-ghost); margin-bottom: 4px; }
+  .p-use { font-size: 11px; font-style: italic; color: var(--ink-faint); line-height: 1.4; }
+
+  .panel-spacer { flex: 1; }
+  .panel-divider { height: 1px; background: var(--paper-dark); margin: 0 32px 24px; }
+  .session-controls { padding: 0 32px; }
+  .cycles-label { font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ink-ghost); margin-bottom: 10px; }
+  .cycles-row { display: flex; gap: 6px; }
+  .cycle-btn { width: 34px; height: 30px; border: 1px solid var(--paper-dark); background: transparent; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--ink-faint); cursor: pointer; transition: all 0.2s; border-radius: 2px; }
+  .cycle-btn:hover { border-color: var(--brush); color: var(--ink-soft); }
+  .cycle-btn.active { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+
+  .panel-right { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 80px 48px 48px; position: relative; }
+  .enso-container { position: relative; width: min(400px, 48vw); height: min(400px, 48vw); display: flex; align-items: center; justify-content: center; margin-bottom: 40px; }
+  .enso-ring { position: absolute; inset: 0; }
+  .enso-ring svg { width: 100%; height: 100%; }
+  .orb-wrapper { position: relative; width: 52%; height: 52%; display: flex; align-items: center; justify-content: center; }
+  .orb-aura { position: absolute; inset: -20px; border-radius: 50%; background: radial-gradient(circle, var(--paper-dark), transparent 70%); opacity: 0; transition: opacity 1s ease; }
+  .orb-core { position: relative; width: 100%; height: 100%; border-radius: 50%; background: radial-gradient(circle at 38% 32%, #f0ede6, var(--paper-dark) 55%, var(--brush) 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; cursor: pointer; box-shadow: 0 0 0 1px rgba(200,192,176,0.3), 0 8px 40px rgba(180,172,158,0.2), inset 0 1px 0 rgba(255,255,255,0.5); transition: box-shadow 0.5s ease; }
+  .phase-arc { position: absolute; inset: -14px; border-radius: 50%; pointer-events: none; }
+  .phase-arc svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+  .arc-track { fill: none; stroke: var(--paper-dark); stroke-width: 1; }
+  .arc-fill { fill: none; stroke: var(--brush); stroke-width: 1.2; stroke-linecap: round; stroke-dasharray: 314; stroke-dashoffset: 314; }
+  .orb-kanji { font-family: 'IM Fell English', serif; font-size: clamp(26px, 4.5vw, 42px); color: var(--ink-soft); line-height: 1; transition: all 0.5s ease; user-select: none; }
+  .orb-phase { font-family: 'IM Fell English', serif; font-style: italic; font-size: clamp(10px, 1.4vw, 13px); color: var(--ink-ghost); letter-spacing: 0.06em; transition: all 0.4s ease; user-select: none; }
+  .orb-count { font-family: 'DM Mono', monospace; font-size: clamp(9px, 1.1vw, 12px); font-weight: 300; color: var(--brush); letter-spacing: 0.2em; transition: all 0.3s ease; user-select: none; min-height: 1em; }
+
+  .info-row { display: flex; align-items: center; gap: 40px; }
+  .info-item { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+  .info-value { font-family: 'IM Fell English', serif; font-size: 20px; color: var(--ink-soft); }
+  .info-label { font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--ink-ghost); }
+  .info-divider { width: 1px; height: 28px; background: var(--paper-dark); }
+  .cycle-dots { display: flex; gap: 7px; align-items: center; }
+  .cdot { width: 5px; height: 5px; border-radius: 50%; background: var(--paper-dark); transition: all 0.4s ease; }
+  .cdot.active { background: var(--brush); transform: scale(1.4); }
+  .cdot.done { background: var(--ink-ghost); }
+
+  .action-btn { margin-top: 32px; display: inline-flex; align-items: center; gap: 16px; font-family: 'DM Mono', monospace; font-size: 10px; font-weight: 300; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-soft); background: none; border: none; cursor: pointer; transition: gap 0.3s, color 0.3s; padding: 0; }
+  .action-btn:hover { gap: 22px; color: var(--ink); }
+  .action-btn-line { width: 32px; height: 1px; background: currentColor; transition: width 0.3s; }
+  .action-btn:hover .action-btn-line { width: 48px; }
+
+  .completion { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(245,243,238,0.94); backdrop-filter: blur(10px); opacity: 0; pointer-events: none; transition: opacity 0.8s ease; z-index: 10; text-align: center; padding: 48px; }
+  .completion.visible { opacity: 1; pointer-events: all; }
+  .completion-kanji { font-family: 'IM Fell English', serif; font-size: 72px; color: var(--brush); line-height: 1; margin-bottom: 24px; }
+  .completion-title { font-family: 'IM Fell English', serif; font-size: 30px; color: var(--ink); margin-bottom: 12px; }
+  .completion-title em { font-style: italic; color: var(--ink-soft); }
+  .completion-body { font-size: 13px; font-style: italic; color: var(--ink-faint); line-height: 1.95; max-width: 340px; margin-bottom: 44px; }
+  .completion-btn { display: inline-flex; align-items: center; gap: 16px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-soft); background: none; border: none; cursor: pointer; transition: gap 0.3s; }
+  .completion-btn:hover { gap: 22px; }
+  .completion-btn-line { width: 32px; height: 1px; background: var(--ink-soft); transition: width 0.3s; }
+  .completion-btn:hover .completion-btn-line { width: 48px; }
+
+  @media (max-width: 768px) {
+    html, body { overflow: auto; }
+    .practice-layout { grid-template-columns: 1fr; height: auto; }
+    .panel-left { border-right: none; border-bottom: 1px solid var(--paper-dark); padding: 72px 0 20px; overflow-x: auto; overflow-y: hidden; }
+    .pattern-list-inner { display: flex; flex-direction: row; padding: 0 20px; min-width: max-content; }
+    .pattern-item { min-width: 150px; border-left: none; border-bottom: 2px solid transparent; padding: 14px 18px; }
+    .pattern-item.active { border-left-color: transparent; border-bottom-color: var(--ink-soft); }
+    .panel-spacer, .panel-divider, .session-controls { display: none; }
+    .panel-right { min-height: 85vh; padding: 32px 24px; }
+    .enso-container { width: min(300px, 78vw); height: min(300px, 78vw); }
+  }
+</style>
