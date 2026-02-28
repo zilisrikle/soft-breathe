@@ -17,7 +17,33 @@ const { title, activePage, fullHeight = false } = Astro.props;
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{title} — Soft Breathe</title>
+  
+  <!-- SEO & Meta Tags -->
+  <title>{title === 'Soft Breathe' ? title : `${title} | Soft Breathe`}</title>
+  <meta name="description" content="Ancient breathing science meets modern neuroscience. Free breathing practices for focus, sleep, and calm. No signup required.">
+  <link rel="canonical" href={`https://softbreathe.com${activePage === 'eastern' ? '' : '/' + activePage}`}>
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Soft Breathe — The Ancient Science of Breath">
+  <meta property="og:description" content="4-7-8, Box Breathing, and more. Open and practice immediately.">
+  <meta property="og:image" content="https://softbreathe.com/og-image.jpg">
+  <meta property="og:url" content={`https://softbreathe.com${activePage === 'eastern' ? '' : '/' + activePage}`}>
+  <meta property="og:type" content="website">
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Soft Breathe",
+    "description": "Ancient breathing practices backed by modern neuroscience. Free, no signup required.",
+    "url": "https://softbreathe.com",
+    "applicationCategory": "HealthApplication",
+    "offers": {"@type": "Offer", "price": "0"}
+  }
+  </script>
+
+  <!-- Icons & Fonts -->
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Noto+Serif:ital,wght@0,300;0,400;1,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
