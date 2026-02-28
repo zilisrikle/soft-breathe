@@ -95,6 +95,30 @@ nav {
   text-decoration: none;
 }
 
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.lang-toggle {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  color: var(--ink-faint);
+  background: none;
+  border: 1px solid var(--paper-dark);
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.lang-toggle:hover {
+  color: var(--ink);
+  border-color: var(--brush);
+}
+
 .nav-links {
   display: flex;
   gap: 40px;

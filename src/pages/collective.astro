@@ -10,49 +10,49 @@ import Layout from '../layouts/Layout.astro';
   
 
   <section class="hero">
-    <p class="hero-label">The Collective</p>
-    <h1 class="hero-headline">A weekly letter on<br><em>breath, stillness,</em><br>and living deliberately.</h1>
-    <p class="hero-body">No noise. No streaks. One practice, one piece of ancient wisdom translated for modern life, and
+    <p class="hero-label" data-i18n="col.hero.label">The Collective</p>
+    <h1 class="hero-headline" data-i18n="col.hero.h1">A weekly letter on<br><em>breath, stillness,</em><br>and living deliberately.</h1>
+    <p class="hero-body" data-i18n="col.hero.body">No noise. No streaks. One practice, one piece of ancient wisdom translated for modern life, and
       one small shift — every week. Written from Bali, read everywhere.</p>
     <div class="hero-form">
-      <input class="hero-input" type="email" placeholder="your email address">
-      <button class="hero-submit">Join the Collective</button>
+      <input class="hero-input" type="email" placeholder="your email address" data-i18n="home.collective.placeholder">
+      <button class="hero-submit" data-i18n="col.hero.btn">Join the Collective</button>
     </div>
-    <p class="hero-note">Weekly. No spam. Unsubscribe any time.</p>
+    <p class="hero-note" data-i18n="col.hero.note">Weekly. No spam. Unsubscribe any time.</p>
   </section>
 
   <section class="manifesto">
     <div class="manifesto-inner fade-in">
-      <p class="manifesto-label">Why this exists</p>
-      <p class="manifesto-text">Most apps want <strong>more of you</strong>. More time, more taps, more data. They
+      <p class="manifesto-label" data-i18n="col.manifesto.label">Why this exists</p>
+      <p class="manifesto-text" data-i18n="col.manifesto.text">Most apps want <strong>more of you</strong>. More time, more taps, more data. They
         measure your streaks and gamify your stillness until even rest feels like a performance.<br><br>This is the
         opposite. A letter that asks nothing of you except ten minutes and an open breath. Written by someone who moved
         to Bali, learned to just breathe, and found that almost everything else followed.</p>
       <div class="manifesto-rule"></div>
-      <p class="manifesto-attribution">— Soft Breathe · Bali, Indonesia</p>
+      <p class="manifesto-attribution" data-i18n="col.manifesto.attr">— Soft Breathe · Bali, Indonesia</p>
     </div>
   </section>
 
   <section class="receive">
-    <p class="receive-label">What you receive</p>
-    <h2 class="receive-headline">One letter.<br><em>Three things inside.</em></h2>
+    <p class="receive-label" data-i18n="col.receive.label">What you receive</p>
+    <h2 class="receive-headline" data-i18n="col.receive.h2">One letter.<br><em>Three things inside.</em></h2>
     <div class="receive-grid">
       <div class="receive-card fade-in">
         <div class="receive-glyph">一</div>
-        <h3 class="receive-title">The Practice</h3>
-        <p class="receive-body">A single breathing technique, explained clearly — what it is, where it comes from, when
+        <h3 class="receive-title" data-i18n="col.r1.title">The Practice</h3>
+        <p class="receive-body" data-i18n="col.r1.body">A single breathing technique, explained clearly — what it is, where it comes from, when
           to use it. Short enough to read in two minutes. Useful enough to return to for weeks.</p>
       </div>
       <div class="receive-card fade-in">
         <div class="receive-glyph">二</div>
-        <h3 class="receive-title">The Science</h3>
-        <p class="receive-body">One piece of research or ancient wisdom, translated from the academic or classical into
+        <h3 class="receive-title" data-i18n="col.r2.title">The Science</h3>
+        <p class="receive-body" data-i18n="col.r2.body">One piece of research or ancient wisdom, translated from the academic or classical into
           plain language. The mechanism behind why the practice works. Not productivity hacks — real physiology.</p>
       </div>
       <div class="receive-card fade-in">
         <div class="receive-glyph">三</div>
-        <h3 class="receive-title">The Shift</h3>
-        <p class="receive-body">One small observation about living more deliberately. The kind of thought that sits with
+        <h3 class="receive-title" data-i18n="col.r3.title">The Shift</h3>
+        <p class="receive-body" data-i18n="col.r3.body">One small observation about living more deliberately. The kind of thought that sits with
           you through the week. Not advice — more like a question worth sitting with during your next exhale.</p>
       </div>
     </div>
@@ -92,6 +92,43 @@ import Layout from '../layouts/Layout.astro';
   
 
   
+
+
+<script>
+  const btn = document.querySelector('.hero-submit');
+  const input = document.querySelector('.hero-input');
+  if (btn && input) {
+    btn.addEventListener('click', async () => {
+      const email = input.value.trim();
+      if (!email || !email.includes('@')) {
+        btn.textContent = 'Please enter a valid email';
+        setTimeout(() => btn.textContent = 'Join the Collective', 2000);
+        return;
+      }
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+      try {
+        const res = await fetch('/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email })
+        });
+        const data = await res.json();
+        if (data.success) {
+          btn.textContent = '✓ You\'re in!';
+          input.value = '';
+        } else {
+          btn.textContent = data.error || 'Something went wrong';
+          setTimeout(() => btn.textContent = 'Join the Collective', 3000);
+        }
+      } catch (e) {
+        btn.textContent = 'Network error — try again';
+        setTimeout(() => btn.textContent = 'Join the Collective', 3000);
+      }
+      btn.disabled = false;
+    });
+  }
+</script>
 
 </Layout>
 

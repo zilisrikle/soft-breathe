@@ -18,41 +18,41 @@ import Layout from '../layouts/Layout.astro';
 <div class="practice-layout">
 
   <aside class="panel-left">
-    <p class="panel-label">Choose your practice</p>
+    <p class="panel-label" data-i18n="prac.label">Choose your practice</p>
     <div class="pattern-list-inner">
       <div class="pattern-item active" onclick="selectPattern('relax',this)">
         <div class="p-glyph">一</div>
-        <div class="p-name">Relax 4–6</div>
-        <div class="p-rhythm">Inhale 4 · Exhale 6</div>
-        <div class="p-use">Daily reset, stress at work</div>
+        <div class="p-name" data-i18n="prac.relax.name">Relax 4–6</div>
+        <div class="p-rhythm" data-i18n="prac.relax.rhythm">Inhale 4 · Exhale 6</div>
+        <div class="p-use" data-i18n="prac.relax.use">Daily reset, stress at work</div>
       </div>
       <div class="pi-divider"></div>
       <div class="pattern-item" onclick="selectPattern('box',this)">
         <div class="p-glyph">二</div>
-        <div class="p-name">Box Breathing</div>
-        <div class="p-rhythm">4 · Hold 4 · 4 · Hold 4</div>
-        <div class="p-use">Focus, before important tasks</div>
+        <div class="p-name" data-i18n="prac.box.name">Box Breathing</div>
+        <div class="p-rhythm" data-i18n="prac.box.rhythm">4 · Hold 4 · 4 · Hold 4</div>
+        <div class="p-use" data-i18n="prac.box.use">Focus, before important tasks</div>
       </div>
       <div class="pi-divider"></div>
       <div class="pattern-item" onclick="selectPattern('478',this)">
         <div class="p-glyph">三</div>
-        <div class="p-name">4–7–8 Sleep</div>
-        <div class="p-rhythm">Inhale 4 · Hold 7 · Exhale 8</div>
-        <div class="p-use">Deep rest, before sleep</div>
+        <div class="p-name" data-i18n="prac.478.name">4–7–8 Sleep</div>
+        <div class="p-rhythm" data-i18n="prac.478.rhythm">Inhale 4 · Hold 7 · Exhale 8</div>
+        <div class="p-use" data-i18n="prac.478.use">Deep rest, before sleep</div>
       </div>
       <div class="pi-divider"></div>
       <div class="pattern-item" onclick="selectPattern('energise',this)">
         <div class="p-glyph">四</div>
-        <div class="p-name">Energise 6–2</div>
-        <div class="p-rhythm">Inhale 6 · Exhale 2</div>
-        <div class="p-use">Morning, afternoon fatigue</div>
+        <div class="p-name" data-i18n="prac.energise.name">Energise 6–2</div>
+        <div class="p-rhythm" data-i18n="prac.energise.rhythm">Inhale 6 · Exhale 2</div>
+        <div class="p-use" data-i18n="prac.energise.use">Morning, afternoon fatigue</div>
       </div>
     </div>
 
     <div class="panel-spacer"></div>
     <div class="panel-divider"></div>
     <div class="session-controls">
-      <p class="cycles-label">Cycles</p>
+      <p class="cycles-label" data-i18n="prac.cycles">Cycles</p>
       <div class="cycles-row">
         <button class="cycle-btn" onclick="setCycles(3,this)">3</button>
         <button class="cycle-btn active" onclick="setCycles(5,this)">5</button>
@@ -85,7 +85,7 @@ import Layout from '../layouts/Layout.astro';
         <div class="orb-aura" id="orbAura"></div>
         <div class="orb-core" id="orbCore" onclick="toggleSession()">
           <div class="orb-kanji" id="orbKanji">息</div>
-          <div class="orb-phase" id="orbPhase">begin</div>
+          <div class="orb-phase" id="orbPhase" data-i18n="prac.begin.label">begin</div>
           <div class="orb-count" id="orbCount"></div>
         </div>
       </div>
@@ -94,43 +94,46 @@ import Layout from '../layouts/Layout.astro';
     <div class="info-row">
       <div class="info-item">
         <div class="info-value" id="infoPattern">Relax 4–6</div>
-        <div class="info-label">Pattern</div>
+        <div class="info-label" data-i18n="prac.pattern">Pattern</div>
       </div>
       <div class="info-divider"></div>
       <div class="info-item">
         <div class="cycle-dots" id="cycleDots"></div>
-        <div class="info-label">Cycles</div>
+        <div class="info-label" data-i18n="prac.cycles">Cycles</div>
       </div>
       <div class="info-divider"></div>
       <div class="info-item">
         <div class="info-value" id="infoTime">—</div>
-        <div class="info-label">Duration</div>
+        <div class="info-label" data-i18n="prac.duration">Duration</div>
       </div>
     </div>
 
     <button class="action-btn" id="actionBtn" onclick="toggleSession()">
       <span class="action-btn-line"></span>
-      Begin the practice
+      <span data-i18n="prac.begin">Begin the practice</span>
     </button>
 
     <div class="completion" id="completion">
       <div class="completion-kanji">息</div>
-      <h2 class="completion-title">Session <em>complete.</em></h2>
-      <p class="completion-body">Take a moment in the stillness. Both channels open. The kite at rest. This is sandhyā.</p>
+      <h2 class="completion-title" data-i18n="prac.complete.title">Session <em>complete.</em></h2>
+      <p class="completion-body" data-i18n="prac.complete.body">Take a moment in the stillness. Both channels open. The kite at rest. This is sandhyā.</p>
       <button class="completion-btn" onclick="resetSession()">
         <span class="completion-btn-line"></span>
-        Begin again
+        <span data-i18n="prac.complete.btn">Begin again</span>
       </button>
     </div>
   </main>
 </div>
 
 <script>
+import { translations, getLang } from '../scripts/i18n.js';
+function t(key) { const lang = getLang(); return translations[key]?.[lang] || translations[key]?.en || key; }
+
 const PATTERNS = {
-  relax:    { name:'Relax 4–6',    phases:[{label:'Inhale',kanji:'吸',s:4,type:'inhale'},{label:'Exhale',kanji:'呼',s:6,type:'exhale'}] },
-  box:      { name:'Box Breathing',phases:[{label:'Inhale',kanji:'吸',s:4,type:'inhale'},{label:'Hold',kanji:'止',s:4,type:'hold'},{label:'Exhale',kanji:'呼',s:4,type:'exhale'},{label:'Hold',kanji:'止',s:4,type:'hold'}] },
-  '478':    { name:'4–7–8 Sleep',  phases:[{label:'Inhale',kanji:'吸',s:4,type:'inhale'},{label:'Hold',kanji:'止',s:7,type:'hold'},{label:'Exhale',kanji:'呼',s:8,type:'exhale'}] },
-  energise: { name:'Energise 6–2',phases:[{label:'Inhale',kanji:'吸',s:6,type:'inhale'},{label:'Exhale',kanji:'呼',s:2,type:'exhale'}] }
+  relax:    { name:'Relax 4–6',    phases:[{label:'inhale',kanji:'吸',s:4,type:'inhale'},{label:'exhale',kanji:'呼',s:6,type:'exhale'}] },
+  box:      { name:'Box Breathing',phases:[{label:'inhale',kanji:'吸',s:4,type:'inhale'},{label:'hold',kanji:'止',s:4,type:'hold'},{label:'exhale',kanji:'呼',s:4,type:'exhale'},{label:'hold',kanji:'止',s:4,type:'hold'}] },
+  '478':    { name:'4–7–8 Sleep',  phases:[{label:'inhale',kanji:'吸',s:4,type:'inhale'},{label:'hold',kanji:'止',s:7,type:'hold'},{label:'exhale',kanji:'呼',s:8,type:'exhale'}] },
+  energise: { name:'Energise 6–2',phases:[{label:'inhale',kanji:'吸',s:6,type:'inhale'},{label:'exhale',kanji:'呼',s:2,type:'exhale'}] }
 };
 
 let currentKey='relax', totalCycles=5, running=false;
@@ -145,6 +148,9 @@ const blobTl=$('blobTl'), blobBr=$('blobBr'), blobCenter=$('blobCenter');
 
 function selectPattern(key, el) {
   if (running) return;
+  // Dismiss completion overlay if visible (fixes pattern switch after session ends)
+  completion.classList.remove('visible');
+  resetVisual();
   currentKey = key;
   document.querySelectorAll('.pattern-item').forEach(i=>i.classList.remove('active'));
   el.classList.add('active');
@@ -184,7 +190,7 @@ function toggleSession() { running ? stopSession() : startSession(); }
 function startSession() {
   running=true; currentCycle=0; currentPhaseIdx=0;
   completion.classList.remove('visible');
-  actionBtn.innerHTML='<span class="action-btn-line"></span>End session';
+  actionBtn.innerHTML='<span class="action-btn-line"></span>' + t('prac.end');
   orbAura.style.opacity='0.8';
   runPhase();
 }
@@ -193,7 +199,7 @@ function stopSession() {
   running=false;
   clearTimeout(phaseTimer); clearInterval(countTimer); cancelAnimationFrame(animFrame);
   resetVisual();
-  actionBtn.innerHTML='<span class="action-btn-line"></span>Begin the practice';
+  actionBtn.innerHTML='<span class="action-btn-line"></span>' + t('prac.begin');
   buildDots(); setAmbient('idle');
 }
 
@@ -203,7 +209,7 @@ function runPhase() {
   updateDots();
   setAmbient(phase.type);
   orbKanji.textContent = phase.kanji;
-  orbPhase.textContent = phase.label.toLowerCase();
+  orbPhase.textContent = t('prac.' + phase.label);
   animateArc(phase);
   animateOrb(phase);
 
@@ -264,14 +270,14 @@ function setAmbient(type) {
 
 function resetVisual() {
   orbCore.style.transform='scale(1)'; orbAura.style.transform='scale(1)'; orbAura.style.opacity='0';
-  orbKanji.textContent='息'; orbPhase.textContent='begin'; orbCount.textContent='';
+  orbKanji.textContent='息'; orbPhase.textContent=t('prac.begin.label'); orbCount.textContent='';
   arcFill.style.strokeDashoffset='314';
 }
 
 function finishSession() {
   running=false; clearTimeout(phaseTimer); clearInterval(countTimer); cancelAnimationFrame(animFrame);
   for(let i=0;i<totalCycles;i++){const d=$('cdot-'+i);if(d){d.classList.remove('active');d.classList.add('done');}}
-  orbKanji.textContent='息'; orbPhase.textContent='complete'; orbCount.textContent='';
+  orbKanji.textContent='息'; orbPhase.textContent=t('prac.complete.label'); orbCount.textContent='';
   orbCore.style.transform='scale(1.04)'; arcFill.style.strokeDashoffset='0';
   actionBtn.innerHTML='<span class="action-btn-line"></span>Begin the practice';
   setTimeout(()=>completion.classList.add('visible'),600);

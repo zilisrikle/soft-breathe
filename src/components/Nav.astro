@@ -8,18 +8,24 @@ const { activePage } = Astro.props;
 
 <nav>
   <a href="/" class="nav-logo">Soft Breathe</a>
-  <button class="nav-toggle" id="navToggle" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <div class="nav-right">
+    <button class="lang-toggle" id="langToggle" aria-label="Switch language">中文</button>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
   <ul class="nav-links" id="navLinks">
-    <li><a href="/" class:list={[{ active: activePage === 'eastern' }]}>Home</a></li>
-    <li><a href="/practice" class:list={[{ active: activePage === 'practice' }]}>Practice</a></li>
-    <li><a href="/science" class:list={[{ active: activePage === 'science' }]}>Science</a></li>
-    <li><a href="/collective" class:list={[{ active: activePage === 'collective' }]}>Collective</a></li>
+    <li><a href="/" class:list={[{ active: activePage === 'eastern' }]} data-i18n="nav.home">Home</a></li>
+    <li><a href="/practice" class:list={[{ active: activePage === 'practice' }]} data-i18n="nav.practice">Practice</a></li>
+    <li><a href="/science" class:list={[{ active: activePage === 'science' }]} data-i18n="nav.science">Science</a></li>
+    <li><a href="/collective" class:list={[{ active: activePage === 'collective' }]} data-i18n="nav.collective">Collective</a></li>
   </ul>
 </nav>
 
 <script>
+  import { applyLang, getLang, toggleLang } from '../scripts/i18n.js';
+
+  // Hamburger menu
   const toggle = document.getElementById('navToggle');
   const links = document.getElementById('navLinks');
   if (toggle && links) {
@@ -28,4 +34,13 @@ const { activePage } = Astro.props;
       toggle.classList.toggle('open');
     });
   }
+
+  // Language toggle
+  const langBtn = document.getElementById('langToggle');
+  if (langBtn) {
+    langBtn.addEventListener('click', () => toggleLang());
+  }
+
+  // Apply saved language on load
+  applyLang(getLang());
 </script>
