@@ -45,7 +45,7 @@ import Layout from '../layouts/Layout.astro';
                 daily practice.
             </p>
 
-            <a href="breathe.html" class="hero-cta">
+            <a href="/practice" class="hero-cta">
                 <span class="hero-cta-line"></span>
                 Take hold of the string
             </a>
@@ -295,49 +295,6 @@ import Layout from '../layouts/Layout.astro';
             overflow: hidden;
         }
 
-        /* ── Nav ── */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 200;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 32px 80px;
-            background: rgba(245, 243, 238, 0.85);
-            backdrop-filter: blur(12px);
-        }
-
-        .nav-logo {
-            font-family: 'IM Fell English', serif;
-            font-size: 15px;
-            letter-spacing: 0.12em;
-            color: var(--ink-soft);
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 40px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            font-family: 'DM Mono', monospace;
-            font-size: 10px;
-            font-weight: 300;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--ink-faint);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--ink);
-        }
 
         /* ── Hero ── */
         .hero {
@@ -781,30 +738,6 @@ import Layout from '../layouts/Layout.astro';
             border-left: 1px solid var(--brush);
         }
 
-        /* ── Footer ── */
-        footer {
-            position: relative;
-            z-index: 1;
-            border-top: 1px solid var(--paper-dark);
-            padding: 48px 80px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .footer-logo {
-            font-family: 'IM Fell English', serif;
-            font-size: 15px;
-            color: var(--ink-ghost);
-            letter-spacing: 0.08em;
-        }
-
-        .footer-copy {
-            font-family: 'DM Mono', monospace;
-            font-size: 9px;
-            letter-spacing: 0.2em;
-            color: var(--ink-ghost);
-        }
 
         /* ── Animations ── */
         @keyframes inkReveal {
@@ -845,14 +778,6 @@ import Layout from '../layouts/Layout.astro';
 
         /* ── Mobile ── */
         @media (max-width: 768px) {
-            nav {
-                padding: 24px 28px;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
             .hero {
                 grid-template-columns: 1fr;
                 padding: 100px 28px 60px;
@@ -895,12 +820,6 @@ import Layout from '../layouts/Layout.astro';
 
             .collective-visual {
                 display: none;
-            }
-
-            footer {
-                padding: 40px 28px;
-                flex-direction: column;
-                gap: 16px;
             }
         }
     

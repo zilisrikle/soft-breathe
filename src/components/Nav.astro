@@ -8,9 +8,24 @@ const { activePage } = Astro.props;
 
 <nav>
   <a href="/" class="nav-logo">Soft Breathe</a>
-  <ul class="nav-links">
+  <button class="nav-toggle" id="navToggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="/" class:list={[{ active: activePage === 'eastern' }]}>Home</a></li>
     <li><a href="/practice" class:list={[{ active: activePage === 'practice' }]}>Practice</a></li>
     <li><a href="/science" class:list={[{ active: activePage === 'science' }]}>Science</a></li>
     <li><a href="/collective" class:list={[{ active: activePage === 'collective' }]}>Collective</a></li>
   </ul>
 </nav>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  if (toggle && links) {
+    toggle.addEventListener('click', () => {
+      links.classList.toggle('open');
+      toggle.classList.toggle('open');
+    });
+  }
+</script>
