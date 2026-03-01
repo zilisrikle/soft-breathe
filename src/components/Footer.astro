@@ -1,13 +1,126 @@
 <footer>
-  <span class="footer-logo" data-i18n="nav.footer">Soft Breathe</span>
-  <div class="footer-nav">
-    <a href="/">Home</a>
-    <a href="/practice">Practice</a>
-    <a href="/science">Science</a>
-    <a href="/breathing-for-anxiety">Anxiety</a>
-    <a href="/breathing-for-sleep">Sleep</a>
-    <a href="/breathing-for-focus">Focus</a>
-    <a href="/breathing-science">Guide</a>
-    <a href="/collective">Collective</a>
+  <div class="footer-layout">
+    <div class="footer-col brand-col">
+      <div class="footer-brand">
+        <span class="brand-name">Soft Breathe</span>
+        <span class="brand-char">息</span>
+      </div>
+      <p class="brand-tagline">The string is always<br>in your hands.</p>
+    </div>
+    
+    <div class="footer-col">
+      <h4>Practice</h4>
+      <a href="/practice">Relax 4-6</a>
+      <a href="/practice">Box Breathing</a>
+      <a href="/practice">4-7-8 Sleep</a>
+      <a href="/practice">Energise 6-2</a>
+    </div>
+    
+    <div class="footer-col">
+      <h4>Learn</h4>
+      <a href="/breathing-science">Breathing Science</a>
+      <a href="/breathing-for-anxiety">For Anxiety</a>
+      <a href="/breathing-for-sleep">For Sleep</a>
+      <a href="/breathing-for-focus">For Focus</a>
+    </div>
+    
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <a href="/collective">The Collective</a>
+      <a href="#">Newsletter</a>
+    </div>
   </div>
 </footer>
+
+<style>
+  footer {
+    border-top: 1px solid var(--paper-dark);
+    padding: 80px;
+    background: var(--paper);
+  }
+  
+  .footer-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .brand-col {
+    gap: 24px;
+  }
+  
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .brand-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 14px;
+    color: var(--ink);
+  }
+  
+  .brand-char {
+    font-family: 'Noto Serif', serif;
+    font-size: 14px;
+    color: var(--ink-faint);
+  }
+  
+  .brand-tagline {
+    font-family: 'DM Mono', monospace;
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+  
+  .footer-col h4 {
+    font-family: 'DM Mono', monospace;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  
+  .footer-col a {
+    font-family: 'DM Mono', monospace;
+    font-size: 14px;
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .footer-col a:hover {
+    color: var(--ink);
+  }
+  
+  @media (max-width: 1024px) {
+    .footer-layout {
+      grid-template-columns: 1fr 1fr;
+      gap: 60px 40px;
+    }
+    .brand-col {
+      grid-column: 1 / -1;
+    }
+    footer {
+      padding: 60px 40px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .footer-layout {
+      grid-template-columns: 1fr;
+    }
+    footer {
+      padding: 60px 28px;
+    }
+  }
+</style>

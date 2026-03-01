@@ -15,7 +15,6 @@ const { activePage } = Astro.props;
     </button>
   </div>
   <ul class="nav-links" id="navLinks">
-    <li><a href="/" class:list={[{ active: activePage === 'eastern' }]} data-i18n="nav.home">Home</a></li>
     <li><a href="/practice" class:list={[{ active: activePage === 'practice' }]} data-i18n="nav.practice">Practice</a></li>
     <li><a href="/science" class:list={[{ active: activePage === 'science' }]} data-i18n="nav.science">Science</a></li>
     <li><a href="/collective" class:list={[{ active: activePage === 'collective' }]} data-i18n="nav.collective">Collective</a></li>

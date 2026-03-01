@@ -289,6 +289,29 @@ import Layout from '../layouts/Layout.astro';
   }
   </script>
 
+  <div class="divider">
+    <div class="divider-line"></div>
+    <span class="divider-mark" data-i18n="sci.further.label">Further Reading</span>
+    <div class="divider-line"></div>
+  </div>
+
+  <section class="further-reading fade-in">
+    <div class="fr-list">
+      <a href="/breathing-science" class="fr-link">
+        <span class="fr-arrow">→</span>
+        <span class="fr-title">The Complete Guide to Breathing Science</span>
+      </a>
+      <a href="/breathing-for-anxiety" class="fr-link">
+        <span class="fr-arrow">→</span>
+        <span class="fr-title">Breathing for Anxiety: The Science</span>
+      </a>
+      <a href="/breathing-for-sleep" class="fr-link">
+        <span class="fr-arrow">→</span>
+        <span class="fr-title">Breathing for Sleep: Why 4-7-8 Works</span>
+      </a>
+    </div>
+  </section>
+
   <section class="science-cta fade-in">
     <h2 data-i18n="sci.cta.h2">Now that you know <em>why</em> —<br>begin the practice.</h2>
     <p data-i18n="sci.cta.p">Understanding the mechanism is useful. Doing it is transformative. Ten minutes is enough to shift your state.</p>
@@ -721,6 +744,59 @@ import Layout from '../layouts/Layout.astro';
       font-style: italic;
       color: var(--ink-faint);
       line-height: 1.8;
+    }
+
+    /* Further Reading */
+    .further-reading {
+      padding: 60px 80px 40px;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .fr-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .fr-link {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-decoration: none;
+      padding: 24px 32px;
+      background: var(--paper-warm);
+      border-radius: 4px;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .fr-link:hover {
+      background: var(--paper-dark);
+      transform: translateX(8px);
+    }
+
+    .fr-arrow {
+      font-family: 'DM Mono', monospace;
+      color: var(--ink-soft);
+      font-size: 14px;
+    }
+
+    .fr-title {
+      font-family: 'IM Fell English', serif;
+      font-size: 18px;
+      color: var(--ink);
+    }
+
+    @media (max-width: 768px) {
+      .further-reading {
+        padding: 40px 28px;
+      }
+      .fr-link {
+        padding: 20px 24px;
+      }
+      .fr-title {
+        font-size: 16px;
+      }
     }
 
     /* CTA */
