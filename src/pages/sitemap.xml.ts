@@ -6,6 +6,9 @@ const pages = [
     { path: '', priority: '1.0', changefreq: 'weekly', lastmod: '2026-03-01' },
     { path: '/practice', priority: '0.9', changefreq: 'weekly', lastmod: '2026-03-01' },
     { path: '/science', priority: '0.8', changefreq: 'monthly', lastmod: '2026-03-01' },
+    { path: '/breathing-for-anxiety', priority: '0.8', changefreq: 'monthly', lastmod: '2026-03-01' },
+    { path: '/breathing-for-sleep', priority: '0.8', changefreq: 'monthly', lastmod: '2026-03-01' },
+    { path: '/breathing-for-focus', priority: '0.8', changefreq: 'monthly', lastmod: '2026-03-01' },
     { path: '/collective', priority: '0.6', changefreq: 'monthly', lastmod: '2026-02-28' },
 ];
 
