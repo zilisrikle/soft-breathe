@@ -147,6 +147,8 @@ export function setLang(lang) {
 
 export function applyLang(lang) {
     setLang(lang);
+    // Update HTML lang attribute for accessibility and SEO
+    document.documentElement.lang = lang === 'zh' ? 'zh' : 'en';
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         const t = translations[key];

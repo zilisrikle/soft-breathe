@@ -24,6 +24,8 @@ const { title, activePage, fullHeight = false } = Astro.props;
   <link rel="canonical" href={`https://softbreathe.com${activePage === 'eastern' ? '' : '/' + activePage}`}>
   <meta name="apple-mobile-web-app-title" content="Soft Breathe">
   <meta name="application-name" content="Soft Breathe">
+  <link rel="alternate" hreflang="en" href={`https://softbreathe.com${activePage === 'eastern' ? '' : '/' + activePage}`}>
+  <link rel="alternate" hreflang="x-default" href={`https://softbreathe.com${activePage === 'eastern' ? '' : '/' + activePage}`}>
   
   <!-- Open Graph -->
   <meta property="og:title" content="Soft Breathe — The Ancient Science of Breath">

@@ -125,6 +125,77 @@ import Layout from '../layouts/Layout.astro';
   </main>
 </div>
 
+<!-- SEO content — visible to crawlers, collapsed for users -->
+<section class="practice-seo">
+  <div class="practice-seo-inner">
+    <h2 class="practice-seo-title">Free Guided Breathing Exercises — No Signup Required</h2>
+    <p class="practice-seo-intro">Soft Breathe offers four scientifically validated breathing patterns with a real-time visual guide. Select a pattern, choose your cycle count, and begin immediately. No account, no app download, no cost.</p>
+
+    <details class="seo-details">
+      <summary>Relax 4–6: The Daily Nervous System Reset</summary>
+      <p>The Relax 4-6 pattern uses a simple principle: exhaling for longer than you inhale activates the parasympathetic nervous system via the vagus nerve. By inhaling for 4 seconds and exhaling for 6, you create a 1:1.5 ratio that research shows is optimal for reducing cortisol and lowering heart rate without drowsiness. This makes it ideal for a midday reset at work, after a stressful meeting, or any time you need to shift from reactive to calm without losing alertness. Five cycles (approximately 50 seconds) is enough to produce a measurable physiological shift.</p>
+    </details>
+
+    <details class="seo-details">
+      <summary>Box Breathing 4-4-4-4: Focus Under Pressure</summary>
+      <p>Box breathing — also called square breathing or tactical breathing — divides the breath into four equal phases: inhale (4s), hold (4s), exhale (4s), hold (4s). This pattern is used by Navy SEALs, surgeons, and competitive athletes to maintain cognitive clarity under extreme stress. The equal-duration phases synchronise heart rate variability (HRV) at approximately 6 breaths per minute, creating a state of physiological coherence that enhances decision-making and emotional regulation. Research from the University of Brussels found this coherence state measurably improves performance under pressure. Use it before presentations, exams, difficult conversations, or any high-stakes moment.</p>
+    </details>
+
+    <details class="seo-details">
+      <summary>4-7-8 Sleep Breathing: Fall Asleep in Minutes</summary>
+      <p>Developed from the pranayamic tradition of breath retention (kumbhaka), the 4-7-8 technique (inhale 4s, hold 7s, exhale 8s) is the most effective evidence-based breathing pattern for sleep onset. The extended 8-second exhale maximises vagal tone, while the 7-second hold builds CO₂ tolerance through the Bohr Effect, improving cellular oxygenation and quieting the default mode network — the brain region responsible for nighttime rumination. Controlled studies have shown this pattern reduces sleep latency (time to fall asleep) by an average of 20 minutes. Soft Breathe's dark-room-optimised visual guide lets you follow the rhythm without needing to count. Practice 4 cycles for relaxation or 8 cycles for deep sleep preparation.</p>
+    </details>
+
+    <details class="seo-details">
+      <summary>Energise 6-2: Morning Activation</summary>
+      <p>The Energise 6-2 pattern inverts the standard relaxation ratio: a long 6-second inhale followed by a short 2-second exhale activates the sympathetic nervous system in a controlled way. This increases oxygen intake, raises heart rate slightly, and stimulates alertness — making it ideal for morning activation, afternoon energy dips, or pre-exercise preparation. Unlike caffeine, which triggers cortisol spikes, this breathing pattern achieves alertness through respiratory mechanics that the body can regulate naturally. Three to five cycles is sufficient for a noticeable energy boost without overstimulation.</p>
+    </details>
+  </div>
+</section>
+
+<!-- HowTo JSON-LD for breathing practice -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Practice 4-7-8 Breathing for Sleep",
+  "description": "A step-by-step guide to the 4-7-8 breathing technique, the most effective evidence-based pattern for falling asleep faster.",
+  "totalTime": "PT5M",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Choose the 4-7-8 pattern",
+      "text": "Open Soft Breathe and select the 4-7-8 Sleep pattern from the left panel."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Set your cycles",
+      "text": "Choose 5 or 8 cycles for a full session. 5 cycles takes approximately 1.5 minutes."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Inhale for 4 seconds",
+      "text": "Breathe in slowly through your nose as the orb expands. Follow the visual timer."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Hold for 7 seconds",
+      "text": "Hold your breath gently. This builds CO₂ tolerance and activates the Bohr Effect for better oxygen delivery."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Exhale for 8 seconds",
+      "text": "Exhale slowly through your mouth as the orb contracts. The extended exhale stimulates the vagus nerve, shifting your nervous system into rest mode."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Repeat",
+      "text": "Continue for your chosen number of cycles. Most users report feeling noticeably calmer within 4 cycles."
+    }
+  ]
+}
+</script>
+
 <script>
 import { translations, getLang } from '../scripts/i18n.js';
 function t(key) { const lang = getLang(); return translations[key]?.[lang] || translations[key]?.en || key; }
@@ -472,6 +543,58 @@ body::before {
   .panel-spacer, .panel-divider, .session-controls { display: none; }
   .panel-right { min-height: 85vh; padding: 32px 24px; }
   .enso-container { width: min(300px, 78vw); height: min(300px, 78vw); }
+}
+
+/* Practice SEO content */
+.practice-seo {
+  position: relative;
+  z-index: 1;
+  padding: 60px 80px 80px;
+  background: var(--paper);
+}
+
+.practice-seo-inner {
+  max-width: 720px;
+}
+
+.practice-seo-title {
+  font-family: 'IM Fell English', serif;
+  font-size: clamp(22px, 3vw, 32px);
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+
+.practice-seo-intro {
+  font-size: 13px;
+  font-style: italic;
+  color: var(--ink-faint);
+  line-height: 1.9;
+  margin-bottom: 32px;
+}
+
+.seo-details {
+  border-top: 1px solid var(--paper-dark);
+  padding: 16px 0;
+}
+
+.seo-details summary {
+  font-family: 'IM Fell English', serif;
+  font-size: 16px;
+  color: var(--ink-soft);
+  cursor: pointer;
+  padding: 8px 0;
+}
+
+.seo-details p {
+  font-size: 13px;
+  font-style: italic;
+  color: var(--ink-faint);
+  line-height: 1.9;
+  padding: 12px 0 8px;
+}
+
+@media (max-width: 768px) {
+  .practice-seo { padding: 40px 28px 60px; }
 }
 
 </style>
