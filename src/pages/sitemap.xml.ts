@@ -9,6 +9,7 @@ const pages = [
     { path: '/breathing-for-anxiety', priority: '0.8', changefreq: 'monthly', lastmod: '2026-03-01' },
     { path: '/breathing-for-sleep', priority: '0.8', changefreq: 'monthly', lastmod: '2026-03-01' },
     { path: '/breathing-for-focus', priority: '0.8', changefreq: 'monthly', lastmod: '2026-03-01' },
+    { path: '/breathing-science', priority: '0.7', changefreq: 'monthly', lastmod: '2026-03-01' },
     { path: '/collective', priority: '0.6', changefreq: 'monthly', lastmod: '2026-02-28' },
 ];
 
