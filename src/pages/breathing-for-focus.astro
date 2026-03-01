@@ -15,46 +15,64 @@ import Layout from '../layouts/Layout.astro';
   </div>
 </section>
 
-<section class="article-body">
-  <div class="article-content">
+<div class="article-layout">
+  <section class="article-body">
+    <div class="article-content">
 
-    <h2>Why stress kills focus — and the physiological fix</h2>
-    <p>When your sympathetic nervous system fires — before a presentation, during a deadline, in a high-pressure conversation — blood flow shifts <em>away</em> from the prefrontal cortex (the brain's centre for rational thought) and toward the muscles. You literally become less intelligent under stress. Heart rate variability (HRV) drops, decision-making degrades, and the amygdala hijacks executive function.</p>
-    <p>Box breathing reverses this. By creating a state of <strong>physiological coherence</strong> — where heart rate, respiratory rhythm, and autonomic tone synchronise — it restores prefrontal blood flow and raises HRV within 2-3 minutes.</p>
+      <h2 id="physiology">Why stress kills focus — and the physiological fix</h2>
+      <p>When your sympathetic nervous system fires — before a presentation, during a deadline, in a high-pressure conversation — blood flow shifts <em>away</em> from the prefrontal cortex (the brain's centre for rational thought) and toward the muscles. You literally become less intelligent under stress. Heart rate variability (HRV) drops, decision-making degrades, and the amygdala hijacks executive function.</p>
+      <p>Box breathing reverses this. By creating a state of <strong>physiological coherence</strong> — where heart rate, respiratory rhythm, and autonomic tone synchronise — it restores prefrontal blood flow and raises HRV within 2-3 minutes.</p>
 
-    <h2>What is box breathing (4-4-4-4)?</h2>
-    <p>Box breathing — also called square breathing or tactical breathing — divides the breath into four equal phases of 4 seconds each: inhale, hold, exhale, hold. The "box" or "square" name comes from this equal-sided rhythm.</p>
+      <h2 id="what-it-is">What is box breathing (4-4-4-4)?</h2>
+      <p>Box breathing — also called square breathing or tactical breathing — divides the breath into four equal phases of 4 seconds each: inhale, hold, exhale, hold. The "box" or "square" name comes from this equal-sided rhythm.</p>
 
-    <h3>Step-by-step box breathing</h3>
-    <ol>
-      <li><strong>Inhale through your nose for 4 seconds.</strong> Fill your lungs slowly and completely.</li>
-      <li><strong>Hold for 4 seconds.</strong> Don't clamp your throat — just pause the breath gently.</li>
-      <li><strong>Exhale through your mouth for 4 seconds.</strong> Controlled, steady release.</li>
-      <li><strong>Hold (empty) for 4 seconds.</strong> This second hold is what makes box breathing unique — it prevents hyperventilation and deepens the coherence effect.</li>
-      <li><strong>Repeat for 5-8 cycles</strong> (~80-128 seconds). This is enough for most high-performance scenarios.</li>
-    </ol>
+      <h3>Step-by-step box breathing</h3>
+      <ol>
+        <li><strong>Inhale through your nose for 4 seconds.</strong> Fill your lungs slowly and completely.</li>
+        <li><strong>Hold for 4 seconds.</strong> Don't clamp your throat — just pause the breath gently.</li>
+        <li><strong>Exhale through your mouth for 4 seconds.</strong> Controlled, steady release.</li>
+        <li><strong>Hold (empty) for 4 seconds.</strong> This second hold is what makes box breathing unique — it prevents hyperventilation and deepens the coherence effect.</li>
+        <li><strong>Repeat for 5-8 cycles</strong> (~80-128 seconds). This is enough for most high-performance scenarios.</li>
+      </ol>
 
-    <h2>When to use box breathing</h2>
-    <p>Box breathing is purpose-built for high-cognitive-demand situations. Use it:</p>
-    <ol>
-      <li><strong>Before presentations or meetings</strong> — 3-5 cycles in a quiet space to restore prefrontal function.</li>
-      <li><strong>During examinations</strong> — when stress begins to narrow your field of attention.</li>
-      <li><strong>Before difficult conversations</strong> — to widen the gap between stimulus and response (reducing amygdala reactivity).</li>
-      <li><strong>Between deep work sessions</strong> — as a cognitive palate cleanser that restores sustained attention capacity.</li>
-      <li><strong>Before athletic competition</strong> — to downregulate excessive arousal while maintaining alertness.</li>
-    </ol>
+      <h2 id="when">When to use box breathing</h2>
+      <p>Box breathing is purpose-built for high-cognitive-demand situations. Use it:</p>
+      <ol>
+        <li><strong>Before presentations or meetings</strong> — 3-5 cycles in a quiet space to restore prefrontal function.</li>
+        <li><strong>During examinations</strong> — when stress begins to narrow your field of attention.</li>
+        <li><strong>Before difficult conversations</strong> — to widen the gap between stimulus and response (reducing amygdala reactivity).</li>
+        <li><strong>Between deep work sessions</strong> — as a cognitive palate cleanser that restores sustained attention capacity.</li>
+        <li><strong>Before athletic competition</strong> — to downregulate excessive arousal while maintaining alertness.</li>
+      </ol>
 
-    <h2>The science: HRV coherence at 6 breaths per minute</h2>
-    <p>Box breathing produces approximately 6 breaths per minute — the exact respiratory rate that research from the University of Brussels found to maximise HRV coherence. In this state, the heart, lungs, and autonomic nervous system oscillate in synchrony, which is associated with improved decision-making under stress, enhanced working memory, and superior emotional regulation.</p>
-    <p>Research from the International Journal of Psychophysiology (2024) found that even a single 5-minute session of paced breathing at this rate produced significant improvements in attention and cognitive flexibility.</p>
+      <div class="article-card">
+        <h3 id="science" style="margin-top:0; padding-top:0;">The science: HRV coherence</h3>
+        <p>Box breathing produces approximately <span class="data-point">6 breaths per minute</span> — the exact respiratory rate that research from the University of Brussels found to maximise HRV coherence. In this state, the heart, lungs, and autonomic nervous system oscillate in synchrony, which is associated with improved decision-making under stress, enhanced working memory, and superior emotional regulation.</p>
+        <p>Research from the International Journal of Psychophysiology (2024) found that even a single 5-minute session of paced breathing at this rate produced significant improvements in attention and cognitive flexibility.</p>
+      </div>
 
-    <h2>Box breathing vs. meditation for focus</h2>
-    <p>Meditation takes years of practice to produce reliable cognitive benefits on demand. Box breathing produces measurable physiological changes in <strong>under 3 minutes</strong> without any training. It is a precision intervention — you can use it in a bathroom stall, in your car before walking into a building, or silently at your desk.</p>
+      <h2 id="vs-meditation">Box breathing vs. meditation for focus</h2>
+      <p>Meditation takes years of practice to produce reliable cognitive benefits on demand. Box breathing produces measurable physiological changes in <strong>under 3 minutes</strong> without any training. It is a precision intervention — you can use it in a bathroom stall, in your car before walking into a building, or silently at your desk.</p>
 
-    <h2>Try it now — no app required</h2>
-    <p>Soft Breathe's Box Breathing mode gives you a real-time visual timer with the inhale-hold-exhale-hold rhythm. Free, instant, no signup.</p>
-  </div>
-</section>
+      <h2 id="practice">Try it now — no app required</h2>
+      <p>Soft Breathe's Box Breathing mode gives you a real-time visual timer with the inhale-hold-exhale-hold rhythm. Free, instant, no signup.</p>
+    </div>
+  </section>
+
+  <aside class="article-sidebar">
+    <nav class="article-toc">
+      <p class="toc-label">Contents</p>
+      <ol>
+        <li><a href="#physiology">Why stress kills focus</a></li>
+        <li><a href="#what-it-is">What is box breathing?</a></li>
+        <li><a href="#when">When to use it</a></li>
+        <li><a href="#science">The science (HRV)</a></li>
+        <li><a href="#vs-meditation">Versus meditation</a></li>
+        <li><a href="#practice">Practice now</a></li>
+      </ol>
+    </nav>
+  </aside>
+</div>
 
 <section class="article-cta">
   <a class="cta-link" href="/practice"><span class="cta-link-line"></span> Start box breathing for focus →</a>
@@ -81,41 +99,98 @@ import Layout from '../layouts/Layout.astro';
     --ink-ghost: #b8b8b0; --paper: #f5f3ee; --paper-warm: #ede9e0;
     --paper-dark: #e0dbd0; --brush: #c8c0b0;
   }
-  .article-hero { padding: 160px 80px 80px; max-width: 780px; }
+  
+  .article-hero {
+    padding: 160px 40px 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .article-hero-inner {
+    max-width: 680px;
+    margin: 0 auto;
+  }
   .article-label {
     font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.35em;
     text-transform: uppercase; color: var(--ink-ghost); margin-bottom: 28px;
   }
   .article-headline {
     font-family: 'IM Fell English', serif; font-size: clamp(32px, 5vw, 56px);
-    line-height: 1.1; color: var(--ink); margin-bottom: 32px;
+    line-height: 1.25; color: var(--ink); margin-bottom: 32px;
+    padding-top: 0.2em;
+    padding-bottom: 0.1em;
+    overflow: visible;
   }
   .article-headline em { font-style: italic; color: var(--ink-soft); }
   .article-subtitle {
     font-size: 15px; font-style: italic; color: var(--ink-faint);
     line-height: 1.9; max-width: 540px;
   }
-  .article-body { padding: 0 80px 60px; max-width: 780px; }
-  .article-content h2 {
-    font-family: 'IM Fell English', serif; font-size: clamp(22px, 3vw, 32px);
-    color: var(--ink); margin: 48px 0 16px;
+
+  /* Layout */
+  .article-layout {
+    display: grid;
+    grid-template-columns: 1fr 680px 1fr;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
   }
+  .article-body { grid-column: 2; padding-bottom: 60px; }
+  .article-sidebar { grid-column: 3; position: sticky; top: 120px; align-self: start; height: max-content; }
+
+  /* TOC */
+  .article-toc { margin-bottom: 0; }
+  .toc-label {
+    font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--ink-ghost); margin-bottom: 16px;
+  }
+  .article-toc ol { padding-left: 20px; margin: 0; }
+  .article-toc li {
+    font-size: 13px; font-style: italic; color: var(--ink-faint);
+    line-height: 2.2; margin-bottom: 4px;
+  }
+  .article-toc a { color: var(--ink-soft); text-decoration: none; transition: color 0.3s; }
+  .article-toc a:hover { color: var(--ink); }
+
+  /* Typography & Content */
+  .article-content h2 {
+    font-family: 'IM Fell English', serif; font-size: clamp(24px, 3vw, 36px);
+    color: var(--ink); margin: 80px 0 24px;
+    padding-top: 80px;
+    border-top: 1px solid var(--paper-dark);
+  }
+  .article-content h2:first-of-type { margin-top: 0; padding-top: 0; border-top: none; }
   .article-content h3 {
     font-family: 'IM Fell English', serif; font-size: 18px;
     color: var(--ink-soft); margin: 32px 0 12px;
   }
   .article-content p {
-    font-size: 14px; font-weight: 300; font-style: italic;
-    color: var(--ink-faint); line-height: 2; margin-bottom: 16px;
+    font-size: 16px; font-weight: 300; font-style: italic;
+    color: var(--ink-faint); line-height: 1.85; margin-bottom: 16px;
   }
   .article-content ol { padding-left: 24px; margin-bottom: 24px; }
   .article-content li {
-    font-size: 14px; font-weight: 300; font-style: italic;
-    color: var(--ink-faint); line-height: 2; margin-bottom: 8px;
+    font-size: 16px; font-weight: 300; font-style: italic;
+    color: var(--ink-faint); line-height: 1.85; margin-bottom: 8px;
   }
   .article-content strong { color: var(--ink-soft); font-weight: 400; }
   .article-content em { color: var(--ink-soft); }
-  .article-cta { padding: 0 80px 120px; }
+
+  /* Cards & Data */
+  .article-card {
+    background: var(--paper-warm);
+    padding: 32px 40px;
+    border-radius: 4px;
+    margin: 40px 0;
+  }
+  .data-point {
+    font-family: 'DM Mono', monospace; font-size: 0.9em;
+    background: var(--paper-dark);
+    padding: 2px 6px; border-radius: 4px; color: var(--ink-soft);
+  }
+
+  /* CTA */
+  .article-cta { padding: 0 40px 120px; text-align: center; }
   .cta-link {
     display: inline-flex; align-items: center; gap: 16px;
     font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.2em;
@@ -124,9 +199,27 @@ import Layout from '../layouts/Layout.astro';
   .cta-link:hover { gap: 24px; }
   .cta-link-line { width: 40px; height: 1px; background: var(--ink); transition: width 0.3s; }
   .cta-link:hover .cta-link-line { width: 56px; }
-  @media (max-width: 768px) {
-    .article-hero { padding: 120px 28px 60px; }
-    .article-body { padding: 0 28px 40px; }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .article-hero { padding: 120px 28px 40px; }
+    .article-hero-inner { max-width: 100%; }
+    .article-layout {
+      display: flex; flex-direction: column; gap: 0; padding: 0;
+    }
+    .article-sidebar {
+      width: 100%; position: sticky; top: 0;
+      background: rgba(245, 243, 238, 0.95); backdrop-filter: blur(8px);
+      z-index: 10; padding: 16px 28px;
+      border-bottom: 1px solid var(--paper-dark); border-top: 1px solid var(--paper-dark);
+      overflow-x: auto; white-space: nowrap;
+    }
+    .toc-label { display: none; }
+    .article-toc ol { display: flex; gap: 24px; padding: 0; list-style: none; }
+    .article-toc li { margin: 0; font-size: 14px; }
+    .article-body { padding: 40px 28px 60px; max-width: 100%; }
+    .article-content { max-width: 680px; margin: 0 auto; }
+    .article-card { padding: 24px 20px; margin: 32px -12px; }
     .article-cta { padding: 0 28px 80px; }
   }
 </style>

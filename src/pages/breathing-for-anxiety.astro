@@ -15,34 +15,53 @@ import Layout from '../layouts/Layout.astro';
   </div>
 </section>
 
-<section class="article-body">
-  <div class="article-content">
+<div class="article-layout">
+  <section class="article-body">
+    <div class="article-content">
 
-    <h2>Why anxiety is a breathing problem</h2>
-    <p>Anxiety is not just a mental state — it is a measurable physiological cascade. When your brain perceives threat (real or imagined), the sympathetic nervous system accelerates: heart rate rises, cortisol floods the bloodstream, and breathing becomes shallow and rapid. This shallow breathing then <em>reinforces</em> the threat signal, creating a self-amplifying loop.</p>
-    <p>The exit from this loop is the exhale. A slow, extended exhalation activates the vagus nerve — the longest nerve in the body, running from brainstem to abdomen — which sends a direct "safe" signal to the brain. Research published in <em>Scientific Reports</em> shows that a single session of slow breathing measurably increases vagal tone and reduces anxiety <strong>within minutes</strong>.</p>
+      <h2 id="why">Why anxiety is a breathing problem</h2>
+      <p>Anxiety is not just a mental state — it is a measurable physiological cascade. When your brain perceives threat (real or imagined), the sympathetic nervous system accelerates: heart rate rises, cortisol floods the bloodstream, and breathing becomes shallow and rapid. This shallow breathing then <em>reinforces</em> the threat signal, creating a self-amplifying loop.</p>
+      <p>The exit from this loop is the exhale. A slow, extended exhalation activates the vagus nerve — the longest nerve in the body, running from brainstem to abdomen — which sends a direct "safe" signal to the brain. Research published in <em>Scientific Reports</em> shows that a single session of slow breathing measurably increases vagal tone and reduces anxiety <strong>within minutes</strong>.</p>
 
-    <h2>The best breathing technique for anxiety: Extended Exhale (4-6)</h2>
-    <p>The most effective breathing pattern for acute anxiety uses a simple ratio: <strong>exhale longer than you inhale</strong>. Inhale for 4 seconds, exhale for 6 seconds. This 1:1.5 ratio is optimal because it maximises vagal stimulation without being difficult to maintain when already stressed.</p>
+      <h2 id="best">The best breathing technique: Extended Exhale (4-6)</h2>
+      <p>The most effective breathing pattern for acute anxiety uses a simple ratio: <strong>exhale longer than you inhale</strong>. Inhale for 4 seconds, exhale for 6 seconds. This 1:1.5 ratio is optimal because it maximises vagal stimulation without being difficult to maintain when already stressed.</p>
 
-    <h3>How it works</h3>
-    <ol>
-      <li><strong>Inhale through your nose for 4 seconds.</strong> Breathe into your diaphragm — your belly should expand, not your chest.</li>
-      <li><strong>Exhale slowly through your mouth for 6 seconds.</strong> Let air leave gently, as if fogging a mirror.</li>
-      <li><strong>Repeat for 5-8 cycles.</strong> Most people notice a measurable shift within 50 seconds (5 cycles).</li>
-    </ol>
+      <h3>How it works</h3>
+      <ol>
+        <li><strong>Inhale through your nose for 4 seconds.</strong> Breathe into your diaphragm — your belly should expand, not your chest.</li>
+        <li><strong>Exhale slowly through your mouth for 6 seconds.</strong> Let air leave gently, as if fogging a mirror.</li>
+        <li><strong>Repeat for 5-8 cycles.</strong> Most people notice a measurable shift within 50 seconds (5 cycles).</li>
+      </ol>
 
-    <h2>When anxiety is more intense: 4-7-8 breathing</h2>
-    <p>For stronger anxiety or panic attacks, the 4-7-8 technique adds a breath hold that builds CO₂ tolerance and deepens parasympathetic activation. Inhale for 4 seconds, hold for 7 seconds, exhale for 8 seconds. The extended hold engages the Bohr Effect — improving oxygen delivery to brain tissue — while the 8-second exhale maximises vagal tone.</p>
-    <p>A 2025 clinical study found that six weeks of regular breathwork produced anxiety reduction with an effect size of Cohen's d = 1.44 — <strong>comparable to pharmacological intervention</strong>.</p>
+      <h2 id="intense">When anxiety is more intense: 4-7-8</h2>
+      <p>For stronger anxiety or panic attacks, the 4-7-8 technique adds a breath hold that builds CO₂ tolerance and deepens parasympathetic activation. Inhale for 4 seconds, hold for 7 seconds, exhale for 8 seconds. The extended hold engages the Bohr Effect — improving oxygen delivery to brain tissue — while the 8-second exhale maximises vagal tone.</p>
 
-    <h2>The ancient perspective</h2>
-    <p>What neuroscience calls "vagal stimulation," the yogic tradition calls prāṇāyāma. Patañjali's <em>Yoga Sutras</em> (circa 200 B.C.) describe the extended exhale as the gateway to mental stillness — the deliberate regulation of prāṇa (vital energy) through breath control. The mechanism they discovered through contemplative practice is the same one measured in laboratories two millennia later.</p>
+      <div class="article-card">
+        <h3 style="margin-top:0; padding-top:0;">Clinical evidence</h3>
+        <p>A 2025 clinical study found that six weeks of regular breathwork produced anxiety reduction with an effect size of <span class="data-point">Cohen's d = 1.44</span> — <strong>comparable to pharmacological intervention</strong>.</p>
+      </div>
 
-    <h2>Practice now — free, no signup</h2>
-    <p>Soft Breathe offers the Relax 4-6 and 4-7-8 patterns with a real-time visual breathing guide. Select your pattern, choose your cycle count, and begin immediately. No app download, no account required.</p>
-  </div>
-</section>
+      <h2 id="ancient">The ancient perspective</h2>
+      <p>What neuroscience calls "vagal stimulation," the yogic tradition calls prāṇāyāma. Patañjali's <em>Yoga Sutras</em> (circa 200 B.C.) describe the extended exhale as the gateway to mental stillness — the deliberate regulation of prāṇa (vital energy) through breath control. The mechanism they discovered through contemplative practice is the same one measured in laboratories two millennia later.</p>
+
+      <h2 id="practice">Practice now — free, no signup</h2>
+      <p>Soft Breathe offers the Relax 4-6 and 4-7-8 patterns with a real-time visual breathing guide. Select your pattern, choose your cycle count, and begin immediately. No app download, no account required.</p>
+    </div>
+  </section>
+
+  <aside class="article-sidebar">
+    <nav class="article-toc">
+      <p class="toc-label">Contents</p>
+      <ol>
+        <li><a href="#why">Why anxiety is a breathing problem</a></li>
+        <li><a href="#best">The best technique (4-6)</a></li>
+        <li><a href="#intense">When anxiety is more intense</a></li>
+        <li><a href="#ancient">The ancient perspective</a></li>
+        <li><a href="#practice">Practice now</a></li>
+      </ol>
+    </nav>
+  </aside>
+</div>
 
 <section class="article-cta">
   <a class="cta-link" href="/practice"><span class="cta-link-line"></span> Start breathing for anxiety relief →</a>
@@ -70,9 +89,15 @@ import Layout from '../layouts/Layout.astro';
     --ink-ghost: #b8b8b0; --paper: #f5f3ee; --paper-warm: #ede9e0;
     --paper-dark: #e0dbd0; --brush: #c8c0b0;
   }
+  
   .article-hero {
-    padding: 160px 80px 80px;
-    max-width: 780px;
+    padding: 160px 40px 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .article-hero-inner {
+    max-width: 680px;
+    margin: 0 auto; /* Center the hero content relative to the layout */
   }
   .article-label {
     font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.35em;
@@ -80,38 +105,82 @@ import Layout from '../layouts/Layout.astro';
   }
   .article-headline {
     font-family: 'IM Fell English', serif; font-size: clamp(32px, 5vw, 56px);
-    line-height: 1.1; color: var(--ink); margin-bottom: 32px;
+    line-height: 1.25; color: var(--ink); margin-bottom: 32px;
+    padding-top: 0.2em; /* Fix clipping of tall ascenders */
+    padding-bottom: 0.1em;
+    overflow: visible;
   }
   .article-headline em { font-style: italic; color: var(--ink-soft); }
   .article-subtitle {
     font-size: 15px; font-style: italic; color: var(--ink-faint);
     line-height: 1.9; max-width: 540px;
   }
-  .article-body { padding: 0 80px 60px; max-width: 780px; }
-  .article-content h2 {
-    font-family: 'IM Fell English', serif; font-size: clamp(22px, 3vw, 32px);
-    color: var(--ink); margin: 48px 0 16px;
+
+  /* Layout */
+  .article-layout {
+    display: grid;
+    grid-template-columns: 1fr 680px 1fr;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
   }
+  .article-body { grid-column: 2; padding-bottom: 60px; }
+  .article-sidebar { grid-column: 3; position: sticky; top: 120px; align-self: start; height: max-content; }
+
+  /* TOC */
+  .article-toc { margin-bottom: 0; }
+  .toc-label {
+    font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--ink-ghost); margin-bottom: 16px;
+  }
+  .article-toc ol { padding-left: 20px; margin: 0; }
+  .article-toc li {
+    font-size: 13px; font-style: italic; color: var(--ink-faint);
+    line-height: 2.2; margin-bottom: 4px;
+  }
+  .article-toc a { color: var(--ink-soft); text-decoration: none; transition: color 0.3s; }
+  .article-toc a:hover { color: var(--ink); }
+
+  /* Typography & Content */
+  .article-content h2 {
+    font-family: 'IM Fell English', serif; font-size: clamp(24px, 3vw, 36px);
+    color: var(--ink); margin: 80px 0 24px;
+    padding-top: 80px;
+    border-top: 1px solid var(--paper-dark);
+  }
+  .article-content h2:first-of-type { margin-top: 0; padding-top: 0; border-top: none; }
   .article-content h3 {
     font-family: 'IM Fell English', serif; font-size: 18px;
     color: var(--ink-soft); margin: 32px 0 12px;
   }
   .article-content p {
-    font-size: 14px; font-weight: 300; font-style: italic;
-    color: var(--ink-faint); line-height: 2; margin-bottom: 16px;
+    font-size: 16px; font-weight: 300; font-style: italic;
+    color: var(--ink-faint); line-height: 1.85; margin-bottom: 16px;
   }
-  .article-content ol {
-    padding-left: 24px; margin-bottom: 24px;
-  }
+  .article-content ol { padding-left: 24px; margin-bottom: 24px; }
   .article-content li {
-    font-size: 14px; font-weight: 300; font-style: italic;
-    color: var(--ink-faint); line-height: 2; margin-bottom: 8px;
+    font-size: 16px; font-weight: 300; font-style: italic;
+    color: var(--ink-faint); line-height: 1.85; margin-bottom: 8px;
   }
   .article-content strong { color: var(--ink-soft); font-weight: 400; }
   .article-content em { color: var(--ink-soft); }
-  .article-cta {
-    padding: 0 80px 120px;
+
+  /* Cards & Data */
+  .article-card {
+    background: var(--paper-warm);
+    padding: 32px 40px;
+    border-radius: 4px;
+    margin: 40px 0;
   }
+  .data-point {
+    font-family: 'DM Mono', monospace; font-size: 0.9em;
+    background: var(--paper-dark);
+    padding: 2px 6px; border-radius: 4px; color: var(--ink-soft);
+  }
+
+  /* CTA */
+  .article-cta { padding: 0 40px 120px; text-align: center; }
   .cta-link {
     display: inline-flex; align-items: center; gap: 16px;
     font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.2em;
@@ -119,14 +188,29 @@ import Layout from '../layouts/Layout.astro';
     transition: gap 0.3s;
   }
   .cta-link:hover { gap: 24px; }
-  .cta-link-line {
-    width: 40px; height: 1px; background: var(--ink); transition: width 0.3s;
-  }
+  .cta-link-line { width: 40px; height: 1px; background: var(--ink); transition: width 0.3s; }
   .cta-link:hover .cta-link-line { width: 56px; }
 
-  @media (max-width: 768px) {
-    .article-hero { padding: 120px 28px 60px; }
-    .article-body { padding: 0 28px 40px; }
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .article-hero { padding: 120px 28px 40px; }
+    .article-hero-inner { max-width: 100%; }
+    .article-layout {
+      display: flex; flex-direction: column; gap: 0; padding: 0;
+    }
+    .article-sidebar {
+      width: 100%; position: sticky; top: 0;
+      background: rgba(245, 243, 238, 0.95); backdrop-filter: blur(8px);
+      z-index: 10; padding: 16px 28px;
+      border-bottom: 1px solid var(--paper-dark); border-top: 1px solid var(--paper-dark);
+      overflow-x: auto; white-space: nowrap;
+    }
+    .toc-label { display: none; }
+    .article-toc ol { display: flex; gap: 24px; padding: 0; list-style: none; }
+    .article-toc li { margin: 0; font-size: 14px; }
+    .article-body { padding: 40px 28px 60px; max-width: 100%; }
+    .article-content { max-width: 680px; margin: 0 auto; }
+    .article-card { padding: 24px 20px; margin: 32px -12px; }
     .article-cta { padding: 0 28px 80px; }
   }
 </style>
