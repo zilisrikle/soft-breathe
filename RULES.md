@@ -1,11 +1,41 @@
-# Soft Breathe — Article Layout & Typography Rules
+# Project Rules
 
-To maintain visual consistency and avoid rendering bugs across all content pages (like `/breathing-science`, `/breathing-for-anxiety`), any new article page MUST adhere to the following layout and typography specifications.
+> [!IMPORTANT]
+> 以下规则在所有开发工作中必须严格遵守，不得例外。
 
-## 1. Grid Layout System
+## 设计风格
 
-All articles use a 3-column CSS Grid layout that centres a 680px main content area, with a responsive sticky Table of Contents (TOC) on the right side for desktop, and top for mobile.
+- **水墨极简美学** — 所有页面及组件遵循水墨画风格，强调留白、素雅与克制。
+- **色彩系统** — 严格使用 `src/styles/global.css` 中定义的 `--ink` 系列（文字）和 `--paper` 系列（背景）变量，不引入色板之外的饱和色。
+- **间距规范** — 页面主体水平边距统一为 `80px`，移动端另行适配。导航栏使用固定定位 + `backdrop-filter: blur(16px)` 半透明效果。
 
+## 字体规范
+
+- **禁止使用 Inter 字体** — 不得在任何页面或组件中引入 `Inter`。
+- **项目字体方案：**
+  - `IM Fell English` — 标题 / 装饰性文字
+  - `Noto Serif` — 正文
+  - `DM Mono` — 标签 / 辅助性文字（monospace）
+
+## 动效原则
+
+- 动画应缓慢、柔和，契合"呼吸"节奏，推荐 `ease` / `ease-in-out` 缓动曲线。
+- 禁止使用弹跳（bounce）、闪烁或过于机械的 `linear` 动画。
+
+## 功能限制
+
+- **不添加 Streak 功能** — 项目中不引入任何形式的连续打卡 / Streak 机制。
+
+---
+
+## 文章页排版与防截断规范 (Article Layout Rules)
+
+为了保持所有科普文章页（如 `/breathing-science`, `/breathing-for-anxiety`）的视觉一致性，并避免因特殊字体带来的渲染 Bug，新文章页必须严格遵循以下布局与排版规范：
+
+### 1. 网格与宽度 (Grid Layout)
+- 文章页使用 3 列 CSS Grid 布局，主体内容区最大宽度限制为 **680px** 并在容器内绝对居中。
+- **桌面端**：右侧留出侧边栏显示固定的目录 (`sticky` TOC)。
+- **移动端**：目录变为页面顶部的横向滚动栏（支持毛玻璃效果）。
 ```css
 .article-layout {
   display: grid;
@@ -15,66 +45,37 @@ All articles use a 3-column CSS Grid layout that centres a 680px main content ar
   margin: 0 auto;
   padding: 0 40px;
 }
-.article-body { 
-  grid-column: 2; 
-  padding-bottom: 60px; 
-}
-.article-sidebar { 
-  grid-column: 3; 
-  position: sticky; 
-  top: 120px; 
-  align-self: start; 
-  height: max-content; 
-}
 ```
 
-### Mobile Responsive Layout (max-width: 1024px)
-On mobile/tablet, the grid collapses to a single column. The TOC (`.article-sidebar`) becomes a horizontally scrolling sticky bar at the top of the viewport with a frosted glass effect (`backdrop-filter: blur(8px)`).
-
-## 2. Typography Rules
-
-### H1 (Hero Headline)
-- **Font:** `IM Fell English`, italicized keywords.
-- **Font Size:** `clamp(32px, 5vw, 56px)`
-- **CRITICAL BUG PREVENTION:** The `IM Fell English` italic font has unusually tall ascenders and deep descenders. If the `line-height` is too tight (e.g., `1.1`) or if there is no vertical padding, the browser line-box will **clip the top of the text** horizontally.
-- **Mandatory CSS Fix:** Always use `line-height: 1.25` and add at least `padding-top: 0.2em;` to `.article-headline`.
+### 2. 标题防截断 (Typography Clipping Fix)
+- **H1 标题** (`.article-headline`)：
+  - **🚨 关键修复：** `IM Fell English` 英文斜体具有非常高的 Ascenders（升部）。因此**绝对禁止**使用 `line-height: 1.1`，这会导致浏览器直接截断文字顶部。
+  - **强制要求：** 必须使用 `line-height: 1.25`，并且添加至少 `padding-top: 0.2em`。
+- **H2 标题** (`.article-content h2`)：
+  - 留白必须充足。统一使用 `margin-top: 80px` 和 `clamp(24px, 3vw, 36px)`。
+  - 附带顶部 1px 分割线，且第一个 H2 需要去除顶部边距。
 ```css
-.article-headline {
+.article-content h2 {
   font-family: 'IM Fell English', serif; 
-  font-size: clamp(32px, 5vw, 56px);
-  line-height: 1.25; /* Do not use 1.1 */
+  font-size: clamp(24px, 3vw, 36px);
   color: var(--ink); 
-  margin-bottom: 32px;
-  padding-top: 0.2em; /* Prevents ascender clipping */
-  padding-bottom: 0.1em;
-  overflow: visible;
+  margin: 80px 0 24px;
+  padding-top: 80px;
+  border-top: 1px solid var(--paper-dark);
+}
+.article-content h2:first-of-type { 
+  margin-top: 0; padding-top: 0; border-top: none; 
 }
 ```
 
-### H2 (Section Headings)
-- **Font:** `IM Fell English`
-- **Font Size:** `clamp(24px, 3vw, 36px)`
-- **Spacing:** `80px` margin-top to create generous breathing room, `24px` margin-bottom.
-- **Divider:** Add a `1px solid var(--paper-dark)` border-top, combined with `padding-top: 80px`.
-- *Note:* The first `h2` (`:first-of-type`) MUST have `margin-top: 0; padding-top: 0; border-top: none;` to prevent double-spacing.
-
-### Paragraphs & Lists
-- **Font Size:** `16px`
-- **Line Height:** `1.85`
-- **Color:** `var(--ink-faint)`
-- **Weight/Style:** `300` (Light), `italic`
-
-### Data Points & Code
-- **Font:** `DM Mono`
-- Always wrap specific data points (like `Cohen's d = 1.44` or `20 minutes`) in `<span class="data-point">`.
-- **Styling:** `font-size: 0.9em; background: var(--paper-dark); padding: 2px 6px; border-radius: 4px; color: var(--ink-soft);`
-
-## 3. UI Components (Cards)
-
-Wrap discrete sections like **Clinical Evidence** or **FAQ** inside `<div class="article-card">` to visually separate them from the main narrative flow.
-- **Background:** `var(--paper-warm)`
-- **Padding:** `32px 40px` (desktop) / `24px 20px` (mobile)
-- **Border Radius:** `4px`
-- **Margins:** `40px 0`
-
-When an `h2` or `h3` is the first element inside a card, explicitly set `margin-top: 0; padding-top: 0; border: none;` on the heading via inline style or specific CSS selector to override the global H2 styling.
+### 3. 正文与特殊模块 (Content & Cards)
+- **正文排版**：段落 `<p>` 和列表 `<li>` 统一使用 `16px` 字号，行高 `1.85`，颜色 `var(--ink-faint)`，全部斜体 `italic` 弱化视觉重量。
+- **数据高亮**：文章中的核心数据与实验结果（如 `Cohen's d = 1.44`）必须使用 `DM Mono` 字体，并包裹在 `<span class="data-point">` 中：
+  ```css
+  .data-point {
+    font-family: 'DM Mono', monospace; font-size: 0.9em;
+    background: var(--paper-dark);
+    padding: 2px 6px; border-radius: 4px; color: var(--ink-soft);
+  }
+  ```
+- **区块卡片 (Cards)**：如 Clinical Evidence、FAQ 等特殊内容需包裹在 `<div class="article-card">` 中，使用 `var(--paper-warm)` 背景色形成视觉区分，并移除内部第一个标题的顶部 margin。
