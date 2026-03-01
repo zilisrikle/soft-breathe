@@ -163,6 +163,8 @@ export function applyLang(lang) {
     // Update toggle button text
     const toggleBtn = document.getElementById('langToggle');
     if (toggleBtn) toggleBtn.textContent = lang === 'en' ? '中文' : 'EN';
+    // Notify article pages so they can swap their content blocks
+    window.dispatchEvent(new CustomEvent('langchange', { detail: { lang } }));
 }
 
 export function toggleLang() {

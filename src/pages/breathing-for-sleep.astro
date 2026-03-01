@@ -6,11 +6,20 @@ import Layout from '../layouts/Layout.astro';
 
 <section class="article-hero">
   <div class="article-hero-inner">
-    <p class="article-label">Evidence-Based Breathing for Sleep</p>
-    <h1 class="article-headline">Fall asleep faster<br><em>without medication.</em></h1>
-    <p class="article-subtitle">
+    <p class="article-label">
+      <span lang="en">Evidence-Based Breathing for Sleep</span>
+      <span lang="zh">循证睡眠呼吸法</span>
+    </p>
+    <h1 class="article-headline">
+      <span lang="en">Fall asleep faster<br><em>without medication.</em></span>
+      <span lang="zh">更快入睡，<br><em>不依赖任何药物。</em></span>
+    </h1>
+    <p class="article-subtitle" lang="en">
       The reason you can't sleep isn't that your body is tired — it's that your nervous system hasn't received the signal to stop.
       One breathing pattern can deliver that signal in under 2 minutes.
+    </p>
+    <p class="article-subtitle" lang="zh">
+      无法入睡，并不是因为你的身体不够疲倦——而是你的神经系统还没有收到"停下来"的信号。一个正确的呼吸节律，可以在两分钟内发送这个信号。
     </p>
   </div>
 </section>
@@ -19,55 +28,123 @@ import Layout from '../layouts/Layout.astro';
   <section class="article-body">
     <div class="article-content">
 
-      <h2 id="neuroscience">Why you can't fall asleep — the neuroscience</h2>
-      <p>Insomnia is, at its root, a nervous system problem. Your body wants to sleep, but your sympathetic nervous system — the "fight or flight" accelerator — is still running. Cortisol remains elevated, the default mode network (the brain's rumination centre) stays active, and heart rate doesn't slow to the threshold that allows sleep onset.</p>
-      <p>The bridge between wakefulness and sleep is the parasympathetic nervous system. Activating it requires stimulating the vagus nerve — and the most reliable way to do that is through a specific breathing pattern with an <strong>extended exhale</strong>.</p>
+      <!-- English content -->
+      <div lang="en">
+        <h2 id="neuroscience">Why you can't fall asleep — the neuroscience</h2>
+        <p>Insomnia is, at its root, a nervous system problem. Your body wants to sleep, but your <a href="https://www.ncbi.nlm.nih.gov/books/NBK539845/" target="_blank" rel="noopener" class="ext-link">sympathetic nervous system</a> — the "fight or flight" accelerator — is still running. Cortisol remains elevated, the default mode network (the brain's rumination centre) stays active, and heart rate doesn't slow to the threshold that allows sleep onset.</p>
+        <p>The bridge between wakefulness and sleep is the <a href="https://www.sleepfoundation.org/sleep-hygiene/relaxation-exercises-to-help-fall-asleep" target="_blank" rel="noopener" class="ext-link">parasympathetic nervous system</a>. Activating it requires stimulating the vagus nerve — and the most reliable way to do that is through a specific breathing pattern with an <strong>extended exhale</strong>.</p>
 
-      <h2 id="evidence">The best breathing exercise for sleep: 4-7-8</h2>
-      <p>4-7-8 breathing is the most effective evidence-based technique for sleep onset. Controlled studies show it reduces sleep latency (time to fall asleep) by an average of <span class="data-point">20 minutes</span>.</p>
+        <h2 id="evidence">The best breathing exercise for sleep: 4-7-8</h2>
+        <p>4-7-8 breathing is the most effective evidence-based technique for sleep onset. Controlled studies show it reduces sleep latency (time to fall asleep) by an average of <span class="data-point">20 minutes</span>.</p>
 
-      <h3>How to practice 4-7-8 for sleep</h3>
-      <ol>
-        <li><strong>Lie down in bed. Dim all lights.</strong> The technique works best in an environment already conducive to sleep.</li>
-        <li><strong>Inhale through your nose for 4 seconds.</strong> Breathe gently into your belly, not your chest.</li>
-        <li><strong>Hold your breath for 7 seconds.</strong> This is the critical CO₂-building phase. It activates the Bohr Effect, which allows haemoglobin to release more oxygen to your tissues.</li>
-        <li><strong>Exhale slowly through your mouth for 8 seconds.</strong> The extended exhale stimulates the vagus nerve, signalling your brain: "The threat has passed. Begin rest."</li>
-        <li><strong>Repeat for 4-8 cycles.</strong> Most people notice deep drowsiness by cycle 4. Eight cycles is a full sleep-preparation session.</li>
-      </ol>
+        <h3>How to practice 4-7-8 for sleep</h3>
+        <ol>
+          <li><strong>Lie down in bed. Dim all lights.</strong> The technique works best in an environment already conducive to sleep.</li>
+          <li><strong>Inhale through your nose for 4 seconds.</strong> Breathe gently into your belly, not your chest.</li>
+          <li><strong>Hold your breath for 7 seconds.</strong> This is the critical CO₂-building phase. It activates the <a href="https://en.wikipedia.org/wiki/Bohr_effect" target="_blank" rel="noopener" class="ext-link">Bohr Effect</a>, which allows haemoglobin to release more oxygen to your tissues.</li>
+          <li><strong>Exhale slowly through your mouth for 8 seconds.</strong> The extended exhale stimulates the vagus nerve, signalling your brain: "The threat has passed. Begin rest."</li>
+          <li><strong>Repeat for 4-8 cycles.</strong> Most people notice deep drowsiness by cycle 4. Eight cycles is a full sleep-preparation session.</li>
+        </ol>
 
-      <h2 id="mechanism">Why 4-7-8 works when counting sheep doesn't</h2>
-      <p>The 4-7-8 ratio (1:1.75:2) is physiologically optimal for three reasons:</p>
-      <ol>
-        <li><strong>The 8-second exhale</strong> maximises parasympathetic activation — the longest exhale phase of any standard breathing technique.</li>
-        <li><strong>The 7-second hold</strong> builds CO₂ tolerance, improving cellular oxygenation and reducing the hyperventilation pattern common in insomniacs.</li>
-        <li><strong>The rhythmic counting</strong> engages the prefrontal cortex just enough to interrupt the rumination loop — the "churning thoughts" that keep you awake — without stimulating alertness.</li>
-      </ol>
+        <h2 id="mechanism">Why 4-7-8 works when counting sheep doesn't</h2>
+        <p>The 4-7-8 ratio (1:1.75:2) is physiologically optimal for three reasons:</p>
+        <ol>
+          <li><strong>The 8-second exhale</strong> maximises parasympathetic activation — the longest exhale phase of any standard breathing technique.</li>
+          <li><strong>The 7-second hold</strong> builds CO₂ tolerance, improving cellular oxygenation and reducing the hyperventilation pattern common in insomniacs.</li>
+          <li><strong>The rhythmic counting</strong> engages the prefrontal cortex just enough to interrupt the rumination loop — the "churning thoughts" that keep you awake — without stimulating alertness.</li>
+        </ol>
 
-      <h2 id="ancient">The ancient root: Kumbhaka</h2>
-      <p>The breath hold in 4-7-8 is a modern adaptation of <em>kumbhaka</em>, the retention practice described in the Hatha Yoga Pradīpikā (15th century). Kumbhaka was codified as the central technique for calming the mind through breath — the same mechanism neuroscience measures as vagal tone. The <em>Yoga Sutras</em> describe the pause between breaths as "the gateway to mental stillness."</p>
+        <h2 id="ancient">The ancient root: Kumbhaka</h2>
+        <p>The breath hold in 4-7-8 is a modern adaptation of <em>kumbhaka</em>, the retention practice described in the <a href="https://en.wikipedia.org/wiki/Hatha_Yoga_Pradipika" target="_blank" rel="noopener" class="ext-link">Hatha Yoga Pradīpikā (15th century)</a>. Kumbhaka was codified as the central technique for calming the mind through breath — the same mechanism neuroscience measures as vagal tone. The <em>Yoga Sutras</em> describe the pause between breaths as "the gateway to mental stillness."</p>
 
-      <h2 id="practice">Try it now — no app download needed</h2>
-      <p>Soft Breathe's 4-7-8 mode includes a visual breathing guide optimised for dark rooms. Select the pattern, set your cycles, and follow the orb. Free, instant, no signup required.</p>
+        <h2 id="practice">Try it now — no app download needed</h2>
+        <p>Soft Breathe's 4-7-8 mode includes a visual breathing guide optimised for dark rooms. Select the pattern, set your cycles, and follow the orb. Free, instant, no signup required.</p>
+      </div>
+
+      <!-- 中文内容 -->
+      <div lang="zh">
+        <h2 id="neuroscience-zh">无法入睡的神经科学</h2>
+        <p>从本质上说，失眠是一个神经系统问题。你的身体渴望睡眠，但你的<a href="https://www.ncbi.nlm.nih.gov/books/NBK539845/" target="_blank" rel="noopener" class="ext-link">交感神经系统</a>——那个"战或逃"的加速器——仍在运转。皮质醇维持在高位，大脑的默认模式网络（反刍思维的中枢）持续激活，心率没有降到触发入睡所需的阈值。</p>
+        <p>觉醒与睡眠之间的那座桥，是<a href="https://www.sleepfoundation.org/sleep-hygiene/relaxation-exercises-to-help-fall-asleep" target="_blank" rel="noopener" class="ext-link">副交感神经系统</a>。激活它，需要刺激迷走神经——而最可靠的方式，就是通过一种具有<strong>延长呼气</strong>的特定呼吸节律。</p>
+
+        <h2 id="evidence-zh">最佳睡前呼吸法：4-7-8</h2>
+        <p>4-7-8呼吸法是目前临床证据最充分的入睡技法。对照研究显示，它平均能将入睡时间（睡眠潜伏期）缩短<span class="data-point">20分钟</span>。</p>
+
+        <h3>如何进行4-7-8睡眠呼吸练习</h3>
+        <ol>
+          <li><strong>躺在床上，调暗所有灯光。</strong>在已经营造好睡眠氛围的环境中，这项技法效果最佳。</li>
+          <li><strong>用鼻子吸气4秒。</strong>轻柔地将气息送入腹部，而非胸腔。</li>
+          <li><strong>屏息7秒。</strong>这是关键的CO₂积累阶段。它激活<a href="https://en.wikipedia.org/wiki/Bohr_effect" target="_blank" rel="noopener" class="ext-link">波尔效应</a>，使血红蛋白能向组织释放更多氧气。</li>
+          <li><strong>用嘴缓慢呼气8秒。</strong>延长的呼气刺激迷走神经，向大脑发出信号："威胁已经过去，开始休息。"</li>
+          <li><strong>重复4-8个循环。</strong>大多数人在第4个循环便会感到深沉的困意。八个循环是一次完整的睡前准备。</li>
+        </ol>
+
+        <h2 id="mechanism-zh">为什么4-7-8有效，而数羊没有</h2>
+        <p>4-7-8的比例（1:1.75:2），在生理层面具有三重最优性：</p>
+        <ol>
+          <li><strong>8秒呼气</strong>——最大化副交感神经激活，是所有标准呼吸技法中最长的呼气阶段。</li>
+          <li><strong>7秒屏息</strong>——建立CO₂耐受度，改善细胞氧合，减少失眠患者中常见的过度换气模式。</li>
+          <li><strong>节律性计数</strong>——恰好足够调动前额叶皮层，打断反刍思维的循环（那些让你辗转难眠的"脑子停不下来"），同时又不至于引发警觉。</li>
+        </ol>
+
+        <h2 id="ancient-zh">古老的根源：屏息（Kumbhaka）</h2>
+        <p>4-7-8中的屏息，是对<em>kumbhaka</em>（屏息法）的现代诠释。这一修习在<a href="https://en.wikipedia.org/wiki/Hatha_Yoga_Pradipika" target="_blank" rel="noopener" class="ext-link">《哈他瑜伽之光》（15世纪）</a>中被系统编纂，被定义为通过呼吸平息心智的核心技法——这与现代神经科学所衡量的迷走张力，是同一条机制的两种语言。《瑜伽经》将呼吸之间的停顿描述为"通往心灵宁静的门户"。</p>
+
+        <h2 id="practice-zh">立即体验——无需下载任何应用</h2>
+        <p>Soft Breathe 的4-7-8模式配备了经过暗室优化的视觉呼吸引导。选择模式，设定循环次数，跟随那个光球呼吸。免费，即刻可用，无需注册。</p>
+      </div>
+
     </div>
   </section>
 
   <aside class="article-sidebar">
     <nav class="article-toc">
-      <p class="toc-label">Contents</p>
-      <ol>
+      <p class="toc-label">
+        <span lang="en">Contents</span>
+        <span lang="zh">目录</span>
+      </p>
+      <ol lang="en">
         <li><a href="#neuroscience">The neuroscience of sleep</a></li>
         <li><a href="#evidence">The best technique (4-7-8)</a></li>
         <li><a href="#mechanism">Why the ratio works</a></li>
         <li><a href="#ancient">The ancient root</a></li>
         <li><a href="#practice">Practice now</a></li>
       </ol>
+      <ol lang="zh">
+        <li><a href="#neuroscience-zh">无法入睡的神经科学</a></li>
+        <li><a href="#evidence-zh">最佳技法（4-7-8）</a></li>
+        <li><a href="#mechanism-zh">为何有效</a></li>
+        <li><a href="#ancient-zh">古老的根源</a></li>
+        <li><a href="#practice-zh">开始练习</a></li>
+      </ol>
     </nav>
   </aside>
 </div>
 
 <section class="article-cta">
-  <a class="cta-link" href="/practice"><span class="cta-link-line"></span> Start 4-7-8 breathing for sleep →</a>
+  <a class="cta-link" href="/practice">
+    <span class="cta-link-line"></span>
+    <span lang="en">Start 4-7-8 breathing for sleep →</span>
+    <span lang="zh">开始4-7-8睡眠呼吸练习 →</span>
+  </a>
 </section>
+
+<script>
+  import { getLang } from '../scripts/i18n.js';
+  
+  function applyArticleLang() {
+    const lang = getLang();
+    document.querySelectorAll('[lang="en"]').forEach(el => {
+      (el as HTMLElement).style.display = lang === 'en' ? '' : 'none';
+    });
+    document.querySelectorAll('[lang="zh"]').forEach(el => {
+      (el as HTMLElement).style.display = lang === 'zh' ? '' : 'none';
+    });
+  }
+  
+  applyArticleLang();
+  window.addEventListener('langchange', applyArticleLang);
+</script>
 
 <script type="application/ld+json">
 {
@@ -117,7 +194,6 @@ import Layout from '../layouts/Layout.astro';
     line-height: 1.9; max-width: 540px;
   }
 
-  /* Layout */
   .article-layout {
     display: grid;
     grid-template-columns: 1fr 680px 1fr;
@@ -129,7 +205,6 @@ import Layout from '../layouts/Layout.astro';
   .article-body { grid-column: 2; padding-bottom: 60px; }
   .article-sidebar { grid-column: 3; position: sticky; top: 120px; align-self: start; height: max-content; }
 
-  /* TOC */
   .article-toc { margin-bottom: 0; }
   .toc-label {
     font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.3em;
@@ -143,7 +218,6 @@ import Layout from '../layouts/Layout.astro';
   .article-toc a { color: var(--ink-soft); text-decoration: none; transition: color 0.3s; }
   .article-toc a:hover { color: var(--ink); }
 
-  /* Typography & Content */
   .article-content h2 {
     font-family: 'IM Fell English', serif; font-size: clamp(24px, 3vw, 36px);
     line-height: 1.4;
@@ -168,7 +242,15 @@ import Layout from '../layouts/Layout.astro';
   .article-content strong { color: var(--ink-soft); font-weight: 400; }
   .article-content em { color: var(--ink-soft); }
 
-  /* Cards & Data */
+  .ext-link {
+    color: var(--ink-soft);
+    text-decoration: underline;
+    text-decoration-color: var(--paper-dark);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.3s;
+  }
+  .ext-link:hover { text-decoration-color: var(--ink-soft); }
+
   .article-card {
     background: var(--paper-warm);
     padding: 32px 40px;
@@ -181,7 +263,6 @@ import Layout from '../layouts/Layout.astro';
     padding: 2px 6px; border-radius: 4px; color: var(--ink-soft);
   }
 
-  /* CTA */
   .article-cta { padding: 0 40px 120px; text-align: center; }
   .cta-link {
     display: inline-flex; align-items: center; gap: 16px;
@@ -192,13 +273,10 @@ import Layout from '../layouts/Layout.astro';
   .cta-link-line { width: 40px; height: 1px; background: var(--ink); transition: width 0.3s; }
   .cta-link:hover .cta-link-line { width: 56px; }
 
-  /* Responsive */
   @media (max-width: 1024px) {
     .article-hero { padding: 120px 28px 40px; }
     .article-hero-inner { max-width: 100%; }
-    .article-layout {
-      display: flex; flex-direction: column; gap: 0; padding: 0;
-    }
+    .article-layout { display: flex; flex-direction: column; gap: 0; padding: 0; }
     .article-sidebar {
       width: 100%; position: sticky; top: 0;
       background: rgba(245, 243, 238, 0.95); backdrop-filter: blur(8px);

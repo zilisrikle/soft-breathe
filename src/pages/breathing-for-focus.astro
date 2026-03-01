@@ -6,11 +6,20 @@ import Layout from '../layouts/Layout.astro';
 
 <section class="article-hero">
   <div class="article-hero-inner">
-    <p class="article-label">Evidence-Based Breathing for Focus</p>
-    <h1 class="article-headline">Sharpen your focus<br><em>before the stakes go up.</em></h1>
-    <p class="article-subtitle">
+    <p class="article-label">
+      <span lang="en">Evidence-Based Breathing for Focus</span>
+      <span lang="zh">循证专注呼吸法</span>
+    </p>
+    <h1 class="article-headline">
+      <span lang="en">Sharpen your focus<br><em>before the stakes go up.</em></span>
+      <span lang="zh">在压力降临之前，<br><em>磨锐你的专注。</em></span>
+    </h1>
+    <p class="article-subtitle" lang="en">
       Navy SEALs, surgeons, and Olympic athletes use the same 16-second breathing loop to perform under pressure.
       It's called box breathing — and it's free.
+    </p>
+    <p class="article-subtitle" lang="zh">
+      美国海豹突击队员、外科医生与奥运运动员，使用同一个16秒呼吸循环来在压力下保持巅峰状态。这就是方块呼吸——它免费，且即刻有效。
     </p>
   </div>
 </section>
@@ -19,50 +28,98 @@ import Layout from '../layouts/Layout.astro';
   <section class="article-body">
     <div class="article-content">
 
-      <h2 id="physiology">Why stress kills focus — and the physiological fix</h2>
-      <p>When your sympathetic nervous system fires — before a presentation, during a deadline, in a high-pressure conversation — blood flow shifts <em>away</em> from the prefrontal cortex (the brain's centre for rational thought) and toward the muscles. You literally become less intelligent under stress. Heart rate variability (HRV) drops, decision-making degrades, and the amygdala hijacks executive function.</p>
-      <p>Box breathing reverses this. By creating a state of <strong>physiological coherence</strong> — where heart rate, respiratory rhythm, and autonomic tone synchronise — it restores prefrontal blood flow and raises HRV within 2-3 minutes.</p>
+      <!-- English content -->
+      <div lang="en">
+        <h2 id="physiology">Why stress kills focus — and the physiological fix</h2>
+        <p>When your <a href="https://www.ncbi.nlm.nih.gov/books/NBK539845/" target="_blank" rel="noopener" class="ext-link">sympathetic nervous system</a> fires — before a presentation, during a deadline, in a high-pressure conversation — blood flow shifts <em>away</em> from the prefrontal cortex (the brain's centre for rational thought) and toward the muscles. You literally become less intelligent under stress. <a href="https://www.heartmath.org/research/science-of-the-heart/heart-rate-variability/" target="_blank" rel="noopener" class="ext-link">Heart rate variability (HRV)</a> drops, decision-making degrades, and the amygdala hijacks executive function.</p>
+        <p>Box breathing reverses this. By creating a state of <strong>physiological coherence</strong> — where heart rate, respiratory rhythm, and autonomic tone synchronise — it restores prefrontal blood flow and raises HRV within 2-3 minutes.</p>
 
-      <h2 id="what-it-is">What is box breathing (4-4-4-4)?</h2>
-      <p>Box breathing — also called square breathing or tactical breathing — divides the breath into four equal phases of 4 seconds each: inhale, hold, exhale, hold. The "box" or "square" name comes from this equal-sided rhythm.</p>
+        <h2 id="what-it-is">What is box breathing (4-4-4-4)?</h2>
+        <p>Box breathing — also called square breathing or tactical breathing — divides the breath into four equal phases of 4 seconds each: inhale, hold, exhale, hold. The "box" or "square" name comes from this equal-sided rhythm.</p>
 
-      <h3>Step-by-step box breathing</h3>
-      <ol>
-        <li><strong>Inhale through your nose for 4 seconds.</strong> Fill your lungs slowly and completely.</li>
-        <li><strong>Hold for 4 seconds.</strong> Don't clamp your throat — just pause the breath gently.</li>
-        <li><strong>Exhale through your mouth for 4 seconds.</strong> Controlled, steady release.</li>
-        <li><strong>Hold (empty) for 4 seconds.</strong> This second hold is what makes box breathing unique — it prevents hyperventilation and deepens the coherence effect.</li>
-        <li><strong>Repeat for 5-8 cycles</strong> (~80-128 seconds). This is enough for most high-performance scenarios.</li>
-      </ol>
+        <h3>Step-by-step box breathing</h3>
+        <ol>
+          <li><strong>Inhale through your nose for 4 seconds.</strong> Fill your lungs slowly and completely.</li>
+          <li><strong>Hold for 4 seconds.</strong> Don't clamp your throat — just pause the breath gently.</li>
+          <li><strong>Exhale through your mouth for 4 seconds.</strong> Controlled, steady release.</li>
+          <li><strong>Hold (empty) for 4 seconds.</strong> This second hold is what makes box breathing unique — it prevents hyperventilation and deepens the coherence effect.</li>
+          <li><strong>Repeat for 5-8 cycles</strong> (~80-128 seconds). This is enough for most high-performance scenarios.</li>
+        </ol>
 
-      <h2 id="when">When to use box breathing</h2>
-      <p>Box breathing is purpose-built for high-cognitive-demand situations. Use it:</p>
-      <ol>
-        <li><strong>Before presentations or meetings</strong> — 3-5 cycles in a quiet space to restore prefrontal function.</li>
-        <li><strong>During examinations</strong> — when stress begins to narrow your field of attention.</li>
-        <li><strong>Before difficult conversations</strong> — to widen the gap between stimulus and response (reducing amygdala reactivity).</li>
-        <li><strong>Between deep work sessions</strong> — as a cognitive palate cleanser that restores sustained attention capacity.</li>
-        <li><strong>Before athletic competition</strong> — to downregulate excessive arousal while maintaining alertness.</li>
-      </ol>
+        <h2 id="when">When to use box breathing</h2>
+        <p>Box breathing is purpose-built for high-cognitive-demand situations. Use it:</p>
+        <ol>
+          <li><strong>Before presentations or meetings</strong> — 3-5 cycles in a quiet space to restore prefrontal function.</li>
+          <li><strong>During examinations</strong> — when stress begins to narrow your field of attention.</li>
+          <li><strong>Before difficult conversations</strong> — to widen the gap between stimulus and response (reducing amygdala reactivity).</li>
+          <li><strong>Between deep work sessions</strong> — as a cognitive palate cleanser that restores sustained attention capacity.</li>
+          <li><strong>Before athletic competition</strong> — to downregulate excessive arousal while maintaining alertness.</li>
+        </ol>
 
-      <div class="article-card">
-        <h3 id="science" style="margin-top:0; padding-top:0;">The science: HRV coherence</h3>
-        <p>Box breathing produces approximately <span class="data-point">6 breaths per minute</span> — the exact respiratory rate that research from the University of Brussels found to maximise HRV coherence. In this state, the heart, lungs, and autonomic nervous system oscillate in synchrony, which is associated with improved decision-making under stress, enhanced working memory, and superior emotional regulation.</p>
-        <p>Research from the International Journal of Psychophysiology (2024) found that even a single 5-minute session of paced breathing at this rate produced significant improvements in attention and cognitive flexibility.</p>
+        <div class="article-card">
+          <h3 id="science" style="margin-top:0; padding-top:0;">The science: HRV coherence</h3>
+          <p>Box breathing produces approximately <span class="data-point">6 breaths per minute</span> — the exact respiratory rate that <a href="https://pubmed.ncbi.nlm.nih.gov/38378099/" target="_blank" rel="noopener" class="ext-link">research from the University of Brussels</a> found to maximise HRV coherence. In this state, the heart, lungs, and autonomic nervous system oscillate in synchrony, which is associated with improved decision-making under stress, enhanced working memory, and superior emotional regulation.</p>
+          <p>Research from the International Journal of Psychophysiology (2024) found that even a single 5-minute session of paced breathing at this rate produced significant improvements in attention and cognitive flexibility.</p>
+        </div>
+
+        <h2 id="vs-meditation">Box breathing vs. meditation for focus</h2>
+        <p>Meditation takes years of practice to produce reliable cognitive benefits on demand. Box breathing produces measurable physiological changes in <strong>under 3 minutes</strong> without any training. It is a precision intervention — you can use it in a bathroom stall, in your car before walking into a building, or silently at your desk.</p>
+
+        <h2 id="practice">Try it now — no app required</h2>
+        <p>Soft Breathe's Box Breathing mode gives you a real-time visual timer with the inhale-hold-exhale-hold rhythm. Free, instant, no signup.</p>
       </div>
 
-      <h2 id="vs-meditation">Box breathing vs. meditation for focus</h2>
-      <p>Meditation takes years of practice to produce reliable cognitive benefits on demand. Box breathing produces measurable physiological changes in <strong>under 3 minutes</strong> without any training. It is a precision intervention — you can use it in a bathroom stall, in your car before walking into a building, or silently at your desk.</p>
+      <!-- 中文内容 -->
+      <div lang="zh">
+        <h2 id="physiology-zh">为什么压力会摧毁专注力——以及生理层面的解法</h2>
+        <p>当你的<a href="https://www.ncbi.nlm.nih.gov/books/NBK539845/" target="_blank" rel="noopener" class="ext-link">交感神经系统</a>激活——演讲前，截止日期到来时，在一场高压对话中——血液会从前额叶皮层（大脑的理性思维中枢）<em>流向</em>肌肉群。你的大脑在压力下，字面意义上变得不那么智慧。<a href="https://www.heartmath.org/research/science-of-the-heart/heart-rate-variability/" target="_blank" rel="noopener" class="ext-link">心率变异性（HRV）</a>下降，决策质量恶化，杏仁核劫持了你的执行功能。</p>
+        <p>方块呼吸能够逆转这一切。通过创造<strong>生理相干性</strong>——心率、呼吸节律与自主神经张力趋于同步——它在2-3分钟内恢复前额叶血流，并提升HRV。</p>
 
-      <h2 id="practice">Try it now — no app required</h2>
-      <p>Soft Breathe's Box Breathing mode gives you a real-time visual timer with the inhale-hold-exhale-hold rhythm. Free, instant, no signup.</p>
+        <h2 id="what-it-is-zh">什么是方块呼吸（4-4-4-4）？</h2>
+        <p>方块呼吸——又称正方形呼吸或战术呼吸——将一次完整呼吸分为四个各4秒的等长阶段：吸气、屏息、呼气、屏息。"方块"或"正方形"的名字，正来自于这种等边的节律。</p>
+
+        <h3>方块呼吸的分步练习</h3>
+        <ol>
+          <li><strong>用鼻腔吸气4秒。</strong>缓慢而完整地充盈肺部。</li>
+          <li><strong>屏息4秒。</strong>不要夹紧喉咙——只是轻柔地暂停呼吸。</li>
+          <li><strong>用嘴呼气4秒。</strong>稳定、受控地释放。</li>
+          <li><strong>屏气（空肺）4秒。</strong>这第二个屏息是方块呼吸独特之处——它防止过度换气，并加深相干性效果。</li>
+          <li><strong>重复5-8个循环</strong>（约80-128秒）。对于大多数高表现场景，这已经足够。</li>
+        </ol>
+
+        <h2 id="when-zh">何时使用方块呼吸</h2>
+        <p>方块呼吸专为高认知需求场景设计：</p>
+        <ol>
+          <li><strong>演讲或会议前</strong>——在安静空间进行3-5个循环，恢复前额叶功能。</li>
+          <li><strong>考试过程中</strong>——当压力开始收窄你的注意力视野时。</li>
+          <li><strong>困难对话前</strong>——拉开刺激与反应之间的间距（降低杏仁核反应性）。</li>
+          <li><strong>深度工作任务之间</strong>——作为认知的"调色板清洁剂"，恢复持续注意力。</li>
+          <li><strong>竞技比赛前</strong>——在保持警觉的同时，下调过度的唤醒状态。</li>
+        </ol>
+
+        <div class="article-card">
+          <h3 id="science-zh" style="margin-top:0; padding-top:0;">科学依据：HRV相干性</h3>
+          <p>方块呼吸产生约<span class="data-point">每分钟6次</span>的呼吸频率——正是<a href="https://pubmed.ncbi.nlm.nih.gov/38378099/" target="_blank" rel="noopener" class="ext-link">布鲁塞尔大学的研究</a>发现可以最大化HRV相干性的精确频率。在这一状态下，心脏、肺部与自主神经系统同步振荡，与压力下更好的决策能力、增强的工作记忆容量以及优越的情绪调节能力密切相关。</p>
+          <p>《国际心理生理学杂志》2024年的研究发现，仅需一次以这一频率进行的5分钟节律呼吸，即可产生注意力与认知灵活性的显著提升。</p>
+        </div>
+
+        <h2 id="vs-meditation-zh">方块呼吸 vs. 冥想——专注力的比拼</h2>
+        <p>冥想需要多年练习，才能在需要时可靠地产生认知效益。方块呼吸则无需任何训练，就能在<strong>不到3分钟</strong>内产生可测量的生理变化。它是一种精准干预——你可以在卫生间里做，在走进会议室前坐在车里做，或者静默地在桌前完成。</p>
+
+        <h2 id="practice-zh">立即体验——无需任何应用</h2>
+        <p>Soft Breathe 的方块呼吸模式提供实时视觉计时器，完整呈现吸气-屏息-呼气-屏息的节律。免费，即刻可用，无需注册。</p>
+      </div>
+
     </div>
   </section>
 
   <aside class="article-sidebar">
     <nav class="article-toc">
-      <p class="toc-label">Contents</p>
-      <ol>
+      <p class="toc-label">
+        <span lang="en">Contents</span>
+        <span lang="zh">目录</span>
+      </p>
+      <ol lang="en">
         <li><a href="#physiology">Why stress kills focus</a></li>
         <li><a href="#what-it-is">What is box breathing?</a></li>
         <li><a href="#when">When to use it</a></li>
@@ -70,13 +127,42 @@ import Layout from '../layouts/Layout.astro';
         <li><a href="#vs-meditation">Versus meditation</a></li>
         <li><a href="#practice">Practice now</a></li>
       </ol>
+      <ol lang="zh">
+        <li><a href="#physiology-zh">压力如何破坏专注</a></li>
+        <li><a href="#what-it-is-zh">什么是方块呼吸</a></li>
+        <li><a href="#when-zh">何时使用</a></li>
+        <li><a href="#science-zh">科学依据</a></li>
+        <li><a href="#vs-meditation-zh">对比冥想</a></li>
+        <li><a href="#practice-zh">开始练习</a></li>
+      </ol>
     </nav>
   </aside>
 </div>
 
 <section class="article-cta">
-  <a class="cta-link" href="/practice"><span class="cta-link-line"></span> Start box breathing for focus →</a>
+  <a class="cta-link" href="/practice">
+    <span class="cta-link-line"></span>
+    <span lang="en">Start box breathing for focus →</span>
+    <span lang="zh">开始方块呼吸，找回专注 →</span>
+  </a>
 </section>
+
+<script>
+  import { getLang } from '../scripts/i18n.js';
+  
+  function applyArticleLang() {
+    const lang = getLang();
+    document.querySelectorAll('[lang="en"]').forEach(el => {
+      (el as HTMLElement).style.display = lang === 'en' ? '' : 'none';
+    });
+    document.querySelectorAll('[lang="zh"]').forEach(el => {
+      (el as HTMLElement).style.display = lang === 'zh' ? '' : 'none';
+    });
+  }
+  
+  applyArticleLang();
+  window.addEventListener('langchange', applyArticleLang);
+</script>
 
 <script type="application/ld+json">
 {
@@ -126,7 +212,6 @@ import Layout from '../layouts/Layout.astro';
     line-height: 1.9; max-width: 540px;
   }
 
-  /* Layout */
   .article-layout {
     display: grid;
     grid-template-columns: 1fr 680px 1fr;
@@ -138,7 +223,6 @@ import Layout from '../layouts/Layout.astro';
   .article-body { grid-column: 2; padding-bottom: 60px; }
   .article-sidebar { grid-column: 3; position: sticky; top: 120px; align-self: start; height: max-content; }
 
-  /* TOC */
   .article-toc { margin-bottom: 0; }
   .toc-label {
     font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.3em;
@@ -152,7 +236,6 @@ import Layout from '../layouts/Layout.astro';
   .article-toc a { color: var(--ink-soft); text-decoration: none; transition: color 0.3s; }
   .article-toc a:hover { color: var(--ink); }
 
-  /* Typography & Content */
   .article-content h2 {
     font-family: 'IM Fell English', serif; font-size: clamp(24px, 3vw, 36px);
     line-height: 1.4;
@@ -177,7 +260,15 @@ import Layout from '../layouts/Layout.astro';
   .article-content strong { color: var(--ink-soft); font-weight: 400; }
   .article-content em { color: var(--ink-soft); }
 
-  /* Cards & Data */
+  .ext-link {
+    color: var(--ink-soft);
+    text-decoration: underline;
+    text-decoration-color: var(--paper-dark);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.3s;
+  }
+  .ext-link:hover { text-decoration-color: var(--ink-soft); }
+
   .article-card {
     background: var(--paper-warm);
     padding: 32px 40px;
@@ -190,7 +281,6 @@ import Layout from '../layouts/Layout.astro';
     padding: 2px 6px; border-radius: 4px; color: var(--ink-soft);
   }
 
-  /* CTA */
   .article-cta { padding: 0 40px 120px; text-align: center; }
   .cta-link {
     display: inline-flex; align-items: center; gap: 16px;
@@ -201,13 +291,10 @@ import Layout from '../layouts/Layout.astro';
   .cta-link-line { width: 40px; height: 1px; background: var(--ink); transition: width 0.3s; }
   .cta-link:hover .cta-link-line { width: 56px; }
 
-  /* Responsive */
   @media (max-width: 1024px) {
     .article-hero { padding: 120px 28px 40px; }
     .article-hero-inner { max-width: 100%; }
-    .article-layout {
-      display: flex; flex-direction: column; gap: 0; padding: 0;
-    }
+    .article-layout { display: flex; flex-direction: column; gap: 0; padding: 0; }
     .article-sidebar {
       width: 100%; position: sticky; top: 0;
       background: rgba(245, 243, 238, 0.95); backdrop-filter: blur(8px);

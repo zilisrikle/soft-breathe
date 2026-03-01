@@ -6,10 +6,19 @@ import Layout from '../layouts/Layout.astro';
 
 <section class="article-hero">
   <div class="article-hero-inner">
-    <p class="article-label">Definitive Guide</p>
-    <h1 class="article-headline">Breathing Science:<br><em>Where ancient practice meets<br>modern neuroscience.</em></h1>
-    <p class="article-subtitle">
+    <p class="article-label">
+      <span lang="en">Definitive Guide</span>
+      <span lang="zh">权威指南</span>
+    </p>
+    <h1 class="article-headline">
+      <span lang="en">Breathing Science:<br><em>Where ancient practice meets<br>modern neuroscience.</em></span>
+      <span lang="zh">呼吸的科学：<br><em>两千年的古老智慧，<br>与当代神经科学的相遇。</em></span>
+    </h1>
+    <p class="article-subtitle" lang="en">
       A comprehensive guide to the physiology, neuroscience, and contemplative traditions behind conscious breathing — and why it remains the single most accessible intervention for human wellbeing.
+    </p>
+    <p class="article-subtitle" lang="zh">
+      一部关于意识呼吸背后的生理学、神经科学与冥想传统的完整指南——以及为何它至今仍是人类最触手可及的身心干预方式。
     </p>
   </div>
 </section>
@@ -18,72 +27,146 @@ import Layout from '../layouts/Layout.astro';
   <section class="article-body">
     <div class="article-content">
 
-      <h2 id="definition">What is breathing science?</h2>
-      <p><strong>Breathing science</strong> is the study of how deliberate control of respiratory patterns affects the autonomic nervous system, cognitive performance, emotional regulation, and long-term health. It sits at the intersection of two traditions: the <strong>contemplative practices</strong> of yoga and pranayama (dating to approximately 200 B.C.) and <strong>modern neuroscience</strong>, which has identified the specific physiological mechanisms — vagal tone, HRV coherence, and CO₂ tolerance — through which conscious breathing produces its effects.</p>
-      <p>Unlike pharmacological interventions, breathwork requires no external substances, costs nothing, produces no dependency, and can be practiced anywhere. It is the only involuntary physiological process that humans can consciously override — making it the single bridge between the conscious mind and the autonomous body.</p>
+      <!-- English content -->
+      <div lang="en">
+        <h2 id="definition">What is breathing science?</h2>
+        <p><strong>Breathing science</strong> is the study of how deliberate control of respiratory patterns affects the autonomic nervous system, cognitive performance, emotional regulation, and long-term health. It sits at the intersection of two traditions: the <strong>contemplative practices</strong> of yoga and pranayama (dating to approximately 200 B.C.) and <strong>modern neuroscience</strong>, which has identified the specific physiological mechanisms — vagal tone, HRV coherence, and CO₂ tolerance — through which conscious breathing produces its effects.</p>
+        <p>Unlike pharmacological interventions, breathwork requires no external substances, costs nothing, produces no dependency, and can be practiced anywhere. It is the only involuntary physiological process that humans can consciously override — making it the single bridge between the conscious mind and the autonomous body.</p>
 
-      <h2 id="vagus">The vagus nerve: the body's master switch</h2>
-      <p>The vagus nerve (cranial nerve X) is the longest nerve in the human body, branching from the brainstem through the neck, heart, lungs, and abdomen. It is the primary conduit of the parasympathetic nervous system — the "rest and digest" branch that counterbalances the sympathetic "fight or flight" response.</p>
-      <p>When you exhale slowly, stretch receptors in the lungs send signals via vagal afferent fibres to the nucleus tractus solitarius in the brainstem. This triggers a cascade: heart rate decreases, blood pressure drops, cortisol production slows, and the amygdala (the brain's threat-detection centre) becomes less reactive. This entire sequence can begin within <strong>90 seconds</strong> of slow, deliberate breathing.</p>
-      <p>The strength of this response is measured as <strong>vagal tone</strong> — higher vagal tone is associated with better emotional regulation, faster recovery from stress, and lower inflammation. Vagal tone can be trained through regular breathing practice, much like a muscle responds to exercise.</p>
+        <h2 id="vagus">The vagus nerve: the body's master switch</h2>
+        <p>The <a href="https://www.ncbi.nlm.nih.gov/books/NBK537171/" target="_blank" rel="noopener" class="ext-link">vagus nerve (cranial nerve X)</a> is the longest nerve in the human body, branching from the brainstem through the neck, heart, lungs, and abdomen. It is the primary conduit of the parasympathetic nervous system — the "rest and digest" branch that counterbalances the sympathetic "fight or flight" response.</p>
+        <p>When you exhale slowly, stretch receptors in the lungs send signals via vagal afferent fibres to the nucleus tractus solitarius in the brainstem. This triggers a cascade: heart rate decreases, blood pressure drops, cortisol production slows, and the amygdala (the brain's threat-detection centre) becomes less reactive. This entire sequence can begin within <strong>90 seconds</strong> of slow, deliberate breathing.</p>
+        <p>The strength of this response is measured as <strong>vagal tone</strong> — higher vagal tone is associated with better emotional regulation, faster recovery from stress, and lower inflammation. Vagal tone can be trained through regular breathing practice, much like a muscle responds to exercise.</p>
 
-      <h2 id="hrv">Heart rate variability (HRV): the resilience marker</h2>
-      <p>Heart rate variability is the variation in time between successive heartbeats. Contrary to intuition, a <em>variable</em> heart rate is a sign of health — it indicates a nervous system flexible enough to respond to changing demands. Low HRV is associated with anxiety disorders, cardiovascular disease, and reduced cognitive performance.</p>
-      <p>Slow breathing at approximately <span class="data-point">6 breaths per minute</span> produces a phenomenon called <strong>respiratory sinus arrhythmia</strong>, where heart rate naturally accelerates during inhalation and decelerates during exhalation. At this respiratory rate, HRV reaches its maximum — a state researchers call <strong>physiological coherence</strong>.</p>
-      <p>Research from the University of Brussels demonstrated that physiological coherence measurably improves decision-making under stress. A 2024 study in the International Journal of Psychophysiology found that even a single 5-minute session of paced breathing at 6 breaths per minute produced significant improvements in attention and cognitive flexibility.</p>
+        <h2 id="hrv">Heart rate variability (HRV): the resilience marker</h2>
+        <p><a href="https://www.heartmath.org/research/science-of-the-heart/heart-rate-variability/" target="_blank" rel="noopener" class="ext-link">Heart rate variability</a> is the variation in time between successive heartbeats. Contrary to intuition, a <em>variable</em> heart rate is a sign of health — it indicates a nervous system flexible enough to respond to changing demands. Low HRV is associated with anxiety disorders, cardiovascular disease, and reduced cognitive performance.</p>
+        <p>Slow breathing at approximately <span class="data-point">6 breaths per minute</span> produces a phenomenon called <strong>respiratory sinus arrhythmia</strong>, where heart rate naturally accelerates during inhalation and decelerates during exhalation. At this respiratory rate, HRV reaches its maximum — a state researchers call <strong>physiological coherence</strong>.</p>
+        <p>Research from the University of Brussels demonstrated that physiological coherence measurably improves decision-making under stress. A <a href="https://pubmed.ncbi.nlm.nih.gov/38378099/" target="_blank" rel="noopener" class="ext-link">2024 study in the International Journal of Psychophysiology</a> found that even a single 5-minute session of paced breathing at 6 breaths per minute produced significant improvements in attention and cognitive flexibility.</p>
 
-      <h2 id="co2">CO₂ tolerance and the Bohr Effect</h2>
-      <p>Counter-intuitively, breathing <em>more</em> does not deliver more oxygen to your cells. The Bohr Effect, discovered by Christian Bohr in 1904, explains why: haemoglobin only releases oxygen to tissues in the presence of adequate carbon dioxide (CO₂). Chronic over-breathers — which includes most anxious, stressed individuals — maintain chronically low CO₂ levels, paradoxically reducing cellular oxygenation.</p>
-      <p>Breath retention practices (such as the 7-second hold in the 4-7-8 technique) build <strong>CO₂ tolerance</strong>: the body's ability to comfortably maintain higher CO₂ levels. This improves oxygen delivery, reduces the urge to over-breathe, and lowers the biological component of anxiety — the sensation of "air hunger" that drives shallow, rapid breathing.</p>
-      <p>In the yogic tradition, this principle was understood through the practice of <em>kumbhaka</em> (breath retention), which the Hatha Yoga Pradīpikā (15th century) described as the central technique of prāṇa regulation.</p>
+        <h2 id="co2">CO₂ tolerance and the Bohr Effect</h2>
+        <p>Counter-intuitively, breathing <em>more</em> does not deliver more oxygen to your cells. The <a href="https://en.wikipedia.org/wiki/Bohr_effect" target="_blank" rel="noopener" class="ext-link">Bohr Effect</a>, discovered by Christian Bohr in 1904, explains why: haemoglobin only releases oxygen to tissues in the presence of adequate carbon dioxide (CO₂). Chronic over-breathers — which includes most anxious, stressed individuals — maintain chronically low CO₂ levels, paradoxically reducing cellular oxygenation.</p>
+        <p>Breath retention practices (such as the 7-second hold in the 4-7-8 technique) build <strong>CO₂ tolerance</strong>: the body's ability to comfortably maintain higher CO₂ levels. This improves oxygen delivery, reduces the urge to over-breathe, and lowers the biological component of anxiety — the sensation of "air hunger" that drives shallow, rapid breathing.</p>
+        <p>In the yogic tradition, this principle was understood through the practice of <em>kumbhaka</em> (breath retention), which the Hatha Yoga Pradīpikā (15th century) described as the central technique of prāṇa regulation.</p>
 
-      <h2 id="pranayama">Pranayama: the original breathing science</h2>
-      <p><strong>Pranayama</strong> (from Sanskrit <em>prāṇa</em>, "vital energy" + <em>āyāma</em>, "extension") is the systematic practice of breath control codified in Patañjali's <em>Yoga Sutras</em> (circa 200 B.C.). It is the fourth limb of the eight-limbed yoga path, positioned between physical postures (āsana) and sensory withdrawal (pratyāhāra).</p>
-      <p>Pranayama comprises three components:</p>
-      <ol>
-        <li><strong>Pūraka</strong> (inhalation) — the controlled intake of breath</li>
-        <li><strong>Kumbhaka</strong> (retention) — the pause between breaths, considered the most transformative phase</li>
-        <li><strong>Rechaka</strong> (exhalation) — the controlled release, which the <em>Yoga Sutras</em> describe as the gateway to mental stillness</li>
-      </ol>
-      <p>The yogic texts describe breath control as producing mastery over the autonomous functions of the body — a claim that modern neuroscience has substantially validated. The vagal stimulation produced by extended exhalation, the CO₂ tolerance built through kumbhaka, and the HRV coherence achieved through rhythmic breathing all map directly onto the pranayamic framework.</p>
-      <p>Soft Breathe is built on this convergence: offering breathing patterns that are simultaneously rooted in the 2,000-year-old pranayamic tradition and validated by contemporary peer-reviewed research.</p>
-
-      <div class="article-card">
-        <h2 id="evidence" style="margin-top:0; padding-top:0; border:none;">Clinical evidence</h2>
-        <p>The evidence base for conscious breathing has grown substantially in the last decade:</p>
+        <h2 id="pranayama">Pranayama: the original breathing science</h2>
+        <p><strong>Pranayama</strong> (from Sanskrit <em>prāṇa</em>, "vital energy" + <em>āyāma</em>, "extension") is the systematic practice of breath control codified in <a href="https://www.yogajournal.com/yoga-101/yoga-sutras-of-patanjali/" target="_blank" rel="noopener" class="ext-link">Patañjali's <em>Yoga Sutras</em></a> (circa 200 B.C.). It is the fourth limb of the eight-limbed yoga path, positioned between physical postures (āsana) and sensory withdrawal (pratyāhāra).</p>
+        <p>Pranayama comprises three components:</p>
         <ol>
-          <li><strong>Anxiety reduction</strong> — A 2025 clinical study found that six weeks of regular breathwork produced anxiety reduction with an effect size of <span class="data-point">Cohen's d = 1.44</span>, comparable to pharmacological intervention.</li>
-          <li><strong>Sleep improvement</strong> — Controlled studies show the 4-7-8 pattern reduces sleep latency by an average of <span class="data-point">20 minutes</span>.</li>
-          <li><strong>Cognitive performance</strong> — Paced breathing at 6 breaths per minute produced significant improvements in attention and cognitive flexibility within a single session.</li>
-          <li><strong>Cortisol reduction</strong> — A meta-analysis in <em>Scientific Reports</em> showed that slow breathing practices significantly reduced salivary cortisol levels across multiple studies.</li>
-          <li><strong>Cardiovascular health</strong> — Regular slow breathing reduces resting blood pressure by <span class="data-point">4-6 mmHg systolic</span> in hypertensive patients.</li>
+          <li><strong>Pūraka</strong> (inhalation) — the controlled intake of breath</li>
+          <li><strong>Kumbhaka</strong> (retention) — the pause between breaths, considered the most transformative phase</li>
+          <li><strong>Rechaka</strong> (exhalation) — the controlled release, which the <em>Yoga Sutras</em> describe as the gateway to mental stillness</li>
         </ol>
+        <p>The yogic texts describe breath control as producing mastery over the autonomous functions of the body — a claim that modern neuroscience has substantially validated. The vagal stimulation produced by extended exhalation, the CO₂ tolerance built through kumbhaka, and the HRV coherence achieved through rhythmic breathing all map directly onto the pranayamic framework.</p>
+        <p>Soft Breathe is built on this convergence: offering breathing patterns that are simultaneously rooted in the 2,000-year-old pranayamic tradition and validated by contemporary peer-reviewed research.</p>
+
+        <div class="article-card">
+          <h2 id="evidence" style="margin-top:0; padding-top:0; border:none;">Clinical evidence</h2>
+          <p>The evidence base for conscious breathing has grown substantially in the last decade:</p>
+          <ol>
+            <li><strong>Anxiety reduction</strong> — A 2025 clinical study found that six weeks of regular breathwork produced anxiety reduction with an effect size of <span class="data-point">Cohen's d = 1.44</span>, comparable to pharmacological intervention.</li>
+            <li><strong>Sleep improvement</strong> — Controlled studies show the 4-7-8 pattern reduces sleep latency by an average of <span class="data-point">20 minutes</span>.</li>
+            <li><strong>Cognitive performance</strong> — Paced breathing at 6 breaths per minute produced significant improvements in attention and cognitive flexibility within a single session.</li>
+            <li><strong>Cortisol reduction</strong> — A meta-analysis in <em>Scientific Reports</em> showed that slow breathing practices significantly reduced salivary cortisol levels across multiple studies.</li>
+            <li><strong>Cardiovascular health</strong> — Regular slow breathing reduces resting blood pressure by <span class="data-point">4-6 mmHg systolic</span> in hypertensive patients.</li>
+          </ol>
+        </div>
+
+        <h2 id="techniques">Core breathing techniques</h2>
+        <h3>Relax 4-6 (Extended Exhale)</h3>
+        <p>Inhale 4 seconds, exhale 6 seconds. The foundational pattern for daily stress management. The 1:1.5 exhale-to-inhale ratio maximises vagal stimulation without being difficult to maintain. <strong>Best for:</strong> daily reset, work stress, general anxiety.</p>
+
+        <h3>Box Breathing 4-4-4-4</h3>
+        <p>Inhale 4 seconds, hold 4, exhale 4, hold 4. Creates physiological coherence at ~6 breaths per minute. Used by Navy SEALs, surgeons, and elite athletes. <strong>Best for:</strong> focus, performance under pressure, pre-presentation calm.</p>
+
+        <h3>4-7-8 Sleep Breathing</h3>
+        <p>Inhale 4 seconds, hold 7, exhale 8. The most effective evidence-based pattern for sleep onset. Combines extended exhale (vagal activation) with retention (CO₂ tolerance). <strong>Best for:</strong> insomnia, deep rest, nighttime rumination.</p>
+
+        <h3>Energise 6-2</h3>
+        <p>Inhale 6 seconds, exhale 2. Inverts the relaxation ratio to activate controlled sympathetic arousal. <strong>Best for:</strong> morning activation, afternoon energy dips, pre-exercise.</p>
+
+        <div class="article-card">
+          <h2 id="faq" style="margin-top:0; padding-top:0; border:none;">Frequently asked questions</h2>
+          
+          <h3 style="margin-top: 16px;">Is breathing science real or pseudoscience?</h3>
+          <p>Breathing science is supported by a substantial and growing body of peer-reviewed research. The mechanisms (vagal stimulation, HRV coherence, the Bohr Effect) are well-established in physiology and neuroscience. What distinguishes breathing science from pseudoscience is the specificity of its claims: measurable changes in vagal tone, cortisol, HRV, and amygdala reactivity, all documented in controlled studies.</p>
+
+          <h3>How is Soft Breathe different from other breathing apps?</h3>
+          <p>Soft Breathe is free, requires no signup, and works instantly in a browser — no app download needed. Its design bridges ancient pranayamic principles with modern neuroscience rather than treating them as separate traditions. It provides a guided visual breathing timer with four scientifically validated patterns.</p>
+
+          <h3>Can breathing exercises replace therapy or medication?</h3>
+          <p>Breathing exercises are a powerful complementary tool, not a replacement for professional medical care. Research shows they can reduce anxiety with effect sizes comparable to medication, but they work best as part of a comprehensive approach to mental health. If you are experiencing severe symptoms, consult a healthcare professional.</p>
+        </div>
       </div>
 
-      <h2 id="techniques">Core breathing techniques</h2>
-      <h3>Relax 4-6 (Extended Exhale)</h3>
-      <p>Inhale 4 seconds, exhale 6 seconds. The foundational pattern for daily stress management. The 1:1.5 exhale-to-inhale ratio maximises vagal stimulation without being difficult to maintain. <strong>Best for:</strong> daily reset, work stress, general anxiety.</p>
+      <!-- 中文内容 -->
+      <div lang="zh">
+        <h2 id="definition-zh">什么是呼吸科学？</h2>
+        <p><strong>呼吸科学</strong>，研究的是人类如何通过主动调控呼吸模式，来影响<a href="https://www.ncbi.nlm.nih.gov/books/NBK539845/" target="_blank" rel="noopener" class="ext-link">自主神经系统</a>、认知表现、情绪调节乃至长期健康状态。它立于两种传统的交汇处：一端是瑜伽与<a href="https://www.yogajournal.com/yoga-101/yoga-sutras-of-patanjali/" target="_blank" rel="noopener" class="ext-link">调息法（pranayama）</a>所代表的、可追溯至公元前200年的冥想传统；另一端是现代神经科学——后者以精准的实验语言，揭示了意识呼吸产生效果的具体生理机制：<strong>迷走神经张力</strong>、<strong>心率变异性（HRV）相干性</strong>与<strong>二氧化碳耐受度</strong>。</p>
+        <p>与药物干预不同，呼吸练习无需任何外来物质，不产生依赖，不产生费用，可在任何地点进行。它是人体唯一一种本属非自主、却能被意识主动接管的生理过程——因此，它是连接意识心智与自主身体之间，唯一的那座桥。</p>
 
-      <h3>Box Breathing 4-4-4-4</h3>
-      <p>Inhale 4 seconds, hold 4, exhale 4, hold 4. Creates physiological coherence at ~6 breaths per minute. Used by Navy SEALs, surgeons, and elite athletes. <strong>Best for:</strong> focus, performance under pressure, pre-presentation calm.</p>
+        <h2 id="vagus-zh">迷走神经：身体的主控开关</h2>
+        <p><a href="https://www.ncbi.nlm.nih.gov/books/NBK537171/" target="_blank" rel="noopener" class="ext-link">迷走神经（第十脑神经）</a>是人体最长的神经，从脑干延伸，贯穿颈部、心脏、肺部，直至腹腔。它是副交感神经系统的主要传导路径——即"休息与消化"系统，负责平衡交感神经的"战或逃"应激反应。</p>
+        <p>当你缓慢呼气时，肺部的牵张感受器通过迷走传入纤维，向脑干中的孤束核发送信号。随之而来的是一系列级联反应：心率下降，血压降低，皮质醇分泌减缓，杏仁核（大脑的威胁探测中枢）反应性减弱。整个过程，从缓慢有意识的一次呼吸开始，可在<strong>不到90秒</strong>内启动。</p>
+        <p>衡量这一反应强度的指标，称为<strong>迷走神经张力</strong>。迷走张力越高，与更好的情绪调控、更快的压力恢复、更低的系统性炎症水平相关。正如肌肉响应锻炼，迷走张力同样可通过规律呼吸练习逐步提升。</p>
 
-      <h3>4-7-8 Sleep Breathing</h3>
-      <p>Inhale 4 seconds, hold 7, exhale 8. The most effective evidence-based pattern for sleep onset. Combines extended exhale (vagal activation) with retention (CO₂ tolerance). <strong>Best for:</strong> insomnia, deep rest, nighttime rumination.</p>
+        <h2 id="hrv-zh">心率变异性（HRV）：韧性的度量</h2>
+        <p><a href="https://www.heartmath.org/research/science-of-the-heart/heart-rate-variability/" target="_blank" rel="noopener" class="ext-link">心率变异性</a>，指相邻两次心跳之间时间间隔的波动幅度。与直觉相反，心率的"波动性"恰恰是健康的标志——它意味着神经系统足够灵活，能够响应不断变化的需求。低HRV与焦虑症、心血管疾病及认知能力下降密切相关。</p>
+        <p>当呼吸频率降至约<span class="data-point">每分钟6次</span>时，会产生一种称为<strong>呼吸性窦性心律不齐</strong>的现象：吸气时心率自然加快，呼气时自然减缓。此时HRV达到峰值，研究者将这一状态称为<strong>生理相干性</strong>（physiological coherence）。</p>
+        <p>布鲁塞尔大学的研究表明，生理相干性能够显著改善压力状态下的决策质量。<a href="https://pubmed.ncbi.nlm.nih.gov/38378099/" target="_blank" rel="noopener" class="ext-link">2024年发表于《国际心理生理学杂志》的一项研究</a>发现，仅需一次5分钟、以每分钟6次频率进行的节律呼吸练习，就能在注意力与认知灵活性上产生显著改善。</p>
 
-      <h3>Energise 6-2</h3>
-      <p>Inhale 6 seconds, exhale 2. Inverts the relaxation ratio to activate controlled sympathetic arousal. <strong>Best for:</strong> morning activation, afternoon energy dips, pre-exercise.</p>
+        <h2 id="co2-zh">二氧化碳耐受与波尔效应</h2>
+        <p>有一个反直觉的事实：呼吸得<em>更多</em>，并不意味着细胞获得更多氧气。<a href="https://en.wikipedia.org/wiki/Bohr_effect" target="_blank" rel="noopener" class="ext-link">波尔效应</a>——由克里斯蒂安·波尔于1904年发现——揭示了原因所在：血红蛋白只有在足够二氧化碳（CO₂）存在的条件下，才会向组织释放氧气。长期过度呼吸者——其中包括大多数处于焦虑与压力中的人——体内CO₂水平持续偏低，由此造成的悖论是：细胞氧合反而降低。</p>
+        <p>屏息练习（如4-7-8技法中7秒的闭气阶段）能够培养<strong>二氧化碳耐受度</strong>：即身体在较高CO₂浓度下保持舒适的能力。这改善了氧气输送，减少了过度呼吸的冲动，并从生物层面缓解了焦虑的核心感受——那种驱动浅快呼吸的"气荒"感。</p>
+        <p>在瑜伽传统中，这一原理早已以<em>kumbhaka</em>（屏息）的形式被理解与实践。成书于15世纪的《哈他瑜伽之光》将此描述为调节<em>prāṇa</em>（生命能量）的核心技法。</p>
 
-      <div class="article-card">
-        <h2 id="faq" style="margin-top:0; padding-top:0; border:none;">Frequently asked questions</h2>
-        
-        <h3 style="margin-top: 16px;">Is breathing science real or pseudoscience?</h3>
-        <p>Breathing science is supported by a substantial and growing body of peer-reviewed research. The mechanisms (vagal stimulation, HRV coherence, the Bohr Effect) are well-established in physiology and neuroscience. What distinguishes breathing science from pseudoscience is the specificity of its claims: measurable changes in vagal tone, cortisol, HRV, and amygdala reactivity, all documented in controlled studies.</p>
+        <h2 id="pranayama-zh">调息法：最初的呼吸科学</h2>
+        <p><strong>Pranayama（调息法）</strong>，梵语中<em>prāṇa</em>（生命能量）与<em>āyāma</em>（延伸）的复合词，是由<a href="https://www.yogajournal.com/yoga-101/yoga-sutras-of-patanjali/" target="_blank" rel="noopener" class="ext-link">帕檀伽利《瑜伽经》</a>（约公元前200年）系统编纂的呼吸控制修习。它是八支瑜伽中的第四支，位于体式（āsana）之后、感官收摄（pratyāhāra）之前。</p>
+        <p>调息法由三个部分构成：</p>
+        <ol>
+          <li><strong>Pūraka（吸气）</strong>——有控制的吸入</li>
+          <li><strong>Kumbhaka（屏息）</strong>——呼吸之间的停顿，被认为是最具转化力的阶段</li>
+          <li><strong>Rechaka（呼气）</strong>——有控制的释放，《瑜伽经》称之为通往心灵宁静的门户</li>
+        </ol>
+        <p>瑜伽典籍描述呼吸控制能产生对身体自主功能的掌控——一个现代神经科学已在很大程度上验证的论断。延长呼气产生的迷走刺激、屏息培养的CO₂耐受度、规律呼吸带来的HRV相干性，都能与调息法的框架精确对应。</p>
+        <p>Soft Breathe 正是建立于这一会融之上：提供的呼吸模式，既扎根于两千年调息传统，又经当代同行评审研究的验证。</p>
 
-        <h3>How is Soft Breathe different from other breathing apps?</h3>
-        <p>Soft Breathe is free, requires no signup, and works instantly in a browser — no app download needed. Its design bridges ancient pranayamic principles with modern neuroscience rather than treating them as separate traditions. It provides a guided visual breathing timer with four scientifically validated patterns.</p>
+        <div class="article-card">
+          <h2 id="evidence-zh" style="margin-top:0; padding-top:0; border:none;">临床证据</h2>
+          <p>十年来，意识呼吸的研究证据基础已显著扩展：</p>
+          <ol>
+            <li><strong>焦虑缓解</strong> — 一项2025年临床研究发现，六周规律的呼吸练习产生的焦虑减少效应量达<span class="data-point">Cohen's d = 1.44</span>，与药物干预效果相当。</li>
+            <li><strong>睡眠改善</strong> — 对照研究显示，4-7-8技法平均将入睡时间缩短<span class="data-point">20分钟</span>。</li>
+            <li><strong>认知提升</strong> — 单次以每分钟6次的节律呼吸，即可在一次练习后产生可测量的注意力与认知灵活性改善。</li>
+            <li><strong>皮质醇降低</strong> — 《科学报告》（Scientific Reports）上的一项荟萃分析显示，慢呼吸练习可显著降低唾液皮质醇水平。</li>
+            <li><strong>心血管健康</strong> — 规律慢呼吸可使高血压患者收缩压降低<span class="data-point">4-6 mmHg</span>。</li>
+          </ol>
+        </div>
 
-        <h3>Can breathing exercises replace therapy or medication?</h3>
-        <p>Breathing exercises are a powerful complementary tool, not a replacement for professional medical care. Research shows they can reduce anxiety with effect sizes comparable to medication, but they work best as part of a comprehensive approach to mental health. If you are experiencing severe symptoms, consult a healthcare professional.</p>
+        <h2 id="techniques-zh">核心呼吸技法</h2>
+        <h3>放松 4-6（延长呼气）</h3>
+        <p>吸气4秒，呼气6秒。这是日常压力管理的基础技法。1:1.5的呼气/吸气比例，在不让人感到困难的前提下，最大化了迷走刺激强度。<strong>最适合：</strong>日常重置、工作压力、泛化性焦虑。</p>
+
+        <h3>方块呼吸 4-4-4-4</h3>
+        <p>吸气4秒，屏息4秒，呼气4秒，屏息4秒。在约每分钟6次的频率下产生生理相干性。这是美国海豹突击队、外科医生与精英运动员共同使用的技法。<strong>最适合：</strong>专注力、高压表现、演讲前的平静。</p>
+
+        <h3>4-7-8 睡眠呼吸法</h3>
+        <p>吸气4秒，屏息7秒，呼气8秒。目前有最多临床证据支持的入睡呼吸技法，将延长呼气（迷走激活）与屏息（CO₂耐受）结合为一体。<strong>最适合：</strong>失眠、深度休息、夜间思维反刍。</p>
+
+        <h3>激活 6-2</h3>
+        <p>吸气6秒，呼气2秒。倒转放松比例，激活受控的交感神经唤醒。<strong>最适合：</strong>晨间启动、下午能量低谷、运动前热身。</p>
+
+        <div class="article-card">
+          <h2 id="faq-zh" style="margin-top:0; padding-top:0; border:none;">常见问题</h2>
+          
+          <h3 style="margin-top: 16px;">呼吸科学是真科学还是伪科学？</h3>
+          <p>呼吸科学有大量且持续增长的同行评审研究支撑。其核心机制——迷走刺激、HRV相干性、波尔效应——在生理学与神经科学领域均已充分确立。区别呼吸科学与伪科学的，正是其论断的可测量性：迷走张力、皮质醇、HRV与杏仁核反应性的变化，均有对照实验记录在案。</p>
+
+          <h3>Soft Breathe 与其他呼吸类应用有何不同？</h3>
+          <p>Soft Breathe 完全免费，无需注册，在浏览器中即开即用，无需下载任何应用。它的设计理念将古老调息法与现代神经科学视为同一真理的两种语言，而非相互独立的体系。它提供四种经科学验证的呼吸模式，配有视觉引导定时器。</p>
+
+          <h3>呼吸练习能替代心理治疗或药物吗？</h3>
+          <p>呼吸练习是强有力的辅助工具，而非专业医疗的替代方案。研究显示其缓解焦虑的效应量可与药物媲美，但在整体心理健康管理体系中配合使用时效果最佳。如您正经历严重症状，请寻求专业医疗帮助。</p>
+        </div>
       </div>
 
     </div>
@@ -91,8 +174,11 @@ import Layout from '../layouts/Layout.astro';
 
   <aside class="article-sidebar">
     <nav class="article-toc">
-      <p class="toc-label">Contents</p>
-      <ol>
+      <p class="toc-label">
+        <span lang="en">Contents</span>
+        <span lang="zh">目录</span>
+      </p>
+      <ol lang="en">
         <li><a href="#definition">Definition</a></li>
         <li><a href="#vagus">Vagus nerve</a></li>
         <li><a href="#hrv">Heart rate variability</a></li>
@@ -102,13 +188,45 @@ import Layout from '../layouts/Layout.astro';
         <li><a href="#techniques">Core techniques</a></li>
         <li><a href="#faq">FAQ</a></li>
       </ol>
+      <ol lang="zh">
+        <li><a href="#definition-zh">呼吸科学定义</a></li>
+        <li><a href="#vagus-zh">迷走神经</a></li>
+        <li><a href="#hrv-zh">心率变异性</a></li>
+        <li><a href="#co2-zh">CO₂ 与波尔效应</a></li>
+        <li><a href="#pranayama-zh">调息法</a></li>
+        <li><a href="#evidence-zh">临床证据</a></li>
+        <li><a href="#techniques-zh">核心技法</a></li>
+        <li><a href="#faq-zh">常见问题</a></li>
+      </ol>
     </nav>
   </aside>
 </div>
 
 <section class="article-cta">
-  <a class="cta-link" href="/practice"><span class="cta-link-line"></span> Begin your breathing practice →</a>
+  <a class="cta-link" href="/practice">
+    <span class="cta-link-line"></span>
+    <span lang="en">Begin your breathing practice →</span>
+    <span lang="zh">开始你的呼吸练习 →</span>
+  </a>
 </section>
+
+<!-- Language Switching Script -->
+<script>
+  import { getLang } from '../scripts/i18n.js';
+  
+  function applyArticleLang() {
+    const lang = getLang();
+    document.querySelectorAll('[lang="en"]').forEach(el => {
+      (el as HTMLElement).style.display = lang === 'en' ? '' : 'none';
+    });
+    document.querySelectorAll('[lang="zh"]').forEach(el => {
+      (el as HTMLElement).style.display = lang === 'zh' ? '' : 'none';
+    });
+  }
+  
+  applyArticleLang();
+  window.addEventListener('langchange', applyArticleLang);
+</script>
 
 <!-- Article JSON-LD -->
 <script type="application/ld+json">
@@ -222,6 +340,16 @@ import Layout from '../layouts/Layout.astro';
   }
   .article-content strong { color: var(--ink-soft); font-weight: 400; }
   .article-content em { color: var(--ink-soft); }
+
+  /* External links */
+  .ext-link {
+    color: var(--ink-soft);
+    text-decoration: underline;
+    text-decoration-color: var(--paper-dark);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.3s;
+  }
+  .ext-link:hover { text-decoration-color: var(--ink-soft); }
 
   /* Cards & Data */
   .article-card {

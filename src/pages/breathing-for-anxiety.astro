@@ -6,11 +6,20 @@ import Layout from '../layouts/Layout.astro';
 
 <section class="article-hero">
   <div class="article-hero-inner">
-    <p class="article-label">Evidence-Based Breathing for Anxiety</p>
-    <h1 class="article-headline">How to calm anxiety<br><em>with your breath alone.</em></h1>
-    <p class="article-subtitle">
+    <p class="article-label">
+      <span lang="en">Evidence-Based Breathing for Anxiety</span>
+      <span lang="zh">循证焦虑呼吸法</span>
+    </p>
+    <h1 class="article-headline">
+      <span lang="en">How to calm anxiety<br><em>with your breath alone.</em></span>
+      <span lang="zh">如何只凭一口气，<br><em>平息那场内心的风暴。</em></span>
+    </h1>
+    <p class="article-subtitle" lang="en">
       Your nervous system doesn't know the difference between a tiger and an unanswered email. But your exhale does.
       Here's the science of why breathing works for anxiety — and the exact techniques to use right now.
+    </p>
+    <p class="article-subtitle" lang="zh">
+      你的神经系统无法区分猛虎与一封未回复的邮件。但你的呼气知道。这里是呼吸为何对焦虑奏效的科学——以及此刻就能使用的精确技法。
     </p>
   </div>
 </section>
@@ -19,53 +28,119 @@ import Layout from '../layouts/Layout.astro';
   <section class="article-body">
     <div class="article-content">
 
-      <h2 id="why">Why anxiety is a breathing problem</h2>
-      <p>Anxiety is not just a mental state — it is a measurable physiological cascade. When your brain perceives threat (real or imagined), the sympathetic nervous system accelerates: heart rate rises, cortisol floods the bloodstream, and breathing becomes shallow and rapid. This shallow breathing then <em>reinforces</em> the threat signal, creating a self-amplifying loop.</p>
-      <p>The exit from this loop is the exhale. A slow, extended exhalation activates the vagus nerve — the longest nerve in the body, running from brainstem to abdomen — which sends a direct "safe" signal to the brain. Research published in <em>Scientific Reports</em> shows that a single session of slow breathing measurably increases vagal tone and reduces anxiety <strong>within minutes</strong>.</p>
+      <!-- English content -->
+      <div lang="en">
+        <h2 id="why">Why anxiety is a breathing problem</h2>
+        <p>Anxiety is not just a mental state — it is a measurable physiological cascade. When your brain perceives threat (real or imagined), the <a href="https://www.ncbi.nlm.nih.gov/books/NBK539845/" target="_blank" rel="noopener" class="ext-link">sympathetic nervous system</a> accelerates: heart rate rises, cortisol floods the bloodstream, and breathing becomes shallow and rapid. This shallow breathing then <em>reinforces</em> the threat signal, creating a self-amplifying loop.</p>
+        <p>The exit from this loop is the exhale. A slow, extended exhalation activates the <a href="https://www.ncbi.nlm.nih.gov/books/NBK537171/" target="_blank" rel="noopener" class="ext-link">vagus nerve</a> — the longest nerve in the body, running from brainstem to abdomen — which sends a direct "safe" signal to the brain. Research published in <a href="https://www.nature.com/articles/s41598-022-27247-y" target="_blank" rel="noopener" class="ext-link"><em>Scientific Reports</em></a> shows that a single session of slow breathing measurably increases vagal tone and reduces anxiety <strong>within minutes</strong>.</p>
 
-      <h2 id="best">The best breathing technique: Extended Exhale (4-6)</h2>
-      <p>The most effective breathing pattern for acute anxiety uses a simple ratio: <strong>exhale longer than you inhale</strong>. Inhale for 4 seconds, exhale for 6 seconds. This 1:1.5 ratio is optimal because it maximises vagal stimulation without being difficult to maintain when already stressed.</p>
+        <h2 id="best">The best breathing technique: Extended Exhale (4-6)</h2>
+        <p>The most effective breathing pattern for acute anxiety uses a simple ratio: <strong>exhale longer than you inhale</strong>. Inhale for 4 seconds, exhale for 6 seconds. This 1:1.5 ratio is optimal because it maximises vagal stimulation without being difficult to maintain when already stressed.</p>
 
-      <h3>How it works</h3>
-      <ol>
-        <li><strong>Inhale through your nose for 4 seconds.</strong> Breathe into your diaphragm — your belly should expand, not your chest.</li>
-        <li><strong>Exhale slowly through your mouth for 6 seconds.</strong> Let air leave gently, as if fogging a mirror.</li>
-        <li><strong>Repeat for 5-8 cycles.</strong> Most people notice a measurable shift within 50 seconds (5 cycles).</li>
-      </ol>
+        <h3>How it works</h3>
+        <ol>
+          <li><strong>Inhale through your nose for 4 seconds.</strong> Breathe into your diaphragm — your belly should expand, not your chest.</li>
+          <li><strong>Exhale slowly through your mouth for 6 seconds.</strong> Let air leave gently, as if fogging a mirror.</li>
+          <li><strong>Repeat for 5-8 cycles.</strong> Most people notice a measurable shift within 50 seconds (5 cycles).</li>
+        </ol>
 
-      <h2 id="intense">When anxiety is more intense: 4-7-8</h2>
-      <p>For stronger anxiety or panic attacks, the 4-7-8 technique adds a breath hold that builds CO₂ tolerance and deepens parasympathetic activation. Inhale for 4 seconds, hold for 7 seconds, exhale for 8 seconds. The extended hold engages the Bohr Effect — improving oxygen delivery to brain tissue — while the 8-second exhale maximises vagal tone.</p>
+        <h2 id="intense">When anxiety is more intense: 4-7-8</h2>
+        <p>For stronger anxiety or panic attacks, the 4-7-8 technique adds a breath hold that builds CO₂ tolerance and deepens parasympathetic activation. Inhale for 4 seconds, hold for 7 seconds, exhale for 8 seconds. The extended hold engages the <a href="https://en.wikipedia.org/wiki/Bohr_effect" target="_blank" rel="noopener" class="ext-link">Bohr Effect</a> — improving oxygen delivery to brain tissue — while the 8-second exhale maximises vagal tone.</p>
 
-      <div class="article-card">
-        <h3 style="margin-top:0; padding-top:0;">Clinical evidence</h3>
-        <p>A 2025 clinical study found that six weeks of regular breathwork produced anxiety reduction with an effect size of <span class="data-point">Cohen's d = 1.44</span> — <strong>comparable to pharmacological intervention</strong>.</p>
+        <div class="article-card">
+          <h3 style="margin-top:0; padding-top:0;">Clinical evidence</h3>
+          <p>A 2025 clinical study found that six weeks of regular breathwork produced anxiety reduction with an effect size of <span class="data-point">Cohen's d = 1.44</span> — <strong>comparable to pharmacological intervention</strong>.</p>
+        </div>
+
+        <h2 id="ancient">The ancient perspective</h2>
+        <p>What neuroscience calls "vagal stimulation," the yogic tradition calls <a href="https://www.yogajournal.com/yoga-101/yoga-sutras-of-patanjali/" target="_blank" rel="noopener" class="ext-link">prāṇāyāma</a>. Patañjali's <em>Yoga Sutras</em> (circa 200 B.C.) describe the extended exhale as the gateway to mental stillness — the deliberate regulation of prāṇa (vital energy) through breath control. The mechanism they discovered through contemplative practice is the same one measured in laboratories two millennia later.</p>
+
+        <h2 id="practice">Practice now — free, no signup</h2>
+        <p>Soft Breathe offers the Relax 4-6 and 4-7-8 patterns with a real-time visual breathing guide. Select your pattern, choose your cycle count, and begin immediately. No app download, no account required.</p>
       </div>
 
-      <h2 id="ancient">The ancient perspective</h2>
-      <p>What neuroscience calls "vagal stimulation," the yogic tradition calls prāṇāyāma. Patañjali's <em>Yoga Sutras</em> (circa 200 B.C.) describe the extended exhale as the gateway to mental stillness — the deliberate regulation of prāṇa (vital energy) through breath control. The mechanism they discovered through contemplative practice is the same one measured in laboratories two millennia later.</p>
+      <!-- 中文内容 -->
+      <div lang="zh">
+        <h2 id="why-zh">为什么焦虑本质上是一个呼吸问题</h2>
+        <p>焦虑不只是一种心理状态——它是一场可量化的生理级联反应。当大脑感知到威胁（无论真实还是想象），<a href="https://www.ncbi.nlm.nih.gov/books/NBK539845/" target="_blank" rel="noopener" class="ext-link">交感神经系统</a>便开始加速：心率上升，皮质醇涌入血液，呼吸变得短促而浅薄。而这种浅呼吸，又反过来<em>强化</em>了威胁信号，形成自我放大的循环。</p>
+        <p>走出这个循环的出口，是呼气。一次缓慢、延长的呼气，激活了<a href="https://www.ncbi.nlm.nih.gov/books/NBK537171/" target="_blank" rel="noopener" class="ext-link">迷走神经</a>——那条从脑干延伸至腹腔的人体最长神经——它向大脑发送一个直接的"安全"信号。发表于<a href="https://www.nature.com/articles/s41598-022-27247-y" target="_blank" rel="noopener" class="ext-link">《科学报告》（Scientific Reports）</a>的研究表明，单次慢呼吸练习即可在<strong>数分钟内</strong>测量到迷走张力的提升与焦虑的降低。</p>
 
-      <h2 id="practice">Practice now — free, no signup</h2>
-      <p>Soft Breathe offers the Relax 4-6 and 4-7-8 patterns with a real-time visual breathing guide. Select your pattern, choose your cycle count, and begin immediately. No app download, no account required.</p>
+        <h2 id="best-zh">最佳技法：延长呼气（4-6）</h2>
+        <p>应对急性焦虑，最有效的呼吸模式遵循一个简单原则：<strong>呼气比吸气更长</strong>。吸气4秒，呼气6秒。这一1:1.5的比例是最优的——在已经处于压力状态时，它最大化了迷走刺激，同时又不难维持。</p>
+
+        <h3>如何操作</h3>
+        <ol>
+          <li><strong>用鼻腔吸气4秒。</strong>将气息送入横膈膜——腹部自然扩张，而非胸腔。</li>
+          <li><strong>缓慢用嘴呼气6秒。</strong>让气息轻柔地流出，就像在给镜子哈气。</li>
+          <li><strong>重复5-8个循环。</strong>大多数人在50秒内（5个循环）便能感受到可测量的状态转移。</li>
+        </ol>
+
+        <h2 id="intense-zh">当焦虑更为强烈时：4-7-8</h2>
+        <p>面对更强烈的焦虑或恐慌发作，4-7-8技法在此基础上增加了屏息阶段，以建立CO₂耐受度并深化副交感激活。吸气4秒，屏息7秒，呼气8秒。延长的屏息激活了<a href="https://en.wikipedia.org/wiki/Bohr_effect" target="_blank" rel="noopener" class="ext-link">波尔效应</a>——改善脑组织的氧气输送——同时8秒的呼气最大化了迷走神经张力。</p>
+
+        <div class="article-card">
+          <h3 style="margin-top:0; padding-top:0;">临床证据</h3>
+          <p>一项2025年的临床研究发现，六周规律的呼吸练习产生的焦虑缓解效应量达<span class="data-point">Cohen's d = 1.44</span>——<strong>与药物干预效果相当</strong>。</p>
+        </div>
+
+        <h2 id="ancient-zh">古老的视角</h2>
+        <p>神经科学称之为"迷走刺激"的，瑜伽传统称之为<a href="https://www.yogajournal.com/yoga-101/yoga-sutras-of-patanjali/" target="_blank" rel="noopener" class="ext-link">调息法（prāṇāyāma）</a>。帕檀伽利的《瑜伽经》（约公元前200年）将延长呼气描述为通往心灵宁静的门户——通过呼吸控制来有意识地调节<em>prāṇa</em>（生命能量）。他们从冥想实践中发现的这一机制，与两千年后实验室中测量到的，是同一条。</p>
+
+        <h2 id="practice-zh">立即练习——免费，无需注册</h2>
+        <p>Soft Breathe 提供放松4-6与4-7-8两种模式，配备实时视觉呼吸引导。选择你的节律，设定循环次数，立即开始。无需下载应用，无需创建账户。</p>
+      </div>
+
     </div>
   </section>
 
   <aside class="article-sidebar">
     <nav class="article-toc">
-      <p class="toc-label">Contents</p>
-      <ol>
+      <p class="toc-label">
+        <span lang="en">Contents</span>
+        <span lang="zh">目录</span>
+      </p>
+      <ol lang="en">
         <li><a href="#why">Why anxiety is a breathing problem</a></li>
         <li><a href="#best">The best technique (4-6)</a></li>
         <li><a href="#intense">When anxiety is more intense</a></li>
         <li><a href="#ancient">The ancient perspective</a></li>
         <li><a href="#practice">Practice now</a></li>
       </ol>
+      <ol lang="zh">
+        <li><a href="#why-zh">焦虑与呼吸</a></li>
+        <li><a href="#best-zh">最佳技法（4-6）</a></li>
+        <li><a href="#intense-zh">更强烈的焦虑</a></li>
+        <li><a href="#ancient-zh">古老的视角</a></li>
+        <li><a href="#practice-zh">立即练习</a></li>
+      </ol>
     </nav>
   </aside>
 </div>
 
 <section class="article-cta">
-  <a class="cta-link" href="/practice"><span class="cta-link-line"></span> Start breathing for anxiety relief →</a>
+  <a class="cta-link" href="/practice">
+    <span class="cta-link-line"></span>
+    <span lang="en">Start breathing for anxiety relief →</span>
+    <span lang="zh">开始呼吸，平息焦虑 →</span>
+  </a>
 </section>
+
+<script>
+  import { getLang } from '../scripts/i18n.js';
+  
+  function applyArticleLang() {
+    const lang = getLang();
+    document.querySelectorAll('[lang="en"]').forEach(el => {
+      (el as HTMLElement).style.display = lang === 'en' ? '' : 'none';
+    });
+    document.querySelectorAll('[lang="zh"]').forEach(el => {
+      (el as HTMLElement).style.display = lang === 'zh' ? '' : 'none';
+    });
+  }
+  
+  applyArticleLang();
+  window.addEventListener('langchange', applyArticleLang);
+</script>
 
 <!-- Article JSON-LD -->
 <script type="application/ld+json">
@@ -167,6 +242,16 @@ import Layout from '../layouts/Layout.astro';
   .article-content strong { color: var(--ink-soft); font-weight: 400; }
   .article-content em { color: var(--ink-soft); }
 
+  /* External links */
+  .ext-link {
+    color: var(--ink-soft);
+    text-decoration: underline;
+    text-decoration-color: var(--paper-dark);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.3s;
+  }
+  .ext-link:hover { text-decoration-color: var(--ink-soft); }
+
   /* Cards & Data */
   .article-card {
     background: var(--paper-warm);
@@ -185,8 +270,7 @@ import Layout from '../layouts/Layout.astro';
   .cta-link {
     display: inline-flex; align-items: center; gap: 16px;
     font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.2em;
-    text-transform: uppercase; color: var(--ink); text-decoration: none;
-    transition: gap 0.3s;
+    text-transform: uppercase; color: var(--ink); text-decoration: none; transition: gap 0.3s;
   }
   .cta-link:hover { gap: 24px; }
   .cta-link-line { width: 40px; height: 1px; background: var(--ink); transition: width 0.3s; }
