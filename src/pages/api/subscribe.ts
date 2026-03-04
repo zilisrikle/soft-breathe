@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro';
 import { Resend } from 'resend';
+import { buildWelcomeEmail } from '../../lib/newsletter-template';
 
 export const POST: APIRoute = async ({ request }) => {
     try {
@@ -23,6 +24,7 @@ export const POST: APIRoute = async ({ request }) => {
 
         const resend = new Resend(apiKey);
 
+        // 1. Add contact to audience
         const { data, error } = await resend.contacts.create({
             email,
             unsubscribed: false,
@@ -33,6 +35,19 @@ export const POST: APIRoute = async ({ request }) => {
                 JSON.stringify({ success: false, error: error.message }),
                 { status: 400, headers: { 'Content-Type': 'application/json' } }
             );
+        }
+
+        // 2. Send welcome email with practice CTA (closes the feedback loop)
+        try {
+            await resend.emails.send({
+                from: 'Soft Breathe <hello@softbreathe.com>',
+                to: email,
+                subject: 'Welcome to the Collective · 欢迎加入同修',
+                html: buildWelcomeEmail(),
+            });
+        } catch (emailErr) {
+            // Don't fail the subscription if the welcome email fails
+            console.error('Welcome email failed:', emailErr);
         }
 
         return new Response(

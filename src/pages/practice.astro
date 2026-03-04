@@ -366,6 +366,13 @@ let ensoAngle=0;
 
 buildDots(); refreshInfo();
 
+// Deep-link: auto-select pattern from URL (e.g. ?pattern=478)
+const urlPattern = new URLSearchParams(window.location.search).get('pattern');
+if (urlPattern && PATTERNS[urlPattern]) {
+  const el = document.querySelector(`.pattern-item[onclick*="'${urlPattern}'"]`);
+  if (el) selectPattern(urlPattern, el);
+}
+
 // Expose to global scope for inline onclick handlers
 window.selectPattern = selectPattern;
 window.setCycles = setCycles;
