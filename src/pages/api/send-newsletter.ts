@@ -20,18 +20,18 @@ import { buildNewsletter } from '../../lib/newsletter-template';
  *   "practicePattern": "relax"
  * }
  */
-export const POST: APIRoute = async ({ request }) => {
+export const POST: APIRoute = async (context) => {
     try {
+        const { request, locals } = context;
         const body = await request.json();
         const { secret, issueNumber, subject, headline, practiceSection, scienceSection, shiftSection, practicePattern } = body;
 
+        // Cloudflare runtime env vars are in locals.runtime.env (if deployed on CF Pages)
+        // Fallbacks are for local Vite dev server
+        const env = locals.runtime?.env || {};
+        const expectedSecret = env.NEWSLETTER_SECRET || import.meta.env.NEWSLETTER_SECRET || process.env.NEWSLETTER_SECRET;
+
         // Auth check
-        const expectedSecret = import.meta.env.NEWSLETTER_SECRET || process.env.NEWSLETTER_SECRET;
-
-        console.log('Received secret length:', secret?.length);
-        console.log('Expected secret length:', expectedSecret?.length);
-        console.log('Match?', secret === expectedSecret);
-
         if (!expectedSecret || secret !== expectedSecret) {
             return new Response(
                 JSON.stringify({ success: false, error: 'Unauthorized' }),
@@ -39,7 +39,7 @@ export const POST: APIRoute = async ({ request }) => {
             );
         }
 
-        const apiKey = import.meta.env.RESEND_API_KEY || process.env.RESEND_API_KEY;
+        const apiKey = env.RESEND_API_KEY || import.meta.env.RESEND_API_KEY || process.env.RESEND_API_KEY;
         if (!apiKey) {
             return new Response(
                 JSON.stringify({ success: false, error: 'Missing RESEND_API_KEY' }),
