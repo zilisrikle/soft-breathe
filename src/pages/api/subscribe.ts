@@ -2,8 +2,9 @@ import type { APIRoute } from 'astro';
 import { Resend } from 'resend';
 import { buildWelcomeEmail } from '../../lib/newsletter-template';
 
-export const POST: APIRoute = async ({ request }) => {
+export const POST: APIRoute = async (context) => {
     try {
+        const { request, locals } = context;
         const { email } = await request.json();
 
         if (!email || typeof email !== 'string') {
@@ -13,7 +14,8 @@ export const POST: APIRoute = async ({ request }) => {
             );
         }
 
-        const apiKey = import.meta.env.RESEND_API_KEY || process.env.RESEND_API_KEY;
+        const env = locals.runtime?.env || {};
+        const apiKey = env.RESEND_API_KEY || import.meta.env.RESEND_API_KEY || process.env.RESEND_API_KEY;
 
         if (!apiKey) {
             return new Response(
