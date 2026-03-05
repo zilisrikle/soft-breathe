@@ -27,6 +27,11 @@ export const POST: APIRoute = async ({ request }) => {
 
         // Auth check
         const expectedSecret = import.meta.env.NEWSLETTER_SECRET || process.env.NEWSLETTER_SECRET;
+
+        console.log('Received secret length:', secret?.length);
+        console.log('Expected secret length:', expectedSecret?.length);
+        console.log('Match?', secret === expectedSecret);
+
         if (!expectedSecret || secret !== expectedSecret) {
             return new Response(
                 JSON.stringify({ success: false, error: 'Unauthorized' }),
