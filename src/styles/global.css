@@ -20,6 +20,14 @@
   --paper-warm: #ede9e0;
   --paper-dark: #e0dbd0;
   --brush: #c8c0b0;
+
+  /* ③ Letter-spacing tokens */
+  --ls-headline: -0.02em;
+  /* large display titles */
+  --ls-body: 0.04em;
+  /* Chinese body copy */
+  --ls-label: 0.12em;
+  /* nav / small labels / mono tags */
 }
 
 /* Base */
@@ -29,10 +37,15 @@ html {
 
 body {
   background: var(--paper);
-  font-family: 'Noto Serif', serif;
+  /* Noto Serif SC first (covers CJK), Noto Serif as Latin fallback */
+  font-family: 'Noto Serif SC', 'Noto Serif', serif;
   color: var(--ink);
   overflow-x: hidden;
   cursor: none;
+  /* ② Chinese body line-height — 推荐 1.8–2.0 */
+  line-height: 1.9;
+  /* ③ Chinese body letter-spacing */
+  letter-spacing: 0.04em;
 }
 
 /* Paper Texture Overlay */
@@ -229,6 +242,61 @@ footer {
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ══════════════════════════════════════
+   Chinese Typography Utilities
+   ══════════════════════════════════════ */
+
+/* ① Headline font — Noto Serif SC + letter-spacing */
+h1,
+h2,
+h3,
+.article-headline {
+  font-family: 'Noto Serif SC', 'IM Fell English', serif;
+  letter-spacing: var(--ls-headline);
+  line-height: 1.25;
+}
+
+/* ② Article body paragraphs */
+.article-content p,
+.issue-text,
+.manifesto-text,
+.hero-body,
+.receive-body {
+  font-family: 'Noto Serif SC', 'Noto Serif', serif;
+  line-height: 1.9;
+  letter-spacing: var(--ls-body);
+}
+
+/* ⑥ Paragraph breathing — independent margin, not just line-height */
+.article-content p+p,
+.issue-body p+p {
+  margin-top: 1.2em;
+}
+
+/* ④ Inline Latin / English terms in Chinese prose: <em class="latin"> */
+em.latin,
+.article-content em[lang],
+.article-content .ext-link {
+  font-family: 'Playfair Display', 'IM Fell English', serif;
+  font-style: italic;
+  letter-spacing: 0.01em;
+}
+
+/* ⑤ Chinese quotation marks — apply to blockquote / pull-quote elements */
+blockquote q,
+.pull-quote q {
+  quotes: '\300C' '\300D' '\300E' '\300F';
+  /* 「 」 『 』 */
+}
+
+blockquote q::before {
+  content: open-quote;
+}
+
+blockquote q::after {
+  content: close-quote;
 }
 
 /* Responsive — shared */
