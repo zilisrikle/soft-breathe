@@ -7,9 +7,19 @@ interface Props {
   title: string;
   activePage: string;
   fullHeight?: boolean;
+  description?: string;
+  ogTitle?: string;
+  ogDescription?: string;
 }
 
-const { title, activePage, fullHeight = false } = Astro.props;
+const { title, activePage, fullHeight = false, description, ogTitle, ogDescription } = Astro.props;
+
+// Canonical URL: always with trailing slash, consistent with sitemap
+const canonicalPath = activePage === 'eastern' ? '/' : `/${activePage}/`;
+const canonicalUrl = `https://softbreathe.com${canonicalPath}`;
+const metaDescription = description ?? 'Ancient breathing science meets modern neuroscience. Free breathing practices for focus, sleep, and calm. No signup required.';
+const metaOgTitle = ogTitle ? `${ogTitle} | Soft Breathe` : (title === 'Soft Breathe' ? title : `${title} | Soft Breathe`);
+const metaOgDescription = ogDescription ?? metaDescription;
 ---
 
 <!DOCTYPE html>
@@ -20,18 +30,18 @@ const { title, activePage, fullHeight = false } = Astro.props;
   
   <!-- SEO & Meta Tags -->
   <title>{title === 'Soft Breathe' ? title : `${title} | Soft Breathe`}</title>
-  <meta name="description" content="Ancient breathing science meets modern neuroscience. Free breathing practices for focus, sleep, and calm. No signup required.">
-  <link rel="canonical" href={`https://softbreathe.com${activePage === 'eastern' ? '' : '/' + activePage}`}>
+  <meta name="description" content={metaDescription}>
+  <link rel="canonical" href={canonicalUrl}>
   <meta name="apple-mobile-web-app-title" content="Soft Breathe">
   <meta name="application-name" content="Soft Breathe">
-  <link rel="alternate" hreflang="en" href={`https://softbreathe.com${activePage === 'eastern' ? '' : '/' + activePage}`}>
-  <link rel="alternate" hreflang="x-default" href={`https://softbreathe.com${activePage === 'eastern' ? '' : '/' + activePage}`}>
+  <link rel="alternate" hreflang="en" href={canonicalUrl}>
+  <link rel="alternate" hreflang="x-default" href={canonicalUrl}>
   
   <!-- Open Graph -->
-  <meta property="og:title" content="Soft Breathe — The Ancient Science of Breath">
-  <meta property="og:description" content="4-7-8, Box Breathing, and more. Open and practice immediately.">
+  <meta property="og:title" content={metaOgTitle}>
+  <meta property="og:description" content={metaOgDescription}>
   <meta property="og:image" content="https://softbreathe.com/og-image.jpg">
-  <meta property="og:url" content={`https://softbreathe.com${activePage === 'eastern' ? '' : '/' + activePage}`}>
+  <meta property="og:url" content={canonicalUrl}>
   <meta property="og:type" content="website">
 
   <!-- JSON-LD: WebApplication -->

@@ -13,9 +13,27 @@
 
 - **禁止使用 Inter 字体** — 不得在任何页面或组件中引入 `Inter`。
 - **项目字体方案：**
-  - `IM Fell English` — 标题 / 装饰性文字
-  - `Noto Serif` — 正文
-  - `DM Mono` — 标签 / 辅助性文字（monospace）
+  - `Noto Serif SC` — **中文正文与标题首选**，覆盖所有 CJK 字符
+  - `Noto Serif` — 西文正文备选（Noto Serif SC 未覆盖的拉丁字符回退）
+  - `IM Fell English` — 西文标题 / 装饰性英文
+  - `Playfair Display` italic — **中英混排中的英文术语**，用 `<em class="latin">term</em>` 触发
+  - `DM Mono` — 标签 / 辅助性文字 / 数据（monospace）
+
+### 中文排版规范（Chinese Typography Standards）
+
+> 以下规则一经确立，不得随意修改，以保持全站中文排版的一致性。
+
+- **字体栈**：`font-family: 'Noto Serif SC', 'Noto Serif', serif;`（body 与 article 正文）
+- **行高**：中文正文统一 `line-height: 1.9`；英文正文 `1.6` 以内；大标题 `1.25`
+- **字间距 token**（定义在 `:root`，勿内联覆盖）：
+  ```css
+  --ls-headline: -0.02em;  /* 大标题 */
+  --ls-body:      0.04em;  /* 中文正文 */
+  --ls-label:     0.12em;  /* 导航 / 小标签 */
+  ```
+- **段落间距**：`.article-content p + p { margin-top: 1.2em; }`，不得仅靠 `line-height` 控制密度
+- **中英混排**：文中英文术语（如 *prāṇa*、*vagus nerve*）使用 `<em class="latin">` 包裹，CSS 自动切换 Playfair Display 斜体
+- **引号**：中文内容中的大引号使用全角书名号 `「」` / `『』`，禁止直接用西文 `""`
 
 ## 动效原则
 
